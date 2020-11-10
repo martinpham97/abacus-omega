@@ -10,7 +10,6 @@ module.exports = {
   extends: [
     "react-app",
     "react-app/jest",
-    "airbnb",
     "prettier",
     "prettier/react",
     "plugin:import/errors",
@@ -85,12 +84,5 @@ module.exports = {
     "react/self-closing-comp": 0,
     "react/sort-comp": 0,
     "require-yield": 0,
-  },
-  settings: {
-    "import/resolver": {
-      webpack: {
-        config: path.join(__dirname, "webpack.config.dev.js"),
-      },
-    },
   },
 };
