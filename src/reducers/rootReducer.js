@@ -1,5 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({});
+import coursesReducer from "features/courses/coursesSlice";
+
+const rootReducer = combineReducers({
+  courses: coursesReducer,
+});
 
 export default rootReducer;

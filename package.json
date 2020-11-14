@@ -12,6 +12,7 @@
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "sass": "^1.29.0",
+    "uuidv4": "^6.2.5",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
     "workbox-broadcast-update": "^5.1.4",
