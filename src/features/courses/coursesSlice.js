@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 
 const coursesSlice = createSlice({
   name: "courses",
@@ -11,7 +11,7 @@ const coursesSlice = createSlice({
         state.push({ id, name });
       },
       prepare(name) {
-        return { payload: { name, id: uuid() } };
+        return { payload: { name, id: uuidv4() } };
       },
     },
   },
