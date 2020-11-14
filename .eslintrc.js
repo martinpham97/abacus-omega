@@ -31,6 +31,13 @@ module.exports = {
       jsx: true,
     },
   },
+  settings: {
+    "import/resolver": {
+      node: {
+        paths: ["src"],
+      },
+    },
+  },
   rules: {
     "prettier/prettier": ["error", prettierOptions],
     "arrow-body-style": [2, "as-needed"],

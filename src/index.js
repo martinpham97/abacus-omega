@@ -1,15 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
 import "./styles/styles.scss";
+
+import store from "store/store";
 
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
-ReactDOM.render(
-  <React.StrictMode>abc</React.StrictMode>,
-  document.getElementById("root"),
-);
+const render = () => {
+  const App = require("containers/App/App").default;
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById("root"),
+  );
+};
+
+render();
+
+if (process.env.NODE_ENV === "development" && module.hot) {
+  module.hot.accept("containers/App/App", render);
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
