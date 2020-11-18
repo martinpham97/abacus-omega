@@ -1,18 +1,18 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-
-// A custom theme for this app
-const theme = createMuiTheme({
+const theme = {
   palette: {
     primary: {
-      main: "#556cd6",
+      light: "#ffff72",
+      main: "#ffeb3b",
+      dark: "#c8b900",
+      contrastText: "#000000",
     },
     secondary: {
-      main: "#19857b",
-    },
-    background: {
-      default: "#fff",
+      light: "#484848",
+      main: "#212121",
+      dark: "#000000",
+      contrastText: "#ffffff",
     },
   },
-});
+};
 
 export default theme;

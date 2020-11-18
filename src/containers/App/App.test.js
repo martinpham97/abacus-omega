@@ -1,11 +1,13 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+
+import { renderWithWrappers } from "utils/testing";
 
 import App from "./App";
 
 describe("<App />", () => {
   it("should load and display children", async () => {
-    render(<App />);
+    renderWithWrappers(<App />);
 
-    expect(screen.getByText(/hello world/i)).toBeDefined();
+    expect(screen.getByText(/hello world/i)).toBeInTheDocument();
   });
 });

@@ -1,17 +1,19 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+
+import { renderWithWrappers } from "utils/testing";
 
 import AppLayout from "./AppLayout";
 
 describe("<AppLayout />", () => {
   it("should display children", async () => {
-    const Child = () => <h1>Test Child</h1>;
+    const Child = () => <div>Test Child</div>;
 
-    render(
+    renderWithWrappers(
       <AppLayout>
         <Child />
       </AppLayout>,
     );
 
-    expect(screen.getByRole("heading")).toHaveTextContent("Test Child");
+    expect(screen.getByText("Test Child")).toBeInTheDocument();
   });
 });
