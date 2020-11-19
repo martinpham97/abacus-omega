@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -30,7 +31,13 @@ export const Header = ({
           isSidebarOpened={isSidebarOpened}
           handleToggleSidebar={handleToggleSidebar}
         />
-        <Typography variant="h6" weight="medium" className={classes.logotype}>
+        <Typography
+          variant="h6"
+          className={classes.logotype}
+          color="inherit"
+          component={NavLink}
+          to="/"
+        >
           {title}
         </Typography>
         <div className={classes.grow} />

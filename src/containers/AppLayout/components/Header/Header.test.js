@@ -1,4 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
+
+import { renderWithWrappers } from "utils/testing";
 
 import Header from "./Header";
 
@@ -13,7 +15,7 @@ describe("<Header />", () => {
 
   it("should display title", () => {
     const title = "Some App title";
-    render(
+    renderWithWrappers(
       <Header
         title={title}
         isSidebarOpened={false}
@@ -27,7 +29,7 @@ describe("<Header />", () => {
   });
 
   it("should call handleToggleSidebar when sidebar icon is clicked", () => {
-    render(
+    renderWithWrappers(
       <Header
         title="some title"
         isSidebarOpened={false}
@@ -45,7 +47,7 @@ describe("<Header />", () => {
   });
 
   it("should call handleToggleDarkMode when dark mode icon is clicked", () => {
-    render(
+    renderWithWrappers(
       <Header
         title="some title"
         isSidebarOpened={false}
@@ -63,7 +65,7 @@ describe("<Header />", () => {
   });
 
   it("should change dark mode icon when theme is dark", () => {
-    render(
+    renderWithWrappers(
       <Header
         title="some title"
         isSidebarOpened={true}

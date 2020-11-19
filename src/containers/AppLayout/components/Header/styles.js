@@ -4,11 +4,17 @@ export default makeStyles((theme) => ({
   logotype: {
     marginLeft: theme.spacing(2.5),
     marginRight: theme.spacing(2.5),
-    fontWeight: 500,
-    fontSize: 18,
+    textDecoration: "none",
     whiteSpace: "nowrap",
+    userSelect: "none",
+    msUserSelect: "none",
+    WebkitUserSelect: "none",
+    WebkitTouchCallout: "none",
     [theme.breakpoints.down("xs")]: {
       display: "none",
+    },
+    "&:hover": {
+      opacity: "0.9",
     },
   },
   appBar: {
