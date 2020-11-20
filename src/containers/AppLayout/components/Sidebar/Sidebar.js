@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import clsx from "clsx";
-import { Drawer, List } from "@material-ui/core";
+import { SwipeableDrawer, List } from "@material-ui/core";
 import {
   Home as HomeIcon,
   Settings as SettingsIcon,
@@ -47,7 +47,7 @@ export const Sidebar = ({
       (link !== "/" && location.pathname.indexOf(link) !== -1));
 
   return (
-    <Drawer
+    <SwipeableDrawer
       variant={!isSmallScreen ? "permanent" : "temporary"}
       className={clsx(classes.drawer, {
         [classes.drawerOpen]: isSidebarOpened,
@@ -61,6 +61,7 @@ export const Sidebar = ({
       }}
       open={isSidebarOpened}
       onClose={handleToggleSidebar}
+      onOpen={handleToggleSidebar}
     >
       <div className={classes.toolbar} />
       <div className={classes.mobileBackButton}>
@@ -83,7 +84,7 @@ export const Sidebar = ({
           />
         ))}
       </List>
-    </Drawer>
+    </SwipeableDrawer>
   );
 };
 
