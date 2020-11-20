@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import { renderWithWrappers } from "utils/testing";
 
@@ -9,5 +10,11 @@ describe("<NotFoundPage />", () => {
     renderWithWrappers(<NotFoundPage />);
 
     expect(screen.getByRole("button")).toBeInTheDocument();
+  });
+
+  it("should be accessible", async () => {
+    const { container } = renderWithWrappers(<NotFoundPage />);
+
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

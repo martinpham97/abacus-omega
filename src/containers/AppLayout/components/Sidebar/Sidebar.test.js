@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import { axe } from "jest-axe";
 
 import Sidebar from "./Sidebar";
 
@@ -49,5 +50,24 @@ describe("<Sidebar />", () => {
     fireEvent.click(screen.getByLabelText(/toggle-sidebar/i));
 
     expect(mockHandleToggleSidebar).toHaveBeenCalledTimes(1);
+  });
+
+  it("should be accessible", async () => {
+    const { container } = render(
+      <Sidebar
+        handleToggleSidebar={mockHandleToggleSidebar}
+        isSidebarOpened
+        isSmallScreen={false}
+      />,
+      { wrapper: BrowserRouter },
+    );
+
+    expect(
+      await axe(container, {
+        rules: {
+          list: { enabled: false },
+        },
+      }),
+    ).toHaveNoViolations();
   });
 });

@@ -39,35 +39,37 @@ export const SidebarLink = ({
     return <Divider className={classes.divider} data-testid="divider" />;
   }
 
+  const linkIcon = (
+    <ListItemIcon
+      className={clsx(classes.linkIcon, {
+        [classes.linkIconActive]: selected,
+      })}
+    >
+      {icon}
+    </ListItemIcon>
+  );
+
   return (
-    <Tooltip title={label}>
-      <ListItem
-        key={id}
-        button
-        component={link && NavLink}
-        className={classes.link}
-        to={link}
-        disableRipple
-        selected={selected}
-      >
-        <ListItemIcon
-          className={clsx(classes.linkIcon, {
-            [classes.linkIconActive]: selected,
-          })}
-        >
-          {icon}
-        </ListItemIcon>
-        <ListItemText
-          classes={{
-            primary: clsx(classes.linkText, {
-              [classes.linkTextActive]: selected,
-              [classes.linkTextHidden]: !isSidebarOpened,
-            }),
-          }}
-          primary={label}
-        />
-      </ListItem>
-    </Tooltip>
+    <ListItem
+      key={id}
+      button
+      component={link && NavLink}
+      className={classes.link}
+      to={link}
+      disableRipple
+      selected={selected}
+    >
+      {isSidebarOpened ? linkIcon : <Tooltip title={label}>{linkIcon}</Tooltip>}
+      <ListItemText
+        classes={{
+          primary: clsx(classes.linkText, {
+            [classes.linkTextActive]: selected,
+            [classes.linkTextHidden]: !isSidebarOpened,
+          }),
+        }}
+        primary={label}
+      />
+    </ListItem>
   );
 };
 

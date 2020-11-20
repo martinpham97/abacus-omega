@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import SidebarLink from "./SidebarLink";
 
@@ -35,5 +36,19 @@ describe("<SidebarLink />", () => {
 
     expect(screen.getByTestId(/icon/i)).toBeInTheDocument();
     expect(screen.getByText(label)).toBeInTheDocument();
+  });
+
+  it("should be accessible", async () => {
+    const { container } = render(
+      <SidebarLink
+        isSidebarOpened
+        id={1}
+        type="link"
+        label="home"
+        selected={false}
+      />,
+    );
+
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

@@ -1,4 +1,5 @@
 import { screen, fireEvent } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import { renderWithWrappers } from "utils/testing";
 
@@ -106,5 +107,21 @@ describe("<Header />", () => {
     fireEvent.click(screen.queryAllByRole("menuitem")[1]);
 
     expect(mockHandleChangeLanguage).toHaveBeenCalled();
+  });
+
+  it("should be accessible", async () => {
+    const { container } = renderWithWrappers(
+      <Header
+        title="some title"
+        isSidebarOpened={true}
+        handleToggleSidebar={mockHandleToggleSidebar}
+        handleToggleDarkMode={mockHandleToggleDarkMode}
+        handleChangeLanguage={mockHandleChangeLanguage}
+        language="en"
+        themeType="dark"
+      />,
+    );
+
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

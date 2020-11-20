@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import ToggleSidebarButton from "./ToggleSidebarButton";
 
@@ -33,5 +34,16 @@ describe("<ToggleSidebarButton />", () => {
     );
 
     expect(screen.getByTestId(/sidebar-close-svg/i)).toBeInTheDocument();
+  });
+
+  it("should be accessible", async () => {
+    const { container } = render(
+      <ToggleSidebarButton
+        isSidebarOpened={true}
+        handleToggleSidebar={mockHandleToggleSidebar}
+      />,
+    );
+
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

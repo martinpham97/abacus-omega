@@ -19,7 +19,7 @@ export const NotFoundPage = () => {
         justify="center"
       >
         <Grid item xs={12}>
-          <Typography variant="h2" component="h2" align="center" gutterBottom>
+          <Typography variant="h4" align="center" gutterBottom>
             {t("not_found.title", "404 - NOT FOUND")}
           </Typography>
         </Grid>

@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import { renderWithWrappers } from "utils/testing";
 
@@ -9,5 +10,11 @@ describe("<Loading />", () => {
     renderWithWrappers(<Loading />);
 
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
+  });
+
+  it("should be accessible", async () => {
+    const { container } = renderWithWrappers(<Loading />);
+
+    expect(await axe(container)).toHaveNoViolations();
   });
 });
