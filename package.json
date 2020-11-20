@@ -38,6 +38,7 @@
     "workbox-streams": "^5.1.4"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
@@ -52,12 +53,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:staged": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
+      "prettier --write",
+      "eslint src/ --fix",
+      "react-scripts test:staged",
+      "git add"
     ]
   },
   "husky": {
