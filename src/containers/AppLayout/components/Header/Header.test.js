@@ -7,10 +7,12 @@ import Header from "./Header";
 describe("<Header />", () => {
   let mockHandleToggleSidebar;
   let mockHandleToggleDarkMode;
+  let mockHandleChangeLanguage;
 
   beforeEach(() => {
     mockHandleToggleSidebar = jest.fn();
     mockHandleToggleDarkMode = jest.fn();
+    mockHandleChangeLanguage = jest.fn();
   });
 
   it("should display title", () => {
@@ -21,7 +23,9 @@ describe("<Header />", () => {
         isSidebarOpened={false}
         handleToggleSidebar={mockHandleToggleSidebar}
         handleToggleDarkMode={mockHandleToggleDarkMode}
-        theme="light"
+        handleChangeLanguage={mockHandleChangeLanguage}
+        language="en"
+        themeType="light"
       />,
     );
 
@@ -35,7 +39,9 @@ describe("<Header />", () => {
         isSidebarOpened={false}
         handleToggleSidebar={mockHandleToggleSidebar}
         handleToggleDarkMode={mockHandleToggleDarkMode}
-        theme="light"
+        handleChangeLanguage={mockHandleChangeLanguage}
+        language="en"
+        themeType="light"
       />,
     );
 
@@ -53,7 +59,9 @@ describe("<Header />", () => {
         isSidebarOpened={false}
         handleToggleSidebar={mockHandleToggleSidebar}
         handleToggleDarkMode={mockHandleToggleDarkMode}
-        theme="light"
+        handleChangeLanguage={mockHandleChangeLanguage}
+        language="en"
+        themeType="light"
       />,
     );
 
@@ -64,17 +72,39 @@ describe("<Header />", () => {
     expect(mockHandleToggleDarkMode).toHaveBeenCalledTimes(1);
   });
 
-  it("should change dark mode icon when theme is dark", () => {
+  it("should change dark mode icon when themeType is dark", () => {
     renderWithWrappers(
       <Header
         title="some title"
         isSidebarOpened={true}
         handleToggleSidebar={mockHandleToggleSidebar}
         handleToggleDarkMode={mockHandleToggleDarkMode}
-        theme="dark"
+        handleChangeLanguage={mockHandleChangeLanguage}
+        language="en"
+        themeType="dark"
       />,
     );
 
     expect(screen.getByTestId(/sun-svg/i)).toBeInTheDocument();
+  });
+
+  it("should change language when language button is clicked", async () => {
+    renderWithWrappers(
+      <Header
+        title="some title"
+        isSidebarOpened={true}
+        handleToggleSidebar={mockHandleToggleSidebar}
+        handleToggleDarkMode={mockHandleToggleDarkMode}
+        handleChangeLanguage={mockHandleChangeLanguage}
+        language="en"
+        themeType="dark"
+      />,
+    );
+
+    fireEvent.click(screen.getByLabelText(/change-language/i));
+
+    fireEvent.click(screen.queryAllByRole("menuitem")[1]);
+
+    expect(mockHandleChangeLanguage).toHaveBeenCalled();
   });
 });

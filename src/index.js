@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
+import "fontsource-roboto";
+
+import "./config/i18n";
 import "./styles/styles.scss";
 
 import { store, persistor } from "store/store";
@@ -15,11 +18,13 @@ const render = () => {
 
   ReactDOM.render(
     <React.StrictMode>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
-      </Provider>
+      <React.Suspense fallback="Loading...">
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <App />
+          </PersistGate>
+        </Provider>
+      </React.Suspense>
     </React.StrictMode>,
     document.getElementById("root"),
   );

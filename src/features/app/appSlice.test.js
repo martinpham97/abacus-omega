@@ -2,7 +2,9 @@ import appReducer, { setThemeType } from "./appSlice";
 
 describe("app reducer", () => {
   it("should handle initial state", () => {
-    expect(appReducer(undefined, {})).toEqual({ themeType: "light" });
+    expect(appReducer(undefined, {})).toEqual({
+      themeType: "light",
+    });
   });
 
   it("should handle setThemeType", () => {

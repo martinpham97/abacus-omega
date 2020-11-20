@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import { Tooltip, IconButton } from "@material-ui/core";
 import { Menu as MenuIcon, MenuOpen as MenuOpenIcon } from "@material-ui/icons";
+import { useTranslation } from "react-i18next";
 
 import useStyles from "./styles";
 
@@ -10,8 +11,10 @@ export const ToggleSidebarButton = ({
   isSidebarOpened,
 }) => {
   const classes = useStyles();
+  const { t } = useTranslation("app");
+
   return (
-    <Tooltip title="Toggle Sidebar">
+    <Tooltip title={t("Toggle Sidebar")}>
       <IconButton
         aria-label="toggle-sidebar"
         color="inherit"

@@ -32,4 +32,11 @@ export default makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
+  language: {
+    margin: theme.spacing(0, 0.5, 0, 1),
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "block",
+    },
+  },
 }));

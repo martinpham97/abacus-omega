@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import {
@@ -6,12 +7,20 @@ import {
   Tooltip,
   Typography,
   IconButton,
+  Menu,
+  MenuItem,
+  Button,
+  NoSsr,
 } from "@material-ui/core";
 import {
   Brightness4 as Brightness4Icon,
   Brightness7 as Brightness7Icon,
+  Translate as TranslateIcon,
+  ExpandMore as ExpandMoreIcon,
 } from "@material-ui/icons";
+import { useTranslation } from "react-i18next";
 
+import { LANGUAGES } from "config/constants";
 import ToggleSidebarButton from "components/ToggleSidebarButton/ToggleSidebarButton";
 import useStyles from "./styles";
 
@@ -20,9 +29,27 @@ export const Header = ({
   isSidebarOpened,
   handleToggleSidebar,
   handleToggleDarkMode,
-  theme,
+  handleChangeLanguage,
+  language,
+  themeType,
 }) => {
   const classes = useStyles();
+  const { t } = useTranslation("app");
+
+  const [languageMenu, setLanguageMenu] = useState(null);
+
+  const handleLanguageButtonClick = (event) => {
+    setLanguageMenu(event.currentTarget);
+  };
+
+  const handleLanguageMenuItemClick = (event, lang) => {
+    handleChangeLanguage(lang);
+    handleLanguageMenuClose();
+  };
+
+  const handleLanguageMenuClose = () => {
+    setLanguageMenu(null);
+  };
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -41,13 +68,46 @@ export const Header = ({
           {title}
         </Typography>
         <div className={classes.grow} />
-        <Tooltip title="Toggle Dark Mode">
+        <Tooltip title={t("Change Language")} enterDelay={300}>
+          <Button
+            aria-controls="lang-menu"
+            aria-owns={languageMenu ? "lang-menu" : undefined}
+            aria-haspopup="true"
+            aria-label="change-language"
+            color="inherit"
+            onClick={handleLanguageButtonClick}
+          >
+            <TranslateIcon />
+            <span className={classes.language}>{LANGUAGES[language]}</span>
+            <ExpandMoreIcon fontSize="small" />
+          </Button>
+        </Tooltip>
+        <NoSsr>
+          <Menu
+            id="lang-menu"
+            anchorEl={languageMenu}
+            keepMounted
+            open={Boolean(languageMenu)}
+            onClose={handleLanguageMenuClose}
+          >
+            {Object.keys(LANGUAGES).map((lang) => (
+              <MenuItem
+                key={lang}
+                selected={lang === language}
+                onClick={(event) => handleLanguageMenuItemClick(event, lang)}
+              >
+                {LANGUAGES[lang]}
+              </MenuItem>
+            ))}
+          </Menu>
+        </NoSsr>
+        <Tooltip title={t("Toggle Dark Mode")}>
           <IconButton
             aria-label="toggle-dark"
             color="inherit"
             onClick={handleToggleDarkMode}
           >
-            {theme === "light" ? (
+            {themeType === "light" ? (
               <Brightness4Icon data-testid="moon-svg" />
             ) : (
               <Brightness7Icon data-testid="sun-svg" />
@@ -64,7 +124,9 @@ Header.propTypes = {
   isSidebarOpened: PropTypes.bool.isRequired,
   handleToggleSidebar: PropTypes.func.isRequired,
   handleToggleDarkMode: PropTypes.func.isRequired,
-  theme: PropTypes.oneOf(["light", "dark"]).isRequired,
+  handleChangeLanguage: PropTypes.func.isRequired,
+  themeType: PropTypes.oneOf(["light", "dark"]).isRequired,
+  language: PropTypes.string.isRequired,
 };
 
 export default Header;

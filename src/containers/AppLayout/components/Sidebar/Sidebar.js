@@ -8,28 +8,11 @@ import {
   LibraryBooks as LibraryBooksIcon,
   Info as InfoIcon,
 } from "@material-ui/icons";
+import { useTranslation } from "react-i18next";
 
 import ToggleSidebarButton from "components/ToggleSidebarButton/ToggleSidebarButton";
 import SidebarLink from "./components/SidebarLink/SidebarLink";
 import useStyles from "./styles";
-
-const structure = [
-  { id: 0, label: "Home", link: "/", icon: <HomeIcon /> },
-  {
-    id: 1,
-    label: "Courses",
-    link: "/courses",
-    icon: <LibraryBooksIcon />,
-  },
-  {
-    id: 2,
-    label: "Settings",
-    link: "/settings",
-    icon: <SettingsIcon />,
-  },
-  { id: 3, type: "divider" },
-  { id: 4, label: "About", link: "/about", icon: <InfoIcon /> },
-];
 
 export const Sidebar = ({
   isSidebarOpened,
@@ -38,6 +21,25 @@ export const Sidebar = ({
 }) => {
   const location = useLocation();
   const classes = useStyles();
+  const { t } = useTranslation("pages");
+
+  const structure = [
+    { id: 0, label: t("Home"), link: "/", icon: <HomeIcon /> },
+    {
+      id: 1,
+      label: t("Courses"),
+      link: "/courses",
+      icon: <LibraryBooksIcon />,
+    },
+    {
+      id: 2,
+      label: t("Settings"),
+      link: "/settings",
+      icon: <SettingsIcon />,
+    },
+    { id: 3, type: "divider" },
+    { id: 4, label: t("About"), link: "/about", icon: <InfoIcon /> },
+  ];
 
   const isLinkSelected = (link) =>
     link &&
