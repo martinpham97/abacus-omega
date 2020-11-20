@@ -14,7 +14,7 @@ export const ToggleSidebarButton = ({
   const { t } = useTranslation("app");
 
   return (
-    <Tooltip title={t("Toggle Sidebar")}>
+    <Tooltip title={t("toggle_sidebar", "Toggle Sidebar")}>
       <IconButton
         aria-label="toggle-sidebar"
         color="inherit"

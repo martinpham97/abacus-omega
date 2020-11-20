@@ -66,7 +66,7 @@ export const AppLayout = ({ children }) => {
       <div className={classes.root}>
         <CssBaseline />
         <Header
-          title={t("Pass or Fail")}
+          title={t("title", "Pass or Fail")}
           isSidebarOpened={isSidebarOpened}
           handleToggleSidebar={handleToggleSidebar}
           handleToggleDarkMode={handleToggleDarkMode}

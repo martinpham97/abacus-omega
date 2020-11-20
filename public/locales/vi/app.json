@@ -1,6 +1,12 @@
 {
-  "Pass or Fail": "Pass or Fail",
-  "Toggle Sidebar": "Đóng/mở sidebar",
-  "Toggle Dark Mode": "Đổi giao diện sáng/tối",
-  "Change Language": "Đổi ngôn ngữ"
+  "title": "Pass or Fail",
+  "toggle_sidebar": "Đóng/mở sidebar",
+  "toggle_darkmode": "Đổi giao diện sáng/tối",
+  "change_language": "Đổi ngôn ngữ",
+  "links": {
+    "home": "Trang chủ",
+    "courses": "Môn học",
+    "settings": "Cài đặt",
+    "about": "Thông tin"
+  }
 }

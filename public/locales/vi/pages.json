@@ -1,6 +1,7 @@
 {
-  "Home": "Trang chủ",
-  "Courses": "Môn học",
-  "Settings": "Cài đặt",
-  "About": "Thông tin"
+  "not_found": {
+    "title": "404 - KHÔNG TỒN TẠI",
+    "description": "Nội dung bạn cần tìm không tồn tại ở trang này",
+    "home_button": "Quay về trang chủ"
+  }
 }

@@ -1,6 +1,12 @@
 {
-  "Pass or Fail": "Pass or Fail",
-  "Toggle Sidebar": "Toggle Sidebar",
-  "Toggle Dark Mode": "Toggle Dark Mode",
-  "Change Language": "Change Language"
+  "title": "Pass or Fail",
+  "toggle_sidebar": "Toggle Sidebar",
+  "toggle_darkmode": "Toggle Dark Mode",
+  "change_language": "Change Language",
+  "links": {
+    "home": "Home",
+    "courses": "Courses",
+    "settings": "Settings",
+    "about": "About"
+  }
 }

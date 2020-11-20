@@ -68,7 +68,10 @@ export const Header = ({
           {title}
         </Typography>
         <div className={classes.grow} />
-        <Tooltip title={t("Change Language")} enterDelay={300}>
+        <Tooltip
+          title={t("change_language", "Change Language")}
+          enterDelay={300}
+        >
           <Button
             aria-controls="lang-menu"
             aria-owns={languageMenu ? "lang-menu" : undefined}
@@ -101,7 +104,7 @@ export const Header = ({
             ))}
           </Menu>
         </NoSsr>
-        <Tooltip title={t("Toggle Dark Mode")}>
+        <Tooltip title={t("toggle_darkmode", "Toggle Dark Mode")}>
           <IconButton
             aria-label="toggle-dark"
             color="inherit"

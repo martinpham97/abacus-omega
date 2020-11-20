@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import AppLayout from "containers/AppLayout/AppLayout";
+import NotFoundPage from "containers/NotFoundPage/NotFoundPage";
 import HomePage from "containers/HomePage/HomePage";
 
 export const App = () => (
@@ -9,6 +10,9 @@ export const App = () => (
       <Switch>
         <Route path="/" exact>
           <HomePage />
+        </Route>
+        <Route path="*">
+          <NotFoundPage />
         </Route>
       </Switch>
     </AppLayout>

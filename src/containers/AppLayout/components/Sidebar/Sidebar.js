@@ -21,24 +21,29 @@ export const Sidebar = ({
 }) => {
   const location = useLocation();
   const classes = useStyles();
-  const { t } = useTranslation("pages");
+  const { t } = useTranslation("app");
 
   const structure = [
-    { id: 0, label: t("Home"), link: "/", icon: <HomeIcon /> },
+    { id: 0, label: t("links.home", "Home"), link: "/", icon: <HomeIcon /> },
     {
       id: 1,
-      label: t("Courses"),
+      label: t("links.courses", "Courses"),
       link: "/courses",
       icon: <LibraryBooksIcon />,
     },
     {
       id: 2,
-      label: t("Settings"),
+      label: t("links.settings", "Settings"),
       link: "/settings",
       icon: <SettingsIcon />,
     },
     { id: 3, type: "divider" },
-    { id: 4, label: t("About"), link: "/about", icon: <InfoIcon /> },
+    {
+      id: 4,
+      label: t("links.about", "About"),
+      link: "/about",
+      icon: <InfoIcon />,
+    },
   ];
 
   const isLinkSelected = (link) =>

@@ -27,6 +27,8 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    load: "currentOnly",
+    whitelist: ["en", "vi"],
   });
 
 export default i18n;
