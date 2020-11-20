@@ -8,6 +8,7 @@ import "fontsource-roboto";
 import "./config/i18n";
 import "./styles/styles.scss";
 
+import Loading from "components/Loading/Loading";
 import { store, persistor } from "store/store";
 
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
@@ -18,7 +19,7 @@ const render = () => {
 
   ReactDOM.render(
     <React.StrictMode>
-      <React.Suspense fallback="Loading...">
+      <React.Suspense fallback={<Loading />}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <App />
