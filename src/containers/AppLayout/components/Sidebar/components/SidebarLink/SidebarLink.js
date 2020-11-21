@@ -74,7 +74,7 @@ export const SidebarLink = ({
 };
 
 SidebarLink.propTypes = {
-  isSidebarOpened: PropTypes.bool.isRequired,
+  isSidebarOpened: PropTypes.bool,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   link: PropTypes.string,
   type: PropTypes.string,

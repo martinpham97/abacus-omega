@@ -8,5 +8,56 @@
     "courses": "Môn học",
     "settings": "Cài đặt",
     "about": "Thông tin"
+  },
+  "course_form": {
+    "name": {
+      "label": "Tên môn học",
+      "max": "Tên môn học không được quá {{num}} kí tự",
+      "required": "Tên môn học cần được điền vào"
+    }
+  },
+  "course_form_dialog": {
+    "title": "Lưu môn học"
+  },
+  "button": {
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "add": "Thêm",
+    "delete": "Xóa",
+    "calculate": "Tính điểm"
+  },
+  "grade_form": {
+    "assessments": {
+      "label": "Bài kiểm tra",
+      "max": "Số bài kiểm tra không được đạt quá {{num}}"
+    },
+    "description": {
+      "label": "Tên",
+      "max": "Tên không được quá {{num}} kí tự"
+    },
+    "grade": {
+      "label": "Điểm",
+      "min": "Điểm phải lớn hơn hoặc bằng không"
+    },
+    "max_grade": {
+      "label": "Điểm tối đa",
+      "min": "Điểm tối đa phải lớn hơn không",
+      "min_grade": "Điểm tối đa phải lớn hơn hoặc bằng điểm",
+      "required_grade": "Điểm tối đa của điểm hiện tại cần được điền vào"
+    },
+    "weight": {
+      "label": "Phần trăm",
+      "limit": "Phần trăm phải từ 0-100",
+      "required": "Phần trăm cần được điền vào",
+      "total_limit": "Tổng phần trăm không được quá 100%"
+    },
+    "desired_grade": {
+      "label": "Điểm mong muốn",
+      "limit": "Điểm mong muốn phải từ 0-100",
+      "required": "Điểm mong muốn cần được điền vào"
+    },
+    "no_assessment": "Hiện tại chưa có bài kiểm tra. Hãy nhấn vào '{{button}}' để tạo thêm bài kiểm tra",
+    "add_assessment": "Thêm bài kiểm tra",
+    "delete_assessment": "Xóa bài kiểm tra này"
   }
 }

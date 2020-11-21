@@ -6,10 +6,10 @@ import { renderWithWrappers } from "utils/testing";
 import NotFoundPage from "./NotFoundPage";
 
 describe("<NotFoundPage />", () => {
-  it("should load and display button to go back home", async () => {
+  it("should load and display button to go back home", () => {
     renderWithWrappers(<NotFoundPage />);
 
-    expect(screen.getByRole("button")).toBeInTheDocument();
+    expect(screen.queryByRole("button")).not.toBeNull();
   });
 
   it("should be accessible", async () => {

@@ -11,16 +11,15 @@ import {
 import { useTranslation } from "react-i18next";
 
 import ToggleSidebarButton from "components/ToggleSidebarButton/ToggleSidebarButton";
+import { useSmallScreen } from "hooks/useSmallScreen";
+
 import SidebarLink from "./components/SidebarLink/SidebarLink";
 import useStyles from "./styles";
 
-export const Sidebar = ({
-  isSidebarOpened,
-  handleToggleSidebar,
-  isSmallScreen,
-}) => {
+export const Sidebar = ({ isSidebarOpened, handleToggleSidebar }) => {
   const location = useLocation();
   const classes = useStyles();
+  const isSmallScreen = useSmallScreen();
   const { t } = useTranslation("app");
 
   const structure = [
@@ -94,9 +93,8 @@ export const Sidebar = ({
 };
 
 Sidebar.propTypes = {
-  isSidebarOpened: PropTypes.bool.isRequired,
+  isSidebarOpened: PropTypes.bool,
   handleToggleSidebar: PropTypes.func.isRequired,
-  isSmallScreen: PropTypes.bool.isRequired,
 };
 
 export default Sidebar;

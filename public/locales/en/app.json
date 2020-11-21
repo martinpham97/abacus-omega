@@ -1,12 +1,63 @@
 {
   "title": "Pass or Fail",
-  "toggle_sidebar": "Toggle Sidebar",
-  "toggle_darkmode": "Toggle Dark Mode",
-  "change_language": "Change Language",
+  "toggle_sidebar": "Toggle sidebar",
+  "toggle_darkmode": "Toggle light/dark theme",
+  "change_language": "Change language",
   "links": {
     "home": "Home",
     "courses": "Courses",
     "settings": "Settings",
     "about": "About"
+  },
+  "course_form": {
+    "name": {
+      "label": "Course name",
+      "max": "Course name must not exceed {{num}} characters",
+      "required": "Course name is required"
+    }
+  },
+  "course_form_dialog": {
+    "title": "Save course"
+  },
+  "button": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "add": "Add",
+    "delete": "Delete",
+    "calculate": "Calculate"
+  },
+  "grade_form": {
+    "assessments": {
+      "label": "Assessments",
+      "max": "Number of assessments must not exceed {{num}}"
+    },
+    "description": {
+      "label": "Description",
+      "max": "Description must not exceed {{num}} characters"
+    },
+    "grade": {
+      "label": "Grade",
+      "min": "Grade must be greater or equal to zero"
+    },
+    "max_grade": {
+      "label": "Max grade",
+      "min": "Max grade must be greater than zero",
+      "min_grade": "Max grade must be greater or equal to grade",
+      "required_grade": "Max grade is required for the specified grade"
+    },
+    "weight": {
+      "label": "Weight",
+      "limit": "Weight must be between 0-100",
+      "required": "Weight is required",
+      "total_limit": "Total weight must not exceed 100%"
+    },
+    "desired_grade": {
+      "label": "Desired grade",
+      "limit": "Desired grade must be between 0-100",
+      "required": "Desired grade is required"
+    },
+    "no_assessment": "There is currently no assessment. Click '{{button}}' to create a new assessment",
+    "add_assessment": "Add an assessment",
+    "delete_assessment": "Delete this assessment"
   }
 }

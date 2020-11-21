@@ -15,7 +15,7 @@ describe("<AppLayout />", () => {
       </AppLayout>,
     );
 
-    expect(screen.getByText("Test Child")).toBeInTheDocument();
+    expect(screen.queryByText("Test Child")).not.toBeNull();
   });
 
   it("should be accessible", async () => {

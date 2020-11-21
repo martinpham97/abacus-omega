@@ -10,10 +10,11 @@ import {
   ThemeProvider,
   responsiveFontSizes,
 } from "@material-ui/core/styles";
-import { Container, Box, CssBaseline, useMediaQuery } from "@material-ui/core";
+import { Container, Box, CssBaseline } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
 import theme from "config/theme";
+import { useSmallScreen } from "hooks/useSmallScreen";
 import { setThemeType } from "features/app/appSlice";
 
 import Header from "./components/Header/Header";
@@ -41,7 +42,7 @@ export const AppLayout = ({ children }) => {
     [themeType],
   );
 
-  const isSmallScreen = useMediaQuery(muiTheme.breakpoints.down("sm"));
+  const isSmallScreen = useSmallScreen();
 
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
 
@@ -77,7 +78,6 @@ export const AppLayout = ({ children }) => {
         <Sidebar
           isSidebarOpened={isSidebarOpened}
           handleToggleSidebar={handleToggleSidebar}
-          isSmallScreen={isSmallScreen}
         />
         <main
           className={clsx(classes.content, {

@@ -45,7 +45,7 @@ export const ToggleSidebarButton = ({
 };
 ToggleSidebarButton.propTypes = {
   handleToggleSidebar: PropTypes.func.isRequired,
-  isSidebarOpened: PropTypes.bool.isRequired,
+  isSidebarOpened: PropTypes.bool,
 };
 
 export default ToggleSidebarButton;

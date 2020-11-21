@@ -30,7 +30,7 @@ describe("<Header />", () => {
       />,
     );
 
-    expect(screen.getByText(title)).toBeInTheDocument();
+    expect(screen.queryByText(title)).not.toBeNull();
   });
 
   it("should call handleToggleSidebar when sidebar icon is clicked", () => {
@@ -46,7 +46,7 @@ describe("<Header />", () => {
       />,
     );
 
-    expect(screen.getByTestId(/sidebar-open-svg/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/sidebar-open-svg/i)).not.toBeNull();
 
     fireEvent.click(screen.getByLabelText(/toggle-sidebar/i));
 
@@ -66,7 +66,7 @@ describe("<Header />", () => {
       />,
     );
 
-    expect(screen.getByTestId(/moon-svg/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/moon-svg/i)).not.toBeNull();
 
     fireEvent.click(screen.getByLabelText(/toggle-dark/i));
 
@@ -86,10 +86,10 @@ describe("<Header />", () => {
       />,
     );
 
-    expect(screen.getByTestId(/sun-svg/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/sun-svg/i)).not.toBeNull();
   });
 
-  it("should change language when language button is clicked", async () => {
+  it("should change language when language button is clicked", () => {
     renderWithWrappers(
       <Header
         title="some title"

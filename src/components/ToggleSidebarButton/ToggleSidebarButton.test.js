@@ -18,7 +18,7 @@ describe("<ToggleSidebarButton />", () => {
       />,
     );
 
-    expect(screen.getByTestId(/sidebar-open-svg/i)).toBeInTheDocument();
+    expect(screen.queryByTestId(/sidebar-open-svg/i)).not.toBeNull();
 
     fireEvent.click(screen.getByLabelText(/toggle-sidebar/i));
 
@@ -33,7 +33,7 @@ describe("<ToggleSidebarButton />", () => {
       />,
     );
 
-    expect(screen.getByTestId(/sidebar-close-svg/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/sidebar-close-svg/i)).not.toBeNull();
   });
 
   it("should be accessible", async () => {

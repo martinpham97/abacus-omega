@@ -6,7 +6,7 @@ import { renderWithWrappers } from "utils/testing";
 import Loading from "./Loading";
 
 describe("<Loading />", () => {
-  it("should load and display progress", async () => {
+  it("should load and display progress", () => {
     renderWithWrappers(<Loading />);
 
     expect(screen.getByRole("progressbar")).toBeInTheDocument();

@@ -6,7 +6,6 @@ import useStyles from "./styles";
 
 export const NotFoundPage = () => {
   const classes = useStyles();
-
   const { t } = useTranslation("pages");
 
   return (

@@ -10,13 +10,13 @@ describe("<SidebarLink />", () => {
       <SidebarLink isSidebarOpened={false} id={1} type="title" label={label} />,
     );
 
-    expect(screen.getByText(label)).toBeInTheDocument();
+    expect(screen.getByText(label)).not.toBeNull();
   });
 
   it("should display divider when type is divider", () => {
     render(<SidebarLink isSidebarOpened={false} id={1} type="divider" />);
 
-    expect(screen.getByTestId(/divider/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/divider/i)).not.toBeNull();
   });
 
   it("should display link icon and text when type is link", () => {
@@ -34,8 +34,8 @@ describe("<SidebarLink />", () => {
       />,
     );
 
-    expect(screen.getByTestId(/icon/i)).toBeInTheDocument();
-    expect(screen.getByText(label)).toBeInTheDocument();
+    expect(screen.getByTestId(/icon/i)).not.toBeNull();
+    expect(screen.getByText(label)).not.toBeNull();
   });
 
   it("should be accessible", async () => {

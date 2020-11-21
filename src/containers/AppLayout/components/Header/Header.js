@@ -124,7 +124,7 @@ export const Header = ({
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-  isSidebarOpened: PropTypes.bool.isRequired,
+  isSidebarOpened: PropTypes.bool,
   handleToggleSidebar: PropTypes.func.isRequired,
   handleToggleDarkMode: PropTypes.func.isRequired,
   handleChangeLanguage: PropTypes.func.isRequired,
