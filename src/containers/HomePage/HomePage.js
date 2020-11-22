@@ -13,7 +13,8 @@ export const HomePage = () => {
   const { t } = useTranslation(["app", "pages"]);
 
   const [isCourseFormOpen, setIsCourseFormOpen] = useState(false);
-  const [assessmentData, setAssessmentData] = useState({});
+
+  let assessmentData = {};
 
   const handleSubmitCourse = ({ name }) => {
     console.log({
@@ -25,6 +26,11 @@ export const HomePage = () => {
 
   const handleSubmitAssessments = ({ assessments, desiredGrade }) =>
     console.log(assessments, desiredGrade);
+
+  const handleSave = (data) => {
+    console.log(data);
+    assessmentData = data;
+  };
 
   return (
     <>
@@ -50,7 +56,7 @@ export const HomePage = () => {
         <CardContent>
           <GradeForm
             handleSubmit={handleSubmitAssessments}
-            handleSave={setAssessmentData}
+            handleSave={handleSave}
           />
         </CardContent>
       </Card>

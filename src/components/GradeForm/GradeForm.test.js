@@ -20,21 +20,18 @@ describe("<GradeForm />", () => {
     courseData = {
       assessments: [
         {
-          id: 1,
           description: "Assignment 1",
           weight: 20,
           maxGrade: 50,
           grade: 41,
         },
         {
-          id: 2,
           description: "Assignment 2",
           weight: 10,
           maxGrade: 25,
           grade: 15,
         },
         {
-          id: 3,
           description: "Mid-term Exam",
           weight: 30,
           maxGrade: 80,
@@ -80,16 +77,18 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.change(screen.getByRole("textbox", { name: "description" }), {
-        target: { value: description },
-      });
+    await waitFor(async () => {
+      await fireEvent.change(
+        screen.getByRole("textbox", { name: "description" }),
+        {
+          target: { value: description },
+        },
+      );
     });
 
     expect(mockHandleSave).toHaveBeenLastCalledWith({
       assessments: [
         {
-          id: expect.any(String),
           description,
           weight: "",
           maxGrade: "",
@@ -114,11 +113,11 @@ describe("<GradeForm />", () => {
       />,
     );
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByLabelText(/calculate-button/i));
-
-      expect(mockHandleSubmit).not.toHaveBeenCalled();
+    await waitFor(async () => {
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
+
+    expect(mockHandleSubmit).not.toHaveBeenCalled();
   });
 
   it("should call handleSubmit with correct values", async () => {
@@ -129,39 +128,50 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.change(screen.getByRole("textbox", { name: "description" }), {
-        target: { value: description },
-      });
-      fireEvent.change(screen.getByRole("spinbutton", { name: "grade" }), {
-        target: { value: grade },
-      });
-      fireEvent.change(screen.getByRole("spinbutton", { name: "max-grade" }), {
-        target: { value: maxGrade },
-      });
-      fireEvent.change(screen.getByRole("spinbutton", { name: "weight" }), {
-        target: { value: weight },
-      });
-      fireEvent.change(
+    await waitFor(async () => {
+      await fireEvent.change(
+        screen.getByRole("textbox", { name: "description" }),
+        {
+          target: { value: description },
+        },
+      );
+      await fireEvent.change(
+        screen.getByRole("spinbutton", { name: "grade" }),
+        {
+          target: { value: grade },
+        },
+      );
+      await fireEvent.change(
+        screen.getByRole("spinbutton", { name: "max-grade" }),
+        {
+          target: { value: maxGrade },
+        },
+      );
+      await fireEvent.change(
+        screen.getByRole("spinbutton", { name: "weight" }),
+        {
+          target: { value: weight },
+        },
+      );
+      await fireEvent.change(
         screen.getByRole("spinbutton", { name: "desired-grade" }),
         {
           target: { value: desiredGrade },
         },
       );
-      fireEvent.click(screen.getByLabelText(/calculate-button/i));
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
+    });
 
-      expect(mockHandleSubmit).toHaveBeenLastCalledWith({
-        assessments: [
-          {
-            id: expect.any(String),
-            description,
-            weight,
-            maxGrade,
-            grade,
-          },
-        ],
-        desiredGrade,
-      });
+    expect(mockHandleSubmit).toHaveBeenLastCalledWith({
+      assessments: [
+        {
+          description,
+          weight,
+          maxGrade,
+          grade,
+        },
+      ],
+      desiredGrade,
     });
   });
 
@@ -184,8 +194,8 @@ describe("<GradeForm />", () => {
       />,
     );
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
+    await waitFor(async () => {
+      await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
     });
 
     expect(
@@ -198,14 +208,14 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
-      fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
-    });
+    await waitFor(async () => {
+      await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
+      await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
 
-    expect(
-      screen.queryAllByRole("textbox", { name: "description" }),
-    ).toHaveLength(3);
+      expect(
+        screen.queryAllByRole("textbox", { name: "description" }),
+      ).toHaveLength(3);
+    });
   });
 
   it("should show errors when number of assessments exceeds limit", async () => {
@@ -213,15 +223,15 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
+    await waitFor(async () => {
       for (let i = 0; i <= MAX_ASSESSMENTS_PER_COURSE; i++) {
-        fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
+        await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
       }
-
-      expect(
-        screen.queryByText(/number of assessments must not exceed.*/i),
-      ).not.toBeNull();
     });
+
+    expect(
+      screen.queryByText(/number of assessments must not exceed.*/i),
+    ).not.toBeNull();
   });
 
   it("should remove assessments when clicking on the delete button", async () => {
@@ -229,13 +239,12 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
-      fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
-    });
-
-    await waitFor(() => {
-      fireEvent.click(screen.queryAllByLabelText(/delete-[icon,button]/i)[0]);
+    await waitFor(async () => {
+      await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
+      await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
+      await fireEvent.click(
+        screen.queryAllByLabelText(/delete-[icon,button]/i)[0],
+      );
     });
 
     expect(
@@ -248,8 +257,8 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.blur(screen.getByLabelText("weight"));
+    await waitFor(async () => {
+      await fireEvent.blur(screen.getByLabelText("weight"));
     });
 
     expect(screen.queryByText(/weight is required/i)).not.toBeNull();
@@ -260,58 +269,59 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.blur(screen.getByLabelText("desired-grade"));
+    await waitFor(async () => {
+      await fireEvent.blur(screen.getByLabelText("desired-grade"));
     });
 
     expect(screen.queryByText(/desired grade is required/i)).not.toBeNull();
   });
 
-  it("should show errors when weight value is more than 100", async () => {
+  it("should show errors when weight value is more than 100%", async () => {
     render(
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.change(screen.getByRole("spinbutton", { name: "weight" }), {
-        target: { value: "120" },
-      });
-      fireEvent.blur(screen.getByLabelText("weight"));
+    await waitFor(async () => {
+      await fireEvent.change(
+        screen.getByRole("spinbutton", { name: "weight" }),
+        {
+          target: { value: "120" },
+        },
+      );
+      await fireEvent.blur(screen.getByLabelText("weight"));
     });
 
     expect(screen.queryByText(/weight must be between 0-100/i)).not.toBeNull();
   });
 
-  it("should show errors when total weight value is more than 100", async () => {
+  it("should show errors when total weight value is more than 100%", async () => {
     render(
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
-      fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
-    });
+    await waitFor(async () => {
+      await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
+      await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
 
-    await waitFor(() => {
-      fireEvent.change(
+      await fireEvent.change(
         screen.queryAllByRole("spinbutton", { name: "weight" })[0],
         {
           target: { value: "50" },
         },
       );
-      fireEvent.change(
+      await fireEvent.change(
         screen.queryAllByRole("spinbutton", { name: "weight" })[1],
         {
           target: { value: "50" },
         },
       );
-      fireEvent.change(
+      await fireEvent.change(
         screen.queryAllByRole("spinbutton", { name: "weight" })[2],
         {
           target: { value: "10" },
         },
       );
-      fireEvent.blur(screen.queryAllByLabelText("weight")[2]);
+      await fireEvent.blur(screen.queryAllByLabelText("weight")[2]);
     });
 
     expect(
@@ -324,14 +334,20 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.change(screen.getByRole("spinbutton", { name: "grade" }), {
-        target: { value: "10" },
-      });
-      fireEvent.change(screen.getByRole("spinbutton", { name: "max-grade" }), {
-        target: { value: "5" },
-      });
-      fireEvent.blur(screen.getByLabelText("max-grade"));
+    await waitFor(async () => {
+      await fireEvent.change(
+        screen.getByRole("spinbutton", { name: "grade" }),
+        {
+          target: { value: "10" },
+        },
+      );
+      await fireEvent.change(
+        screen.getByRole("spinbutton", { name: "max-grade" }),
+        {
+          target: { value: "5" },
+        },
+      );
+      await fireEvent.blur(screen.getByLabelText("max-grade"));
     });
 
     expect(
@@ -344,11 +360,14 @@ describe("<GradeForm />", () => {
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
     );
 
-    await waitFor(() => {
-      fireEvent.change(screen.getByRole("spinbutton", { name: "grade" }), {
-        target: { value: "10" },
-      });
-      fireEvent.blur(screen.getByLabelText("max-grade"));
+    await waitFor(async () => {
+      await fireEvent.change(
+        screen.getByRole("spinbutton", { name: "grade" }),
+        {
+          target: { value: "10" },
+        },
+      );
+      await fireEvent.blur(screen.getByLabelText("max-grade"));
     });
 
     expect(
