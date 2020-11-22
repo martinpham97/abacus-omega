@@ -17,7 +17,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { MAX_ASSESSMENTS_PER_COURSE } from "config/constants";
 import { useSmallScreen } from "hooks/useSmallScreen";
-import { nullableNumberTransform } from "utils/form";
+import {
+  nullableNumberTransform,
+  transformStringToNumConfig,
+} from "utils/form";
 import { course as courseType } from "types";
 
 import FormInput from "components/FormInput/FormInput";
@@ -118,11 +121,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
               function percentageLimit() {
                 const { assessments } = this.from[1].value;
                 const weightSum = assessments.reduce(
-                  (acc, assessment) =>
-                    acc +
-                    (assessment.weight === ""
-                      ? 0
-                      : parseInt(assessment.weight, 10)),
+                  (acc, assessment) => acc + parseInt(assessment.weight, 10),
                   0,
                 );
                 return weightSum <= 100;
@@ -235,6 +234,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
                         helperText={
                           isError && errors.assessments[index]?.grade?.message
                         }
+                        transform={transformStringToNumConfig}
                       />
                     </Grid>
                     <Grid item xs={6} md={2}>
@@ -255,6 +255,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
                           isError &&
                           errors.assessments[index]?.maxGrade?.message
                         }
+                        transform={transformStringToNumConfig}
                       />
                     </Grid>
                     <Grid item xs={12} md={2}>
@@ -281,6 +282,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
                         helperText={
                           isError && errors.assessments[index]?.weight?.message
                         }
+                        transform={transformStringToNumConfig}
                       />
                     </Grid>
                     <Grid item container xs={12} md={1} align="center">
@@ -365,6 +367,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
               variant="outlined"
               error={!!errors?.desiredGrade}
               helperText={errors?.desiredGrade?.message}
+              transform={transformStringToNumConfig}
             />
           </Grid>
           <Grid item xs={12} md={6}>

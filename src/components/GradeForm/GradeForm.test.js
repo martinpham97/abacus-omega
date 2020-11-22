@@ -72,6 +72,7 @@ describe("<GradeForm />", () => {
 
   it("should auto-save input values", async () => {
     const description = "Assignment 10";
+    const grade = 10;
 
     render(
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
@@ -84,6 +85,12 @@ describe("<GradeForm />", () => {
           target: { value: description },
         },
       );
+      await fireEvent.change(
+        screen.getByRole("spinbutton", { name: "grade" }),
+        {
+          target: { value: grade.toString() },
+        },
+      );
     });
 
     expect(mockHandleSave).toHaveBeenLastCalledWith({
@@ -92,7 +99,7 @@ describe("<GradeForm />", () => {
           description,
           weight: "",
           maxGrade: "",
-          grade: "",
+          grade,
         },
       ],
       desiredGrade: "",
