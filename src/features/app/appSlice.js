@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const appSlice = createSlice({
   name: "app",
   initialState: {
-    themeType: "light",
+    themeType: "dark",
   },
   reducers: {
     setThemeType(state, action) {
