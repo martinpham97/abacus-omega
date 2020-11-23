@@ -265,7 +265,7 @@ describe("<GradeForm />", () => {
     );
 
     await waitFor(async () => {
-      await fireEvent.blur(screen.getByLabelText("weight"));
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
 
     expect(screen.queryByText(/weight is required/i)).not.toBeNull();
@@ -277,7 +277,7 @@ describe("<GradeForm />", () => {
     );
 
     await waitFor(async () => {
-      await fireEvent.blur(screen.getByLabelText("desired-grade"));
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
 
     expect(screen.queryByText(/desired grade is required/i)).not.toBeNull();
@@ -295,7 +295,7 @@ describe("<GradeForm />", () => {
           target: { value: "120" },
         },
       );
-      await fireEvent.blur(screen.getByLabelText("weight"));
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
 
     expect(screen.queryByText(/weight must be between 0-100/i)).not.toBeNull();
@@ -328,11 +328,11 @@ describe("<GradeForm />", () => {
           target: { value: "10" },
         },
       );
-      await fireEvent.blur(screen.queryAllByLabelText("weight")[2]);
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
 
     expect(
-      screen.queryByText(/total weight must not exceed 100%/i),
+      screen.queryAllByText(/total weight must not exceed 100%/i),
     ).not.toBeNull();
   });
 
@@ -354,7 +354,7 @@ describe("<GradeForm />", () => {
           target: { value: "5" },
         },
       );
-      await fireEvent.blur(screen.getByLabelText("max-grade"));
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
 
     expect(
@@ -374,7 +374,7 @@ describe("<GradeForm />", () => {
           target: { value: "10" },
         },
       );
-      await fireEvent.blur(screen.getByLabelText("max-grade"));
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
 
     expect(

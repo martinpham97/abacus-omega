@@ -9718,10 +9718,10 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
-react-hook-form@^6.11.4:
-  version "6.11.4"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.11.4.tgz#726036d33ac8cff8d88c881f6ca96e85795c43ec"
-  integrity sha512-jIcXczV7Qp2Br4+e1hI99V1WqM+wB/6YlZ/oVQ5OPKeTTpal1sDClMLa7456+kAyRkeZJWj9XwqElio0OfHUWA==
+react-hook-form@@6.11.3:
+  version "6.11.3"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.11.3.tgz#7de409d4e100452ac0d3255780b3af3d3027d87a"
+  integrity sha512-RWBQ2FdCI6B247hna8LM1oPThvZiGM8wJkTTOLHRHhSBgD5JrTBYOrteLRo7qKXP9CdVYSAK1kjPs1JCqeWb3g==
 
 react-i18next@^11.7.3:
   version "11.7.3"

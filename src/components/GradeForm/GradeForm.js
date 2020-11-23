@@ -29,12 +29,12 @@ import ResponsiveAddButton from "./components/ResponsiveAddButton/ResponsiveAddB
 import ResponsiveDeleteButton from "./components/ResponsiveDeleteButton/ResponsiveDeleteButton";
 import useStyles from "./styles";
 
-const defaultGrade = () => ({
+const defaultGrade = {
   description: "",
   grade: "",
   maxGrade: "",
   weight: "",
-});
+};
 
 export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
   const classes = useStyles();
@@ -121,7 +121,11 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
               function percentageLimit() {
                 const { assessments } = this.from[1].value;
                 const weightSum = assessments.reduce(
-                  (acc, assessment) => acc + parseInt(assessment.weight, 10),
+                  (acc, assessment) =>
+                    acc +
+                    (assessment.weight === "" || assessment.weight === null
+                      ? 0
+                      : parseInt(assessment.weight, 10)),
                   0,
                 );
                 return weightSum <= 100;
@@ -154,9 +158,8 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
 
   const { assessments, desiredGrade } = courseData;
   const methods = useForm({
-    mode: "onBlur",
     defaultValues: {
-      assessments: assessments || [defaultGrade()],
+      assessments: assessments || [{ ...defaultGrade }],
       desiredGrade: desiredGrade || "",
     },
     resolver: yupResolver(validationSchema),
@@ -173,7 +176,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
 
   const handleAddAssessment = () => {
     if (fields.length < MAX_ASSESSMENTS_PER_COURSE) {
-      return append(defaultGrade());
+      return append({ ...defaultGrade });
     }
     return setShowAssessmentError(true);
   };
@@ -215,6 +218,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
                           isError &&
                           errors.assessments[index]?.description?.message
                         }
+                        defaultValue={assessment.description}
                       />
                     </Grid>
                     <Grid item xs={6} md={2}>
@@ -235,6 +239,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
                           isError && errors.assessments[index]?.grade?.message
                         }
                         transform={transformStringToNumConfig}
+                        defaultValue={assessment.grade}
                       />
                     </Grid>
                     <Grid item xs={6} md={2}>
@@ -256,6 +261,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
                           errors.assessments[index]?.maxGrade?.message
                         }
                         transform={transformStringToNumConfig}
+                        defaultValue={assessment.maxGrade}
                       />
                     </Grid>
                     <Grid item xs={12} md={2}>
@@ -283,6 +289,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
                           isError && errors.assessments[index]?.weight?.message
                         }
                         transform={transformStringToNumConfig}
+                        defaultValue={assessment.weight}
                       />
                     </Grid>
                     <Grid item container xs={12} md={1} align="center">
@@ -335,7 +342,6 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
               <Divider className={classes.divider} />
             </>
           )}
-
           {showAssessmentsError && (
             <FormHelperText id="assessments-help-text" error>
               {t("grade_form.assessments.max", {
