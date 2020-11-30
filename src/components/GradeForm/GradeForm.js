@@ -25,7 +25,7 @@ import ResponsiveAddButton from "./components/ResponsiveAddButton/ResponsiveAddB
 import ResponsiveDeleteButton from "./components/ResponsiveDeleteButton/ResponsiveDeleteButton";
 import useStyles from "./styles";
 
-const defaultGrade = {
+const defaultAssessment = {
   description: "",
   grade: null,
   maxGrade: null,
@@ -157,8 +157,8 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
     register,
   } = useForm({
     defaultValues: {
-      assessments: assessments || [{ ...defaultGrade }],
-      desiredGrade: desiredGrade || "",
+      assessments: assessments || [{ ...defaultAssessment }],
+      desiredGrade: desiredGrade || null,
     },
     resolver: yupResolver(validationSchema),
   });
@@ -176,7 +176,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
 
   const handleAddAssessment = () => {
     if (fields.length < MAX_ASSESSMENTS_PER_COURSE) {
-      return append({ ...defaultGrade });
+      return append({ ...defaultAssessment });
     }
     return setShowAssessmentError(true);
   };
