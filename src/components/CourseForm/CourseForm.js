@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 import { course as courseType } from "types";
 
-export const CourseForm = ({ id, courseData = {}, handleSubmit }) => {
+export const CourseForm = ({ id, course = {}, handleSubmit }) => {
   const { t } = useTranslation("app");
 
   const validationSchema = yup.object().shape({
@@ -23,7 +23,7 @@ export const CourseForm = ({ id, courseData = {}, handleSubmit }) => {
       .required(t("course_form.name.required", "Course name is required")),
   });
 
-  const { name } = courseData;
+  const { name } = course;
   const { register, errors, handleSubmit: handleFormSubmit } = useForm({
     defaultValues: {
       name: name || "",
@@ -53,7 +53,7 @@ export const CourseForm = ({ id, courseData = {}, handleSubmit }) => {
 
 CourseForm.propTypes = {
   id: PropTypes.string,
-  courseData: courseType,
+  course: courseType,
   handleSubmit: PropTypes.func.isRequired,
 };
 

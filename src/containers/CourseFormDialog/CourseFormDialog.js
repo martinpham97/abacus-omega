@@ -16,7 +16,7 @@ export const CourseFormDialog = ({
   isOpen,
   handleClose,
   handleSubmit,
-  courseData,
+  course,
 }) => {
   const { t } = useTranslation("app");
 
@@ -30,7 +30,7 @@ export const CourseFormDialog = ({
       <DialogContent>
         <CourseForm
           id="course-form"
-          courseData={courseData}
+          course={course}
           handleSubmit={handleSubmit}
         />
       </DialogContent>
@@ -56,7 +56,7 @@ CourseFormDialog.propTypes = {
   isOpen: PropTypes.bool,
   handleClose: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  courseData: courseType,
+  course: courseType,
 };
 
 export default CourseFormDialog;

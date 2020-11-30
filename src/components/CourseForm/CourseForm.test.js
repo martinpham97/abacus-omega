@@ -13,9 +13,7 @@ describe("<CourseForm />", () => {
   it("should fill default values", () => {
     const name = "COMP1511";
 
-    render(
-      <CourseForm courseData={{ name }} handleSubmit={mockHandleSubmit} />,
-    );
+    render(<CourseForm course={{ name }} handleSubmit={mockHandleSubmit} />);
 
     expect(screen.queryByDisplayValue(name)).not.toBeNull();
   });
@@ -23,9 +21,7 @@ describe("<CourseForm />", () => {
   it("should call handleSubmit on submit with correct values", async () => {
     const name = "COMP2511";
 
-    render(
-      <CourseForm courseData={{ name }} handleSubmit={mockHandleSubmit} />,
-    );
+    render(<CourseForm course={{ name }} handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.submit(screen.getByRole("textbox"));

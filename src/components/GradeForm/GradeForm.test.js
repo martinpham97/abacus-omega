@@ -9,13 +9,13 @@ import GradeForm from "./GradeForm";
 describe("<GradeForm />", () => {
   let mockHandleSubmit;
   let mockHandleSave;
-  let courseData;
+  let course;
 
   beforeEach(() => {
     jest.spyOn(useSmallScreenHook, "useSmallScreen").mockReturnValue(false);
     mockHandleSubmit = jest.fn();
     mockHandleSave = jest.fn();
-    courseData = {
+    course = {
       assessments: [
         {
           description: "Assignment 1",
@@ -45,12 +45,10 @@ describe("<GradeForm />", () => {
   });
 
   it("should fill default values", async () => {
-    render(
-      <GradeForm courseData={courseData} handleSubmit={mockHandleSubmit} />,
-    );
+    render(<GradeForm course={course} handleSubmit={mockHandleSubmit} />);
 
     expect(
-      screen.queryByDisplayValue(courseData.assessments[0].description),
+      screen.queryByDisplayValue(course.assessments[0].description),
     ).not.toBeNull();
   });
 
@@ -100,11 +98,11 @@ describe("<GradeForm />", () => {
   });
 
   it("should not call handleSubmit when assessments array is empty", async () => {
-    const { desiredGrade } = courseData;
+    const { desiredGrade } = course;
 
     render(
       <GradeForm
-        courseData={{
+        course={{
           assessments: [],
           desiredGrade,
         }}
@@ -120,8 +118,8 @@ describe("<GradeForm />", () => {
   });
 
   it("should call handleSubmit with correct values", async () => {
-    const { weight, grade, maxGrade, description } = courseData.assessments[0];
-    const { desiredGrade } = courseData;
+    const { weight, grade, maxGrade, description } = course.assessments[0];
+    const { desiredGrade } = course;
 
     render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
@@ -183,7 +181,7 @@ describe("<GradeForm />", () => {
   it("should show add button on empty assessments", async () => {
     render(
       <GradeForm
-        courseData={{ assessments: [] }}
+        course={{ assessments: [] }}
         handleSubmit={mockHandleSubmit}
       />,
     );

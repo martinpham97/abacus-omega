@@ -56,7 +56,7 @@ describe("<CourseFormDialog />", () => {
         isOpen={true}
         handleClose={mockHandleClose}
         handleSubmit={mockHandleSubmit}
-        courseData={{ name: "some name" }}
+        course={{ name: "some name" }}
       />,
     );
 

@@ -32,7 +32,7 @@ const defaultGrade = {
   weight: null,
 };
 
-export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
+export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
   const classes = useStyles();
   const isSmallScreen = useSmallScreen();
   const { t } = useTranslation("app");
@@ -148,7 +148,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
       ),
   });
 
-  const { assessments, desiredGrade } = courseData;
+  const { assessments, desiredGrade } = course;
   const {
     handleSubmit: handleFormSubmit,
     control,
@@ -399,7 +399,7 @@ export const GradeForm = ({ courseData = {}, handleSave, handleSubmit }) => {
 };
 
 GradeForm.propTypes = {
-  courseData: courseType,
+  course: courseType,
   handleSave: PropTypes.func,
   handleSubmit: PropTypes.func.isRequired,
 };
