@@ -1,15 +1,21 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Card, CardHeader, CardContent, Button } from "@material-ui/core";
 import { Save as SaveIcon } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
 
-import CourseFormDialog from "components/CourseFormDialog/CourseFormDialog";
-import GradeForm from "components/GradeForm/GradeForm";
+import CourseFormDialog from "containers/CourseFormDialog/CourseFormDialog";
+import GradeCalculator from "containers/GradeCalculator/GradeCalculator";
+
+import { addCourse } from "features/courses/coursesSlice";
 
 import useStyles from "./styles";
 
 export const HomePage = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const history = useHistory();
   const { t } = useTranslation(["app", "pages"]);
 
   const [isCourseFormOpen, setIsCourseFormOpen] = useState(false);
@@ -17,15 +23,15 @@ export const HomePage = () => {
   let assessmentData = {};
 
   const handleSubmitCourse = ({ name }) => {
-    console.log({
-      name,
-      ...assessmentData,
-    });
+    dispatch(
+      addCourse({
+        name,
+        ...assessmentData,
+      }),
+    );
     setIsCourseFormOpen(false);
+    history.push("/courses");
   };
-
-  const handleSubmitAssessments = ({ assessments, desiredGrade }) =>
-    console.log(assessments, desiredGrade);
 
   const handleSave = (data) => {
     console.log(data);
@@ -34,10 +40,10 @@ export const HomePage = () => {
 
   return (
     <>
-      <Card className={classes.paper}>
+      <Card className={classes.card}>
         <CardHeader
-          title={t("pages:home.grade_calculator.title", "Grade Calculator")}
-          subheader={t("pages:home.grade_calculator.description", {
+          title={t("app:grade_calculator.title", "Grade Calculator")}
+          subheader={t("app:grade_calculator.description", {
             button: t("app:button.calculate", "Calculate"),
             defaultValue: "Add your course assessments to calculate",
           })}
@@ -54,13 +60,11 @@ export const HomePage = () => {
           }
         />
         <CardContent>
-          <GradeForm
-            handleSubmit={handleSubmitAssessments}
-            handleSave={handleSave}
-          />
+          <GradeCalculator handleSave={handleSave} />
         </CardContent>
       </Card>
       <CourseFormDialog
+        title={t("pages:home.course_form_dialog.title", "Save course")}
         isOpen={isCourseFormOpen}
         handleClose={() => setIsCourseFormOpen(false)}
         handleSubmit={handleSubmitCourse}

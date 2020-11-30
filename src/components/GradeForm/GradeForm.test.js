@@ -6,8 +6,6 @@ import * as useSmallScreenHook from "hooks/useSmallScreen";
 
 import GradeForm from "./GradeForm";
 
-jest.setTimeout(10000);
-
 describe("<GradeForm />", () => {
   let mockHandleSubmit;
   let mockHandleSave;
@@ -48,11 +46,7 @@ describe("<GradeForm />", () => {
 
   it("should fill default values", async () => {
     render(
-      <GradeForm
-        courseData={courseData}
-        handleSubmit={mockHandleSubmit}
-        handleSave={mockHandleSave}
-      />,
+      <GradeForm courseData={courseData} handleSubmit={mockHandleSubmit} />,
     );
 
     expect(
@@ -62,9 +56,7 @@ describe("<GradeForm />", () => {
 
   it("should display add and delete buttons on small screens", () => {
     jest.spyOn(useSmallScreenHook, "useSmallScreen").mockReturnValue(true);
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     expect(screen.queryByLabelText(/add-button/)).not.toBeNull();
     expect(screen.queryByLabelText(/delete-button/)).not.toBeNull();
@@ -72,7 +64,7 @@ describe("<GradeForm />", () => {
 
   it("should auto-save input values", async () => {
     const description = "Assignment 10";
-    const grade = 10;
+    const desiredGrade = 10;
 
     render(
       <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
@@ -86,23 +78,24 @@ describe("<GradeForm />", () => {
         },
       );
       await fireEvent.change(
-        screen.getByRole("spinbutton", { name: "grade" }),
+        screen.getByRole("spinbutton", { name: "desired-grade" }),
         {
-          target: { value: grade.toString() },
+          target: { value: desiredGrade.toString() },
         },
       );
+      await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
 
     expect(mockHandleSave).toHaveBeenLastCalledWith({
       assessments: [
         {
           description,
-          weight: "",
-          maxGrade: "",
-          grade,
+          weight: null,
+          maxGrade: null,
+          grade: null,
         },
       ],
-      desiredGrade: "",
+      desiredGrade,
     });
   });
 
@@ -116,7 +109,6 @@ describe("<GradeForm />", () => {
           desiredGrade,
         }}
         handleSubmit={mockHandleSubmit}
-        handleSave={mockHandleSave}
       />,
     );
 
@@ -131,9 +123,7 @@ describe("<GradeForm />", () => {
     const { weight, grade, maxGrade, description } = courseData.assessments[0];
     const { desiredGrade } = courseData;
 
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.change(
@@ -183,9 +173,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should disable delete button when there is only one assessment", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     expect(
       screen.getByLabelText(/delete-[icon,button]/i).closest("button"),
@@ -197,7 +185,6 @@ describe("<GradeForm />", () => {
       <GradeForm
         courseData={{ assessments: [] }}
         handleSubmit={mockHandleSubmit}
-        handleSave={mockHandleSave}
       />,
     );
 
@@ -211,9 +198,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should add new assessment when clicking on the add button", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
@@ -226,9 +211,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should show errors when number of assessments exceeds limit", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       for (let i = 0; i <= MAX_ASSESSMENTS_PER_COURSE; i++) {
@@ -242,9 +225,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should remove assessments when clicking on the delete button", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
@@ -260,9 +241,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should show errors on empty weight field", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
@@ -272,9 +251,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should show errors on empty desired grade field", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
@@ -284,9 +261,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should show errors when weight value is more than 100%", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.change(
@@ -302,9 +277,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should show errors when total weight value is more than 100%", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.click(screen.getByLabelText(/add-[icon,button]/i));
@@ -337,9 +310,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should show errors when grade is greater than max grade", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.change(
@@ -363,9 +334,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should show errors when grade is defined but max grade is blank", async () => {
-    render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     await waitFor(async () => {
       await fireEvent.change(
@@ -383,9 +352,7 @@ describe("<GradeForm />", () => {
   });
 
   it("should be accessible", async () => {
-    const { container } = render(
-      <GradeForm handleSubmit={mockHandleSubmit} handleSave={mockHandleSave} />,
-    );
+    const { container } = render(<GradeForm handleSubmit={mockHandleSubmit} />);
 
     expect(await axe(container)).toHaveNoViolations();
   });

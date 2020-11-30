@@ -9,19 +9,46 @@
     "settings": "Cài đặt",
     "about": "Thông tin"
   },
+  "filter": {
+    "search_input": {
+      "placeholder": "Tìm kiếm tên môn học"
+    }
+  },
+  "select_mode": {
+    "select_switch": {
+      "label": "Chọn nhiều"
+    },
+    "snack_bar": {
+      "message": "{{count}} môn đã được chọn"
+    }
+  },
+  "sort": {
+    "sort_name_asc": "Sắp xếp tên thứ tự tăng dần",
+    "sort_name_desc": "Sắp xếp tên thứ tự giảm dần",
+    "sort_date_asc": "Sắp xếp ngày thứ tự tăng dần",
+    "sort_date_desc": "Sắp xếp ngày thứ tự giảm dần"
+  },
+  "course_card": {
+    "description": "Số bài kiểm tra: {{count}}",
+    "select_checkbox": {
+      "label": "Chọn"
+    }
+  },
+  "grade_calculator": {
+    "title": "Công cụ tính điểm",
+    "description": "Nhập bài kiểm tra và nhấn '{{button}}' để thấy kết quả"
+  },
   "course_form": {
     "name": {
       "label": "Tên môn học",
-      "max": "Tên môn học không được quá {{num}} kí tự",
+      "max": "Tên môn học không được quá {{count}} kí tự",
       "required": "Tên môn học cần được điền vào"
     }
-  },
-  "course_form_dialog": {
-    "title": "Lưu môn học"
   },
   "button": {
     "cancel": "Hủy",
     "save": "Lưu",
+    "edit": "Sửa",
     "add": "Thêm",
     "delete": "Xóa",
     "calculate": "Tính điểm"
@@ -29,11 +56,11 @@
   "grade_form": {
     "assessments": {
       "label": "Bài kiểm tra",
-      "max": "Số bài kiểm tra không được đạt quá {{num}}"
+      "max": "Số bài kiểm tra không được đạt quá {{count}}"
     },
     "description": {
       "label": "Tên",
-      "max": "Tên không được quá {{num}} kí tự"
+      "max": "Tên không được quá {{count}} kí tự"
     },
     "grade": {
       "label": "Điểm",

@@ -9,19 +9,47 @@
     "settings": "Settings",
     "about": "About"
   },
+  "filter": {
+    "search_input": {
+      "placeholder": "Search by course name"
+    }
+  },
+  "select_mode": {
+    "select_switch": {
+      "label": "Select multiple"
+    },
+    "snack_bar": {
+      "message": "{{count}} course selected",
+      "message_plural": "{{count}} courses selected"
+    }
+  },
+  "sort": {
+    "sort_name_asc": "Sort by name ascending",
+    "sort_name_desc": "Sort by name descending",
+    "sort_date_asc": "Sort by date ascending",
+    "sort_date_desc": "Sort by date descending"
+  },
+  "course_card": {
+    "description": "No. assessments: {{count}}",
+    "select_checkbox": {
+      "label": "Select"
+    }
+  },
+  "grade_calculator": {
+    "title": "Grade Calculator",
+    "description": "Add your course assessments and click '{{button}}' to view the results"
+  },
   "course_form": {
     "name": {
       "label": "Course name",
-      "max": "Course name must not exceed {{num}} characters",
+      "max": "Course name must not exceed {{count}} characters",
       "required": "Course name is required"
     }
-  },
-  "course_form_dialog": {
-    "title": "Save course"
   },
   "button": {
     "cancel": "Cancel",
     "save": "Save",
+    "edit": "Edit",
     "add": "Add",
     "delete": "Delete",
     "calculate": "Calculate"
@@ -29,11 +57,11 @@
   "grade_form": {
     "assessments": {
       "label": "Assessments",
-      "max": "Number of assessments must not exceed {{num}}"
+      "max": "Number of assessments must not exceed {{count}}"
     },
     "description": {
       "label": "Description",
-      "max": "Description must not exceed {{num}} characters"
+      "max": "Description must not exceed {{count}} characters"
     },
     "grade": {
       "label": "Grade",

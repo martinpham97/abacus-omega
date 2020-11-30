@@ -9,7 +9,9 @@ describe("<Loading />", () => {
   it("should load and display progress", () => {
     renderWithWrappers(<Loading />);
 
-    expect(screen.getByRole("progressbar")).toBeInTheDocument();
+    expect(
+      screen.getByRole("progressbar", { hidden: true }),
+    ).toBeInTheDocument();
   });
 
   it("should be accessible", async () => {

@@ -12,6 +12,7 @@ import CourseForm from "components/CourseForm/CourseForm";
 import { course as courseType } from "types";
 
 export const CourseFormDialog = ({
+  title,
   isOpen,
   handleClose,
   handleSubmit,
@@ -25,9 +26,7 @@ export const CourseFormDialog = ({
       onClose={handleClose}
       aria-labelledby="course-dialog-title"
     >
-      <DialogTitle id="course-dialog-title">
-        {t("course_form_dialog.title", "Save course")}
-      </DialogTitle>
+      <DialogTitle id="course-dialog-title">{title}</DialogTitle>
       <DialogContent>
         <CourseForm
           id="course-form"
@@ -53,6 +52,7 @@ export const CourseFormDialog = ({
 };
 
 CourseFormDialog.propTypes = {
+  title: PropTypes.node,
   isOpen: PropTypes.bool,
   handleClose: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,

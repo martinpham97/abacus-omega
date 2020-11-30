@@ -7,11 +7,25 @@ const coursesSlice = createSlice({
   reducers: {
     addCourse: {
       reducer(state, action) {
-        const { id, name } = action.payload;
-        state.push({ id, name });
+        const {
+          id,
+          name,
+          assessments,
+          desiredGrade,
+          createdAt,
+        } = action.payload;
+        state.push({ id, name, assessments, desiredGrade, createdAt });
       },
-      prepare(name) {
-        return { payload: { name, id: uuidv4() } };
+      prepare({ name, assessments, desiredGrade }) {
+        return {
+          payload: {
+            name,
+            assessments,
+            desiredGrade,
+            id: uuidv4(),
+            createdAt: new Date().toISOString(),
+          },
+        };
       },
     },
   },

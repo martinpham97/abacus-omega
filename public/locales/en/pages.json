@@ -1,8 +1,7 @@
 {
   "home": {
-    "grade_calculator": {
-      "title": "Grade Calculator",
-      "description": "Add your course assessments and click '{{button}}' to view the results"
+    "course_form_dialog": {
+      "title": "Save course"
     }
   },
   "not_found": {

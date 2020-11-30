@@ -29,3 +29,5 @@ const mockI18n = {
 };
 
 jest.mock("react-i18next", () => mockI18n);
+
+jest.setTimeout(15000);

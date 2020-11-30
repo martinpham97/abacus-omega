@@ -3,15 +3,38 @@ import coursesReducer, { addCourse } from "./coursesSlice";
 const courses = [
   {
     name: "MATH1081",
-    id: 0,
+    assessments: [
+      {
+        description: "Assignment 1",
+        weight: 20,
+        maxGrade: 50,
+        grade: 41,
+      },
+      {
+        description: "Assignment 2",
+        weight: 10,
+        maxGrade: 25,
+        grade: 15,
+      },
+    ],
+    desiredGrade: 60,
   },
   {
     name: "COMP1511",
-    id: 1,
+    assessments: [],
+    desiredGrade: null,
   },
   {
     name: "COMP4920",
-    id: 2,
+    assessments: [
+      {
+        description: "Assignment 1",
+        weight: 10,
+        maxGrade: 20,
+        grade: 12,
+      },
+    ],
+    desiredGrade: 90,
   },
 ];
 
@@ -42,13 +65,20 @@ describe("courses reducer", () => {
 });
 
 describe("addCourse", () => {
-  it("should generate course IDs", () => {
-    const action1 = addCourse(courses[0].name);
-    const action2 = addCourse(courses[1].name);
+  it("should return correct payload", () => {
+    const action = addCourse({ ...courses[0] });
 
-    expect(action1.payload.id).toEqual(expect.any(String));
-    expect(action1.payload.name).toEqual(courses[0].name);
-    expect(action2.payload.id).toEqual(expect.any(String));
-    expect(action2.payload.name).toEqual(courses[1].name);
+    expect(action.payload).toEqual({
+      id: expect.any(String),
+      createdAt: expect.any(String),
+      ...courses[0],
+    });
+  });
+
+  it("should generate unique course IDs", () => {
+    const action1 = addCourse({ ...courses[0] });
+    const action2 = addCourse({ ...courses[1] });
+
+    expect(action1.payload.id).not.toEqual(action2.payload.id);
   });
 });

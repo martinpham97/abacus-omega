@@ -1,11 +1,15 @@
-import { Grid, CircularProgress } from "@material-ui/core";
+import { Backdrop, CircularProgress } from "@material-ui/core";
 
-export const Loading = () => (
-  <Grid container direction="column" alignItems="center" justify="center">
-    <Grid item xs={12}>
-      <CircularProgress aria-label="loading" />
-    </Grid>
-  </Grid>
-);
+import useStyles from "./styles";
+
+export const Loading = () => {
+  const classes = useStyles();
+
+  return (
+    <Backdrop className={classes.backdrop} open>
+      <CircularProgress aria-label="loading" color="primary" />
+    </Backdrop>
+  );
+};
 
 export default Loading;

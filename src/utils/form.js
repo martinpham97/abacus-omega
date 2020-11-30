@@ -1,14 +1,9 @@
-export const nullableNumberTransform = (value, originalValue) => {
-  if (typeof originalValue === "string" || originalValue instanceof String) {
-    return originalValue.trim() === "" ? null : value;
-  }
-  return value;
-};
-
-export const transformStringToNumConfig = {
-  input: (value) => isNaN(value) || value.toString(),
-  output: (e) => {
-    const output = parseInt(e.target.value, 10);
-    return isNaN(output) ? 0 : output;
-  },
+/**
+ * Function to convert form input string to a number.
+ * If the input string is not a number, null is returned.
+ * @param {String} value Input string
+ */
+export const transformStringToNum = (value) => {
+  const output = parseInt(value, 10);
+  return isNaN(output) ? null : output;
 };

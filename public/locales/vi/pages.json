@@ -1,8 +1,7 @@
 {
   "home": {
-    "grade_calculator": {
-      "title": "Công cụ tính điểm",
-      "description": "Nhập bài kiểm tra và nhấn '{{button}}' để thấy kết quả"
+    "course_form_dialog": {
+      "title": "Lưu môn học"
     }
   },
   "not_found": {

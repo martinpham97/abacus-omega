@@ -16,7 +16,7 @@ export const CourseForm = ({ id, courseData = {}, handleSubmit }) => {
       .max(
         255,
         t("course_form.name.max", {
-          num: 255,
+          count: 255,
           defaultValue: "Course name must not exceed 255 characters",
         }),
       )

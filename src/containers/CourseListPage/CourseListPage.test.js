@@ -2,11 +2,11 @@ import { axe } from "jest-axe";
 
 import { renderWithWrappers } from "utils/testing";
 
-import HomePage from "./HomePage";
+import CourseListPage from "./CourseListPage";
 
-describe("<HomePage />", () => {
+describe("<CourseListPage />", () => {
   it("should be accessible", async () => {
-    const { container } = renderWithWrappers(<HomePage />);
+    const { container } = renderWithWrappers(<CourseListPage />);
 
     expect(await axe(container)).toHaveNoViolations();
   });
