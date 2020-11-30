@@ -12,6 +12,8 @@ import {
 import {
   CheckCircleOutline as CheckCircleOutlineIcon,
   CheckCircle as CheckCircleIcon,
+  Edit as EditIcon,
+  Delete as DeleteIcon,
 } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
 
@@ -75,6 +77,7 @@ export const CourseCard = ({
             size="small"
             color="primary"
             aria-label="edit-course"
+            startIcon={<EditIcon />}
             onClick={() => handleEdit(course.id)}
           >
             {t("button.edit", "Edit")}
@@ -82,6 +85,7 @@ export const CourseCard = ({
           <Button
             size="small"
             aria-label="delete-course"
+            startIcon={<DeleteIcon />}
             onClick={() => handleDelete(course.id)}
           >
             {t("button.delete", "Delete")}
