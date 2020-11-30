@@ -12,11 +12,16 @@
   "filter": {
     "search_input": {
       "placeholder": "Tìm kiếm tên môn học"
-    }
+    },
+    "showing_count": "Hiển thị {{num}} trên {{count}} môn học"
   },
   "select_mode": {
     "select_switch": {
-      "label": "Chọn nhiều"
+      "label": "Chế độ chọn"
+    },
+    "select_all_checkbox": {
+      "label_all": "Chọn tất cả",
+      "label_none": "Bỏ chọn tất cả"
     },
     "snack_bar": {
       "message": "{{count}} môn đã được chọn"
@@ -26,7 +31,9 @@
     "sort_name_asc": "Sắp xếp tên thứ tự tăng dần",
     "sort_name_desc": "Sắp xếp tên thứ tự giảm dần",
     "sort_date_asc": "Sắp xếp ngày thứ tự tăng dần",
-    "sort_date_desc": "Sắp xếp ngày thứ tự giảm dần"
+    "sort_date_desc": "Sắp xếp ngày thứ tự giảm dần",
+    "sort_name": "Tên",
+    "sort_date": "Ngày"
   },
   "course_card": {
     "description": "Số bài kiểm tra: {{count}}",

@@ -12,11 +12,17 @@
   "filter": {
     "search_input": {
       "placeholder": "Search by course name"
-    }
+    },
+    "showing_count": "Showing {{num}} of {{count}} course",
+    "showing_count_plural": "Showing {{num}} of {{count}} courses"
   },
   "select_mode": {
     "select_switch": {
-      "label": "Select multiple"
+      "label": "Select mode"
+    },
+    "select_all_checkbox": {
+      "label_all": "Select all",
+      "label_none": "Deselect all"
     },
     "snack_bar": {
       "message": "{{count}} course selected",
@@ -27,7 +33,9 @@
     "sort_name_asc": "Sort by name ascending",
     "sort_name_desc": "Sort by name descending",
     "sort_date_asc": "Sort by date ascending",
-    "sort_date_desc": "Sort by date descending"
+    "sort_date_desc": "Sort by date descending",
+    "sort_name": "Name",
+    "sort_date": "Date"
   },
   "course_card": {
     "description": "No. assessments: {{count}}",

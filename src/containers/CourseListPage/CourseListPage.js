@@ -16,6 +16,8 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Typography,
+  Box,
 } from "@material-ui/core";
 import {
   ArrowDownward as ArrowDownwardIcon,
@@ -103,21 +105,25 @@ export const CourseListPage = () => {
   const sortOptions = [
     {
       label: t("sort.sort_name_asc", "Sort by name ascending"),
+      typeLabel: t("sort.sort_name", "Name"),
       type: "name",
       direction: "asc",
     },
     {
       label: t("sort.sort_name_desc", "Sort by name descending"),
+      typeLabel: t("sort.sort_name", "Name"),
       type: "name",
       direction: "desc",
     },
     {
       label: t("sort.sort_date_asc", "Sort by date ascending"),
+      typeLabel: t("sort.sort_date", "Date"),
       type: "createdAt",
       direction: "asc",
     },
     {
       label: t("sort.sort_date_desc", "Sort by date descending"),
+      typeLabel: t("sort.sort_date", "Date"),
       type: "createdAt",
       direction: "desc",
     },
@@ -134,8 +140,18 @@ export const CourseListPage = () => {
     text: "",
     sortIndex: 0,
   });
-
   const [filterMenu, setFilterMenu] = useState(null);
+
+  const filteredCourses = courses
+    .filter((course) =>
+      course.name.toLowerCase().includes(filters.text.toLowerCase()),
+    )
+    .sort((a, b) => {
+      const { direction, type } = sortOptions[filters.sortIndex];
+      return direction === "asc"
+        ? (a[type] || "").localeCompare(b[type] || "")
+        : (b[type] || "").localeCompare(a[type] || "");
+    });
 
   const handleCloseDeleteConfirm = () => {
     // Prevent flashes of text if items array is cleared out
@@ -225,15 +241,8 @@ export const CourseListPage = () => {
           fullWidth
         />
       </Grid>
-      <Grid
-        item
-        container
-        xs={12}
-        spacing={1}
-        justify="space-between"
-        alignItems="center"
-      >
-        <Grid item container xs={12} sm={6} justify="flex-start">
+      <Grid item container xs={12} justify="space-between" alignItems="center">
+        <Grid item container xs={6} justify="flex-start">
           <FormControlLabel
             control={
               <Switch
@@ -241,13 +250,53 @@ export const CourseListPage = () => {
                 onChange={handleToggleSelectMode}
                 name="select-mode"
                 color="primary"
-                size="small"
               />
             }
             label={t("select_mode.select_switch.label", "Select multiple")}
           />
         </Grid>
-        <Grid item container xs={12} sm={6} justify="flex-end">
+        <Grid item container xs={6} justify="flex-end">
+          {selectMode && (
+            <FormControlLabel
+              control={
+                <Checkbox
+                  indeterminate={
+                    selected.length < courses.length && selected.length > 0
+                  }
+                  checked={selected.length > 0}
+                  onChange={handleSelectAll}
+                  color="primary"
+                  name="select-all"
+                />
+              }
+              label={
+                selected.length === courses.length
+                  ? t(
+                      "select_mode.select_all_checkbox.label_none",
+                      "Deselect all",
+                    )
+                  : t("select_mode.select_all_checkbox.label_all", "Select all")
+              }
+              style={{
+                marginRight: 0,
+              }}
+            />
+          )}
+        </Grid>
+      </Grid>
+      <Grid container item xs={12} justify="space-between" alignItems="center">
+        <Grid item container xs={6} justify="flex-start">
+          <Box fontStyle="italic">
+            <Typography variant="body2" color="textSecondary">
+              {t("filter.showing_count", {
+                num: filteredCourses.length,
+                count: courses.length,
+                defaultValue: `Showing ${filteredCourses.length} of ${courses.length} courses`,
+              })}
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item container xs={6} justify="flex-end">
           <Button
             aria-haspopup="true"
             aria-controls="sort-menu"
@@ -262,7 +311,7 @@ export const CourseListPage = () => {
               )
             }
           >
-            {sortOptions[filters.sortIndex].label}
+            {sortOptions[filters.sortIndex].typeLabel}
           </Button>
           <Menu
             id="sort-menu"
@@ -283,17 +332,8 @@ export const CourseListPage = () => {
           </Menu>
         </Grid>
       </Grid>
-      {courses
-        .filter((course) =>
-          course.name.toLowerCase().includes(filters.text.toLowerCase()),
-        )
-        .sort((a, b) => {
-          const { direction, type } = sortOptions[filters.sortIndex];
-          return direction === "asc"
-            ? (a[type] || "").localeCompare(b[type] || "")
-            : (b[type] || "").localeCompare(a[type] || "");
-        })
-        .map((course) => (
+      <Grid item container spacing={2}>
+        {filteredCourses.map((course) => (
           <Grid key={course.id} item xs={12} sm={6} md={4}>
             <CourseCard
               course={course}
@@ -305,29 +345,14 @@ export const CourseListPage = () => {
             />
           </Grid>
         ))}
+      </Grid>
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={selectMode}
-        message={
-          <FormControlLabel
-            control={
-              <Checkbox
-                indeterminate={
-                  selected.length < courses.length && selected.length > 0
-                }
-                checked={selected.length > 0}
-                onChange={handleSelectAll}
-                color="primary"
-                name="select-all"
-                size="small"
-              />
-            }
-            label={t("select_mode.snack_bar.message", {
-              count: selected.length,
-              defaultValue: `${selected.length} courses selected`,
-            })}
-          />
-        }
+        message={t("select_mode.snack_bar.message", {
+          count: selected.length,
+          defaultValue: `${selected.length} courses selected`,
+        })}
         action={
           <Button
             color="primary"
@@ -336,6 +361,7 @@ export const CourseListPage = () => {
             aria-label="delete-multiple"
             disabled={selected.length === 0}
             onClick={() => handleDeleteConfirm(selected)}
+            size="small"
           >
             {t("button.delete", "Delete")}
           </Button>
