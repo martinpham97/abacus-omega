@@ -9,6 +9,7 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@material-ui/core";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import {
   CheckCircleOutline as CheckCircleOutlineIcon,
   CheckCircle as CheckCircleIcon,
@@ -18,6 +19,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 import { course as courseType } from "types";
+import { deleteButtonTheme } from "config/theme";
 
 import useStyles from "./styles";
 
@@ -75,21 +77,23 @@ export const CourseCard = ({
         <CardActions className={classes.cardActions}>
           <Button
             size="small"
-            color="primary"
             aria-label="edit-course"
             startIcon={<EditIcon />}
             onClick={() => handleEdit(course.id)}
           >
             {t("button.edit", "Edit")}
           </Button>
-          <Button
-            size="small"
-            aria-label="delete-course"
-            startIcon={<DeleteIcon />}
-            onClick={() => handleDelete(course.id)}
-          >
-            {t("button.delete", "Delete")}
-          </Button>
+          <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
+            <Button
+              size="small"
+              color="primary"
+              aria-label="delete-course"
+              startIcon={<DeleteIcon />}
+              onClick={() => handleDelete(course.id)}
+            >
+              {t("button.delete", "Delete")}
+            </Button>
+          </ThemeProvider>
         </CardActions>
       </div>
     </Card>

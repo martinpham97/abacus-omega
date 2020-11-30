@@ -4,6 +4,16 @@
       "title": "Save course"
     }
   },
+  "course_list": {
+    "delete_confirm_dialog": {
+      "title_multiple": "Delete selected courses?",
+      "title": "Delete this course?",
+      "content_multiple": "Are you sure you want to delete {{count}} course?",
+      "content_multiple_plural": "Are you sure you want to delete {{count}} courses?",
+      "content": "Are you sure you want to delete {{course}}?",
+      "content_default": "Are you sure you want to delete this course?"
+    }
+  },
   "not_found": {
     "title": "404 - NOT FOUND",
     "description": "The content you're looking for could not be found on this page",

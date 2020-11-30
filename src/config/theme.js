@@ -1,4 +1,6 @@
-const theme = {
+import { red } from "@material-ui/core/colors";
+
+export const theme = {
   palette: {
     primary: {
       light: "#ffff72",
@@ -12,6 +14,12 @@ const theme = {
       dark: "#000000",
       contrastText: "#ffffff",
     },
+  },
+};
+
+export const deleteButtonTheme = {
+  palette: {
+    primary: red,
   },
 };
 

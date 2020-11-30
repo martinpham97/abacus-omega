@@ -19,12 +19,15 @@ import {
   Typography,
   Box,
 } from "@material-ui/core";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import {
   ArrowDownward as ArrowDownwardIcon,
   ArrowUpward as ArrowUpwardIcon,
   Search as SearchIcon,
 } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
+
+import { deleteButtonTheme } from "config/theme";
 
 import CourseCard from "./components/CourseCard/CourseCard";
 
@@ -100,30 +103,30 @@ const courses = [
 ];
 
 export const CourseListPage = () => {
-  const { t } = useTranslation("app");
+  const { t } = useTranslation(["app", "pages"]);
 
   const sortOptions = [
     {
-      label: t("sort.sort_name_asc", "Sort by name ascending"),
-      typeLabel: t("sort.sort_name", "Name"),
+      label: t("app:sort.sort_name_asc", "Sort by name ascending"),
+      typeLabel: t("app:sort.sort_name", "Name"),
       type: "name",
       direction: "asc",
     },
     {
-      label: t("sort.sort_name_desc", "Sort by name descending"),
-      typeLabel: t("sort.sort_name", "Name"),
+      label: t("app:sort.sort_name_desc", "Sort by name descending"),
+      typeLabel: t("app:sort.sort_name", "Name"),
       type: "name",
       direction: "desc",
     },
     {
-      label: t("sort.sort_date_asc", "Sort by date ascending"),
-      typeLabel: t("sort.sort_date", "Date"),
+      label: t("app:sort.sort_date_asc", "Sort by date ascending"),
+      typeLabel: t("app:sort.sort_date", "Date"),
       type: "createdAt",
       direction: "asc",
     },
     {
-      label: t("sort.sort_date_desc", "Sort by date descending"),
-      typeLabel: t("sort.sort_date", "Date"),
+      label: t("app:sort.sort_date_desc", "Sort by date descending"),
+      typeLabel: t("app:sort.sort_date", "Date"),
       type: "createdAt",
       direction: "desc",
     },
@@ -252,7 +255,7 @@ export const CourseListPage = () => {
                 color="primary"
               />
             }
-            label={t("select_mode.select_switch.label", "Select multiple")}
+            label={t("app:select_mode.select_switch.label", "Select multiple")}
           />
         </Grid>
         <Grid item container xs={6} justify="flex-end">
@@ -275,7 +278,10 @@ export const CourseListPage = () => {
                       "select_mode.select_all_checkbox.label_none",
                       "Deselect all",
                     )
-                  : t("select_mode.select_all_checkbox.label_all", "Select all")
+                  : t(
+                      "app:select_mode.select_all_checkbox.label_all",
+                      "Select all",
+                    )
               }
               style={{
                 marginRight: 0,
@@ -288,7 +294,7 @@ export const CourseListPage = () => {
         <Grid item container xs={6} justify="flex-start">
           <Box fontStyle="italic">
             <Typography variant="body2" color="textSecondary">
-              {t("filter.showing_count", {
+              {t("app:filter.showing_count", {
                 num: filteredCourses.length,
                 count: courses.length,
                 defaultValue: `Showing ${filteredCourses.length} of ${courses.length} courses`,
@@ -349,22 +355,24 @@ export const CourseListPage = () => {
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={selectMode}
-        message={t("select_mode.snack_bar.message", {
+        message={t("app:select_mode.snack_bar.message", {
           count: selected.length,
           defaultValue: `${selected.length} courses selected`,
         })}
         action={
-          <Button
-            color="primary"
-            type="primary"
-            variant="contained"
-            aria-label="delete-multiple"
-            disabled={selected.length === 0}
-            onClick={() => handleDeleteConfirm(selected)}
-            size="small"
-          >
-            {t("button.delete", "Delete")}
-          </Button>
+          <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
+            <Button
+              color="primary"
+              type="primary"
+              variant="contained"
+              aria-label="delete-multiple"
+              disabled={selected.length === 0}
+              onClick={() => handleDeleteConfirm(selected)}
+              size="small"
+            >
+              {t("app:button.delete", "Delete")}
+            </Button>
+          </ThemeProvider>
         }
       />
       <Dialog
@@ -373,22 +381,50 @@ export const CourseListPage = () => {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-          {selectMode ? `Delete selected courses?` : `Delete this course?`}
+          {selectMode
+            ? t(
+                "pages:course_list.delete_confirm_dialog.title_multiple",
+                "Delete selected courses?",
+              )
+            : t(
+                "pages:course_list.delete_confirm_dialog.title",
+                "Delete this course?",
+              )}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            {selectMode
-              ? `Are you sure you want to delete ${selected.length} courses?`
-              : `Are you sure you want to delete ${
-                  courses.find(
-                    (course) => course.id === deleteConfirm.items?.[0],
-                  )?.name || "this course"
-                }?`}
+            {(() => {
+              if (selectMode) {
+                return t(
+                  "pages:course_list.delete_confirm_dialog.content_multiple",
+                  {
+                    count: selected.length,
+                    defaultValue: `Are you sure you want to delete ${selected.length} courses?`,
+                  },
+                );
+              }
+
+              const courseToBeDeleted = courses.find(
+                (course) => course.id === deleteConfirm.items?.[0],
+              );
+
+              if (courseToBeDeleted && courseToBeDeleted.name) {
+                return t("pages:course_list.delete_confirm_dialog.content", {
+                  course: courseToBeDeleted.name,
+                  defaultValue: `Are you sure you want to delete ${courseToBeDeleted.name}?`,
+                });
+              }
+
+              return t(
+                "pages:course_list.delete_confirm_dialog.content_default",
+                "Are you sure you want to delete this course?",
+              );
+            })()}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDeleteConfirm} aria-label="no-delete">
-            No
+            {t("app:button.no", "No")}
           </Button>
           <Button
             onClick={() => {
@@ -398,7 +434,7 @@ export const CourseListPage = () => {
             color="primary"
             aria-label="yes-delete"
           >
-            Yes
+            {t("app:button.yes", "Yes")}
           </Button>
         </DialogActions>
       </Dialog>

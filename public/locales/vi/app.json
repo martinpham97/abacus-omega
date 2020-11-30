@@ -58,7 +58,9 @@
     "edit": "Sửa",
     "add": "Thêm",
     "delete": "Xóa",
-    "calculate": "Tính điểm"
+    "calculate": "Tính điểm",
+    "no": "Không",
+    "yes": "Có"
   },
   "grade_form": {
     "assessments": {

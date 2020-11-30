@@ -5,15 +5,14 @@ import { Remove as RemoveIcon } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
 
 import { useSmallScreen } from "hooks/useSmallScreen";
-
-import theme from "./theme";
+import { deleteButtonTheme } from "config/theme";
 
 export const ResponsiveAddButton = ({ disabled, handleClick }) => {
   const isSmallScreen = useSmallScreen();
   const { t } = useTranslation("app");
 
   return (
-    <ThemeProvider theme={createMuiTheme(theme)}>
+    <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
       {isSmallScreen ? (
         <Button
           variant="contained"

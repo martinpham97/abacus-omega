@@ -60,7 +60,9 @@
     "edit": "Edit",
     "add": "Add",
     "delete": "Delete",
-    "calculate": "Calculate"
+    "calculate": "Calculate",
+    "no": "No",
+    "yes": "Yes"
   },
   "grade_form": {
     "assessments": {
