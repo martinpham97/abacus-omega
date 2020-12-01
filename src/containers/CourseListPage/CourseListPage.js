@@ -157,7 +157,7 @@ export const CourseListPage = () => {
     });
 
   const handleCloseDeleteConfirm = () => {
-    // Prevent flashes of text if items array is cleared out
+    // Prevent text flashing
     setDeleteConfirm((oldConfirm) => ({
       ...oldConfirm,
       isOpen: false,
@@ -165,6 +165,7 @@ export const CourseListPage = () => {
   };
 
   const handleEditCourse = (id) => console.log(id);
+
   const handleDeleteConfirm = (items) => {
     setDeleteConfirm({
       isOpen: true,

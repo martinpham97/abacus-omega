@@ -66,21 +66,6 @@ describe("<CourseCard />", () => {
     expect(screen.queryByText(/no\. assessments: 3/i)).not.toBeNull();
   });
 
-  it("should call handleEdit with correct id on card click", () => {
-    render(
-      <CourseCard
-        course={course}
-        handleEdit={mockHandleEdit}
-        handleDelete={mockHandleDelete}
-        handleSelect={mockHandleSelect}
-      />,
-    );
-
-    fireEvent.click(screen.getByTestId(/card-action-area/i));
-
-    expect(mockHandleEdit).toHaveBeenCalledWith(course.id);
-  });
-
   it("should call handleEdit with correct id on edit button click", () => {
     render(
       <CourseCard

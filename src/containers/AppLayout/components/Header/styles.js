@@ -13,9 +13,6 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       display: "none",
     },
-    "&:hover": {
-      opacity: "0.9",
-    },
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,

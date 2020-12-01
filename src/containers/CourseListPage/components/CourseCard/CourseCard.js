@@ -4,7 +4,6 @@ import {
   Card,
   CardHeader,
   CardActions,
-  CardActionArea,
   Button,
   FormControlLabel,
   Checkbox,
@@ -62,18 +61,13 @@ export const CourseCard = ({
           [classes.disableClick]: selectMode,
         })}
       >
-        <CardActionArea
-          data-testid="card-action-area"
-          onClick={() => handleEdit(course.id)}
-        >
-          <CardHeader
-            title={course.name}
-            subheader={t("course_card.description", {
-              count: nAssessments,
-              defaultValue: `No. assessments: ${nAssessments}`,
-            })}
-          />
-        </CardActionArea>
+        <CardHeader
+          title={course.name}
+          subheader={t("course_card.description", {
+            count: nAssessments,
+            defaultValue: `No. assessments: ${nAssessments}`,
+          })}
+        />
         <CardActions className={classes.cardActions}>
           <Button
             size="small"
