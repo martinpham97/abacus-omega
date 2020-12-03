@@ -43,7 +43,7 @@ export const CourseForm = ({ id, course = {}, handleSubmit }) => {
           maxLength: "255",
           required: true,
         }}
-        inputRef={register}
+        inputRef={register()}
         error={!!errors?.name}
         helperText={errors?.name?.message}
       />

@@ -217,7 +217,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
                         isError &&
                         errors.assessments[index]?.description?.message
                       }
-                      inputRef={register}
+                      inputRef={register()}
                       defaultValue={assessment.description}
                     />
                   </Grid>
