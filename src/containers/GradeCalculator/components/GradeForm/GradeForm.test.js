@@ -78,7 +78,7 @@ describe("<GradeForm />", () => {
       await fireEvent.change(
         screen.getByRole("spinbutton", { name: "desired-grade" }),
         {
-          target: { value: desiredGrade.toString() },
+          target: { value: desiredGrade },
         },
       );
       await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
@@ -265,7 +265,7 @@ describe("<GradeForm />", () => {
       await fireEvent.change(
         screen.getByRole("spinbutton", { name: "weight" }),
         {
-          target: { value: "120" },
+          target: { value: 120 },
         },
       );
       await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
@@ -284,19 +284,19 @@ describe("<GradeForm />", () => {
       await fireEvent.change(
         screen.queryAllByRole("spinbutton", { name: "weight" })[0],
         {
-          target: { value: "50" },
+          target: { value: 50 },
         },
       );
       await fireEvent.change(
         screen.queryAllByRole("spinbutton", { name: "weight" })[1],
         {
-          target: { value: "50" },
+          target: { value: 50 },
         },
       );
       await fireEvent.change(
         screen.queryAllByRole("spinbutton", { name: "weight" })[2],
         {
-          target: { value: "10" },
+          target: { value: 10 },
         },
       );
       await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
@@ -314,13 +314,13 @@ describe("<GradeForm />", () => {
       await fireEvent.change(
         screen.getByRole("spinbutton", { name: "grade" }),
         {
-          target: { value: "10" },
+          target: { value: 10 },
         },
       );
       await fireEvent.change(
         screen.getByRole("spinbutton", { name: "max-grade" }),
         {
-          target: { value: "5" },
+          target: { value: 5 },
         },
       );
       await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
@@ -338,7 +338,7 @@ describe("<GradeForm />", () => {
       await fireEvent.change(
         screen.getByRole("spinbutton", { name: "grade" }),
         {
-          target: { value: "10" },
+          target: { value: 10 },
         },
       );
       await fireEvent.submit(screen.getByLabelText(/calculate-button/i));

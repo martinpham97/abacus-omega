@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 import { Card, CardHeader, CardContent, Grid } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
-import GradeForm from "components/GradeForm/GradeForm";
-import GradeResults from "components/GradeResults/GradeResults";
-
 import { calculateRecommendedGrade } from "utils/course";
+
+import GradeForm from "./components/GradeForm/GradeForm";
+import GradeResults from "./components/GradeResults/GradeResults";
 
 import useStyles from "./styles";
 
 export const GradeCalculator = ({ title, subheader, action, handleSave }) => {
   const classes = useStyles();
-  const { t } = useTranslation(["app", "pages"]);
+  const { t } = useTranslation("app");
 
   const [course, setCourse] = useState({});
 
@@ -22,11 +22,15 @@ export const GradeCalculator = ({ title, subheader, action, handleSave }) => {
       desiredGrade,
     );
 
-    setCourse({
+    const courseWithRecommended = {
       assessments,
       desiredGrade,
       recommendedGrade,
-    });
+    };
+
+    setCourse({ ...courseWithRecommended });
+
+    handleSave({ ...courseWithRecommended });
   };
 
   return (
@@ -34,11 +38,11 @@ export const GradeCalculator = ({ title, subheader, action, handleSave }) => {
       <Grid item xs={12}>
         <Card className={classes.card}>
           <CardHeader
-            title={title || t("app:grade_calculator.title", "Grade Calculator")}
+            title={title || t("grade_calculator.title", "Grade Calculator")}
             subheader={
               subheader ||
-              t("app:grade_calculator.description", {
-                button: t("app:button.calculate", "Calculate"),
+              t("grade_calculator.description", {
+                button: t("button.calculate", "Calculate"),
                 defaultValue: "Add your course assessments to calculate",
               })
             }
@@ -52,19 +56,10 @@ export const GradeCalculator = ({ title, subheader, action, handleSave }) => {
           </CardContent>
         </Card>
       </Grid>
-      {course.recommendedGrade !== undefined && course.recommendedGrade > 0 && (
+      {course.recommendedGrade && (
         <Grid item xs={12}>
           <Card className={classes.card}>
-            <CardHeader
-              title="Results"
-              subheader={`In order to get ${
-                course.desiredGrade
-              }%, you will need at least a
-              total of ${course.recommendedGrade.toFixed(
-                2,
-              )}% in all of your future
-              assessments`}
-            />
+            <CardHeader title={t("grade_calculator.results", "Results")} />
             <CardContent>
               <GradeResults course={course} />
             </CardContent>

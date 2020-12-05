@@ -3,14 +3,6 @@ import { useState } from "react";
 import {
   Grid,
   Button,
-  Menu,
-  MenuItem,
-  TextField,
-  InputAdornment,
-  Snackbar,
-  FormControlLabel,
-  Switch,
-  Checkbox,
   Dialog,
   DialogActions,
   DialogContent,
@@ -19,16 +11,13 @@ import {
   Typography,
   Box,
 } from "@material-ui/core";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import {
-  ArrowDownward as ArrowDownwardIcon,
-  ArrowUpward as ArrowUpwardIcon,
-  Search as SearchIcon,
-} from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
 
-import { deleteButtonTheme } from "config/theme";
-
+import CourseSearchInput from "./components/CourseSearchInput/CourseSearchInput";
+import SelectModeSwitch from "./components/SelectModeSwitch/SelectModeSwitch";
+import SelectAllCheckbox from "./components/SelectAllCheckbox/SelectAllCheckbox";
+import SortMenu from "./components/SortMenu/SortMenu";
+import SelectModeSnackbar from "./components/SelectModeSnackbar/SelectModeSnackbar";
 import CourseCard from "./components/CourseCard/CourseCard";
 
 const courses = [
@@ -105,33 +94,6 @@ const courses = [
 export const CourseListPage = () => {
   const { t } = useTranslation(["app", "pages"]);
 
-  const sortOptions = [
-    {
-      label: t("app:sort.sort_name_asc", "Sort by name ascending"),
-      typeLabel: t("app:sort.sort_name", "Name"),
-      type: "name",
-      direction: "asc",
-    },
-    {
-      label: t("app:sort.sort_name_desc", "Sort by name descending"),
-      typeLabel: t("app:sort.sort_name", "Name"),
-      type: "name",
-      direction: "desc",
-    },
-    {
-      label: t("app:sort.sort_date_asc", "Sort by date ascending"),
-      typeLabel: t("app:sort.sort_date", "Date"),
-      type: "createdAt",
-      direction: "asc",
-    },
-    {
-      label: t("app:sort.sort_date_desc", "Sort by date descending"),
-      typeLabel: t("app:sort.sort_date", "Date"),
-      type: "createdAt",
-      direction: "desc",
-    },
-  ];
-
   // const courses = useSelector((state) => state.courses);
   const [deleteConfirm, setDeleteConfirm] = useState({
     isOpen: false,
@@ -141,7 +103,8 @@ export const CourseListPage = () => {
   const [selected, setSelected] = useState([]);
   const [filters, setFilters] = useState({
     text: "",
-    sortIndex: 0,
+    type: "name",
+    direction: "asc",
   });
   const [filterMenu, setFilterMenu] = useState(null);
 
@@ -150,7 +113,7 @@ export const CourseListPage = () => {
       course.name.toLowerCase().includes(filters.text.toLowerCase()),
     )
     .sort((a, b) => {
-      const { direction, type } = sortOptions[filters.sortIndex];
+      const { direction, type } = filters;
       return direction === "asc"
         ? (a[type] || "").localeCompare(b[type] || "")
         : (b[type] || "").localeCompare(a[type] || "");
@@ -177,14 +140,15 @@ export const CourseListPage = () => {
     console.log(deleteConfirm.items);
   };
 
-  const handleFilterButtonClick = (event) => {
+  const handleFilterMenuOpen = (event) => {
     setFilterMenu(event.currentTarget);
   };
 
-  const handleFilterMenuClick = (index) => {
+  const handleFilterMenuItemClick = ({ direction, type }) => {
     setFilters((oldFilters) => ({
       ...oldFilters,
-      sortIndex: index,
+      direction,
+      type,
     }));
     setFilterMenu(null);
   };
@@ -196,7 +160,7 @@ export const CourseListPage = () => {
     }));
   };
 
-  const handleCloseFilterMenu = () => {
+  const handleFilterMenuClose = () => {
     setFilterMenu(null);
   };
 
@@ -224,69 +188,21 @@ export const CourseListPage = () => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <TextField
-          type="search"
-          variant="outlined"
-          placeholder={t(
-            "filter.search_input.placeholder",
-            "Search by course name",
-          )}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-          inputProps={{
-            "aria-label": "search",
-          }}
-          onChange={(e) => handleFilterTextChange(e.target.value)}
-          fullWidth
-        />
+        <CourseSearchInput handleTextChange={handleFilterTextChange} />
       </Grid>
       <Grid item container xs={12} justify="space-between" alignItems="center">
         <Grid item container xs={6} justify="flex-start">
-          <FormControlLabel
-            control={
-              <Switch
-                checked={selectMode}
-                onChange={handleToggleSelectMode}
-                name="select-mode"
-                color="primary"
-              />
-            }
-            label={t("app:select_mode.select_switch.label", "Select multiple")}
+          <SelectModeSwitch
+            selectMode={selectMode}
+            handleToggleSelectMode={handleToggleSelectMode}
           />
         </Grid>
         <Grid item container xs={6} justify="flex-end">
           {selectMode && (
-            <FormControlLabel
-              control={
-                <Checkbox
-                  indeterminate={
-                    selected.length < courses.length && selected.length > 0
-                  }
-                  checked={selected.length > 0}
-                  onChange={handleSelectAll}
-                  color="primary"
-                  name="select-all"
-                />
-              }
-              label={
-                selected.length === courses.length
-                  ? t(
-                      "select_mode.select_all_checkbox.label_none",
-                      "Deselect all",
-                    )
-                  : t(
-                      "app:select_mode.select_all_checkbox.label_all",
-                      "Select all",
-                    )
-              }
-              style={{
-                marginRight: 0,
-              }}
+            <SelectAllCheckbox
+              selected={selected.length}
+              total={courses.length}
+              handleSelectAll={handleSelectAll}
             />
           )}
         </Grid>
@@ -304,39 +220,14 @@ export const CourseListPage = () => {
           </Box>
         </Grid>
         <Grid item container xs={6} justify="flex-end">
-          <Button
-            aria-haspopup="true"
-            aria-controls="sort-menu"
-            aria-label="sort-by"
-            size="small"
-            onClick={handleFilterButtonClick}
-            startIcon={
-              sortOptions[filters.sortIndex].direction === "asc" ? (
-                <ArrowUpwardIcon />
-              ) : (
-                <ArrowDownwardIcon />
-              )
-            }
-          >
-            {sortOptions[filters.sortIndex].typeLabel}
-          </Button>
-          <Menu
-            id="sort-menu"
+          <SortMenu
             anchorEl={filterMenu}
-            keepMounted
-            open={Boolean(filterMenu)}
-            onClose={handleCloseFilterMenu}
-          >
-            {sortOptions.map((option, index) => (
-              <MenuItem
-                key={option.label}
-                selected={index === filters.sortIndex}
-                onClick={() => handleFilterMenuClick(index)}
-              >
-                {option.label}
-              </MenuItem>
-            ))}
-          </Menu>
+            sortDirection={filters.direction}
+            sortType={filters.type}
+            handleMenuClose={handleFilterMenuClose}
+            handleMenuOpen={handleFilterMenuOpen}
+            handleMenuItemClick={handleFilterMenuItemClick}
+          />
         </Grid>
       </Grid>
       <Grid item container spacing={2}>
@@ -353,28 +244,10 @@ export const CourseListPage = () => {
           </Grid>
         ))}
       </Grid>
-      <Snackbar
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      <SelectModeSnackbar
         open={selectMode}
-        message={t("app:select_mode.snack_bar.message", {
-          count: selected.length,
-          defaultValue: `${selected.length} courses selected`,
-        })}
-        action={
-          <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
-            <Button
-              color="primary"
-              type="primary"
-              variant="contained"
-              aria-label="delete-multiple"
-              disabled={selected.length === 0}
-              onClick={() => handleDeleteConfirm(selected)}
-              size="small"
-            >
-              {t("app:button.delete", "Delete")}
-            </Button>
-          </ThemeProvider>
-        }
+        selected={selected.length}
+        handleDeleteClick={() => handleDeleteConfirm(selected)}
       />
       <Dialog
         open={deleteConfirm.isOpen}

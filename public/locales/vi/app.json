@@ -43,7 +43,17 @@
   },
   "grade_calculator": {
     "title": "Công cụ tính điểm",
-    "description": "Nhập bài kiểm tra và nhấn '{{button}}' để thấy kết quả"
+    "description": "Nhập bài kiểm tra và nhấn '{{button}}' để thấy kết quả",
+    "results": "Kết quả"
+  },
+  "grade_results_list": {
+    "list_header": "Chi tiết",
+    "assessment_placeholder": "Bài kiểm tra #{{num}}",
+    "results": "Kết quả: {{grade}}/{{maxGrade}} ({{resultsPercentage}}%)",
+    "recommended_with_max_grade": "Đề xuất: {{recommended}}/{{maxGrade}} ({{recommendedPercentage}}%)",
+    "recommended": "Đề xuất: {{recommended}}%",
+    "future_assessments": "Bài kiểm tra còn lại",
+    "future_recommendation": "Đề xuất: {{recommended}}% cho mỗi bài kiểm tra còn lại"
   },
   "course_form": {
     "name": {

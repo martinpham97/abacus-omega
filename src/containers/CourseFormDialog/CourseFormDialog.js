@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
-import CourseForm from "components/CourseForm/CourseForm";
+import CourseForm from "./components/CourseForm/CourseForm";
 import { course as courseType } from "types";
 
 export const CourseFormDialog = ({

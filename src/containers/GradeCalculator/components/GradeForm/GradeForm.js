@@ -79,6 +79,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
               is: (val) => !!val,
               then: yup
                 .number()
+                .nullable()
                 .min(
                   yup.ref("grade"),
                   t(

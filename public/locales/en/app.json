@@ -45,7 +45,17 @@
   },
   "grade_calculator": {
     "title": "Grade Calculator",
-    "description": "Add your course assessments and click '{{button}}' to view the results"
+    "description": "Add your course assessments and click '{{button}}' to view the results",
+    "results": "Results"
+  },
+  "grade_results_list": {
+    "list_header": "Details",
+    "assessment_placeholder": "Assessment #{{num}}",
+    "results": "Results: {{grade}}/{{maxGrade}} ({{resultsPercentage}}%)",
+    "recommended_with_max_grade": "Recommended: {{recommended}}/{{maxGrade}} ({{recommendedPercentage}}%)",
+    "recommended": "Recommended: {{recommended}}%",
+    "future_assessments": "Remaining assessments",
+    "future_recommendation": "Recommended: {{recommended}}% for each remaining assessment"
   },
   "course_form": {
     "name": {

@@ -20,5 +20,5 @@ export const calculateRecommendedGrade = (assessments, desiredGrade) => {
   }
   const remainingWeights = 100 - weights;
   recommendedGrade = ((desiredGrade - knownGrades) / remainingWeights) * 100;
-  return recommendedGrade;
+  return Math.round(recommendedGrade);
 };

@@ -19,6 +19,10 @@ export const HomePage = () => {
 
   let assessmentData = {};
 
+  const handleSave = (data) => {
+    assessmentData = { ...assessmentData, ...data };
+  };
+
   const handleSubmitCourse = ({ name }) => {
     dispatch(
       addCourse({
@@ -28,11 +32,6 @@ export const HomePage = () => {
     );
     setIsCourseFormOpen(false);
     history.push("/courses");
-  };
-
-  const handleSave = (data) => {
-    console.log(data);
-    assessmentData = data;
   };
 
   return (
