@@ -1,6 +1,7 @@
 import { screen, fireEvent, render, waitFor } from "@testing-library/react";
 import { axe } from "jest-axe";
 
+import { courseWithId as course } from "__fixtures__/courses";
 import { MAX_ASSESSMENTS_PER_COURSE } from "config/constants";
 import * as useSmallScreenHook from "hooks/useSmallScreen";
 
@@ -9,35 +10,11 @@ import GradeForm from "./GradeForm";
 describe("<GradeForm />", () => {
   let mockHandleSubmit;
   let mockHandleSave;
-  let course;
 
   beforeEach(() => {
     jest.spyOn(useSmallScreenHook, "useSmallScreen").mockReturnValue(false);
     mockHandleSubmit = jest.fn();
     mockHandleSave = jest.fn();
-    course = {
-      assessments: [
-        {
-          description: "Assignment 1",
-          weight: 20,
-          maxGrade: 50,
-          grade: 41,
-        },
-        {
-          description: "Assignment 2",
-          weight: 10,
-          maxGrade: 25,
-          grade: 15,
-        },
-        {
-          description: "Mid-term Exam",
-          weight: 30,
-          maxGrade: 80,
-          grade: 56,
-        },
-      ],
-      desiredGrade: 60,
-    };
   });
 
   afterEach(() => {

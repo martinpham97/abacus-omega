@@ -1,43 +1,19 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 
+import { courseWithId as course } from "__fixtures__/courses";
+
 import CourseCard from "./CourseCard";
 
 describe("<CourseCard />", () => {
   let mockHandleEdit;
   let mockHandleDelete;
   let mockHandleSelect;
-  let course;
 
   beforeEach(() => {
     mockHandleEdit = jest.fn();
     mockHandleDelete = jest.fn();
     mockHandleSelect = jest.fn();
-    course = {
-      id: "some-id",
-      name: "COMP1511",
-      assessments: [
-        {
-          description: "Assignment 1",
-          weight: 20,
-          maxGrade: 50,
-          grade: 41,
-        },
-        {
-          description: "Assignment 2",
-          weight: 10,
-          maxGrade: 25,
-          grade: 15,
-        },
-        {
-          description: "Mid-term Exam",
-          weight: 30,
-          maxGrade: 80,
-          grade: 56,
-        },
-      ],
-      desiredGrade: 60,
-    };
   });
 
   it("should display course name", () => {

@@ -1,42 +1,6 @@
-import coursesReducer, { addCourse } from "./coursesSlice";
+import { coursesWithoutIds as courses } from "__fixtures__/courses";
 
-const courses = [
-  {
-    name: "MATH1081",
-    assessments: [
-      {
-        description: "Assignment 1",
-        weight: 20,
-        maxGrade: 50,
-        grade: 41,
-      },
-      {
-        description: "Assignment 2",
-        weight: 10,
-        maxGrade: 25,
-        grade: 15,
-      },
-    ],
-    desiredGrade: 60,
-  },
-  {
-    name: "COMP1511",
-    assessments: [],
-    desiredGrade: null,
-  },
-  {
-    name: "COMP4920",
-    assessments: [
-      {
-        description: "Assignment 1",
-        weight: 10,
-        maxGrade: 20,
-        grade: 12,
-      },
-    ],
-    desiredGrade: 90,
-  },
-];
+import coursesReducer, { addCourse } from "./coursesSlice";
 
 describe("courses reducer", () => {
   it("should handle initial state", () => {
