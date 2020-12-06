@@ -1,0 +1,940 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppLayout /> should change language when language is selected 1`] = `
+<div>
+  <div
+    class="makeStyles-root-154"
+  >
+    <header
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-160 mui-fixed MuiPaper-elevation4"
+      style=""
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-161 MuiToolbar-gutters"
+      >
+        <button
+          aria-label="toggle-sidebar"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-164 makeStyles-headerMenuButtonCollapse-165 MuiIconButton-colorInherit"
+          tabindex="0"
+          title="Toggle Sidebar"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root makeStyles-buttonIcon-166"
+              data-testid="sidebar-open-svg"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <a
+          aria-current="page"
+          class="MuiTypography-root makeStyles-logotype-159 MuiTypography-h6 MuiTypography-colorInherit active"
+          href="/"
+        >
+          Pass or Fail
+        </a>
+        <div
+          class="makeStyles-grow-162"
+        />
+        <button
+          aria-controls="lang-menu"
+          aria-haspopup="true"
+          aria-label="change-language"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          tabindex="0"
+          title="Change Language"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"
+              />
+            </svg>
+            <span
+              class="makeStyles-language-163"
+            >
+              English
+            </span>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          aria-label="toggle-dark"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          title="Toggle Dark Mode"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              data-testid="moon-svg"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </header>
+    <div
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-167 makeStyles-drawerClose-169"
+    >
+      <div
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerClose-169 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      >
+        <div
+          class="makeStyles-toolbar-170"
+        />
+        <div
+          class="makeStyles-mobileBackButton-171"
+        >
+          <button
+            aria-label="toggle-sidebar"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-164 makeStyles-headerMenuButtonCollapse-165 MuiIconButton-colorInherit"
+            tabindex="0"
+            title="Toggle Sidebar"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root makeStyles-buttonIcon-166"
+                data-testid="sidebar-open-svg"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <ul
+          class="MuiList-root MuiList-padding"
+          data-testid="sidebar-list"
+        >
+          <a
+            aria-current="page"
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-172 MuiListItem-gutters MuiListItem-button Mui-selected active"
+            href="/"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-174 makeStyles-linkIconActive-175"
+              title="Home"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-176 makeStyles-linkTextActive-177 makeStyles-linkTextHidden-178 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Home
+              </span>
+            </div>
+          </a>
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-172 MuiListItem-gutters MuiListItem-button"
+            href="/courses"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-174"
+              title="Courses"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-176 makeStyles-linkTextHidden-178 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Courses
+              </span>
+            </div>
+          </a>
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-172 MuiListItem-gutters MuiListItem-button"
+            href="/settings"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-174"
+              title="Settings"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-176 makeStyles-linkTextHidden-178 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Settings
+              </span>
+            </div>
+          </a>
+          <hr
+            class="MuiDivider-root makeStyles-divider-180"
+            data-testid="divider"
+          />
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-172 MuiListItem-gutters MuiListItem-button"
+            href="/about"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-174"
+              title="About"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-176 makeStyles-linkTextHidden-178 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                About
+              </span>
+            </div>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <main
+      class="makeStyles-content-155"
+    >
+      <div
+        class="makeStyles-appBarSpacer-157"
+      />
+      <div
+        class="MuiContainer-root makeStyles-container-158 MuiContainer-maxWidthLg"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-181"
+        />
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mode button 1`] = `
+<div>
+  <div
+    class="makeStyles-root-57"
+  >
+    <header
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-132 mui-fixed MuiPaper-elevation4"
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-133 MuiToolbar-gutters"
+      >
+        <button
+          aria-label="toggle-sidebar"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-136 makeStyles-headerMenuButtonCollapse-137 MuiIconButton-colorInherit"
+          tabindex="0"
+          title="Toggle Sidebar"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root makeStyles-buttonIcon-138"
+              data-testid="sidebar-open-svg"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <a
+          aria-current="page"
+          class="MuiTypography-root makeStyles-logotype-131 MuiTypography-h6 MuiTypography-colorInherit active"
+          href="/"
+        >
+          Pass or Fail
+        </a>
+        <div
+          class="makeStyles-grow-134"
+        />
+        <button
+          aria-controls="lang-menu"
+          aria-haspopup="true"
+          aria-label="change-language"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          tabindex="0"
+          title="Change Language"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"
+              />
+            </svg>
+            <span
+              class="makeStyles-language-135"
+            >
+              English
+            </span>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          aria-label="toggle-dark"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          title="Toggle Dark Mode"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              data-testid="moon-svg"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </header>
+    <div
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-139 makeStyles-drawerClose-141"
+    >
+      <div
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerClose-141 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      >
+        <div
+          class="makeStyles-toolbar-142"
+        />
+        <div
+          class="makeStyles-mobileBackButton-143"
+        >
+          <button
+            aria-label="toggle-sidebar"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-136 makeStyles-headerMenuButtonCollapse-137 MuiIconButton-colorInherit"
+            tabindex="0"
+            title="Toggle Sidebar"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root makeStyles-buttonIcon-138"
+                data-testid="sidebar-open-svg"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <ul
+          class="MuiList-root MuiList-padding"
+          data-testid="sidebar-list"
+        >
+          <a
+            aria-current="page"
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-144 MuiListItem-gutters MuiListItem-button Mui-selected active"
+            href="/"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-146 makeStyles-linkIconActive-147"
+              title="Home"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-148 makeStyles-linkTextActive-149 makeStyles-linkTextHidden-150 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Home
+              </span>
+            </div>
+          </a>
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-144 MuiListItem-gutters MuiListItem-button"
+            href="/courses"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-146"
+              title="Courses"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-148 makeStyles-linkTextHidden-150 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Courses
+              </span>
+            </div>
+          </a>
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-144 MuiListItem-gutters MuiListItem-button"
+            href="/settings"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-146"
+              title="Settings"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-148 makeStyles-linkTextHidden-150 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Settings
+              </span>
+            </div>
+          </a>
+          <hr
+            class="MuiDivider-root makeStyles-divider-152"
+            data-testid="divider"
+          />
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-144 MuiListItem-gutters MuiListItem-button"
+            href="/about"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-146"
+              title="About"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-148 makeStyles-linkTextHidden-150 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                About
+              </span>
+            </div>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <main
+      class="makeStyles-content-58"
+    >
+      <div
+        class="makeStyles-appBarSpacer-60"
+      />
+      <div
+        class="MuiContainer-root makeStyles-container-61 MuiContainer-maxWidthLg"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-153"
+        />
+      </div>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
+<div>
+  <div
+    class="makeStyles-root-29"
+  >
+    <header
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-35 mui-fixed MuiPaper-elevation4"
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-36 MuiToolbar-gutters"
+      >
+        <button
+          aria-label="toggle-sidebar"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-39 makeStyles-headerMenuButtonCollapse-40 MuiIconButton-colorInherit"
+          tabindex="0"
+          title="Toggle Sidebar"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root makeStyles-buttonIcon-41"
+              data-testid="sidebar-close-svg"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <a
+          aria-current="page"
+          class="MuiTypography-root makeStyles-logotype-34 MuiTypography-h6 MuiTypography-colorInherit active"
+          href="/"
+        >
+          Pass or Fail
+        </a>
+        <div
+          class="makeStyles-grow-37"
+        />
+        <button
+          aria-controls="lang-menu"
+          aria-haspopup="true"
+          aria-label="change-language"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
+          tabindex="0"
+          title="Change Language"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"
+              />
+            </svg>
+            <span
+              class="makeStyles-language-38"
+            >
+              English
+            </span>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          aria-label="toggle-dark"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          title="Toggle Dark Mode"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              data-testid="sun-svg"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </header>
+    <div
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-42 makeStyles-drawerOpen-43"
+    >
+      <div
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerOpen-43 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+      >
+        <div
+          class="makeStyles-toolbar-45"
+        />
+        <div
+          class="makeStyles-mobileBackButton-46"
+        >
+          <button
+            aria-label="toggle-sidebar"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-39 makeStyles-headerMenuButtonCollapse-40 MuiIconButton-colorInherit"
+            tabindex="0"
+            title="Toggle Sidebar"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root makeStyles-buttonIcon-41"
+                data-testid="sidebar-close-svg"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <ul
+          class="MuiList-root MuiList-padding"
+          data-testid="sidebar-list"
+        >
+          <a
+            aria-current="page"
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-47 MuiListItem-gutters MuiListItem-button Mui-selected active"
+            href="/"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-49 makeStyles-linkIconActive-50"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-51 makeStyles-linkTextActive-52 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Home
+              </span>
+            </div>
+          </a>
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-47 MuiListItem-gutters MuiListItem-button"
+            href="/courses"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-49"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-51 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Courses
+              </span>
+            </div>
+          </a>
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-47 MuiListItem-gutters MuiListItem-button"
+            href="/settings"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-49"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-51 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                Settings
+              </span>
+            </div>
+          </a>
+          <hr
+            class="MuiDivider-root makeStyles-divider-55"
+            data-testid="divider"
+          />
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root makeStyles-link-47 MuiListItem-gutters MuiListItem-button"
+            href="/about"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiListItemIcon-root makeStyles-linkIcon-49"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiListItemText-root"
+            >
+              <span
+                class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-51 MuiTypography-body1 MuiTypography-displayBlock"
+              >
+                About
+              </span>
+            </div>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <main
+      class="makeStyles-content-30 makeStyles-contentShift-31"
+    >
+      <div
+        class="makeStyles-appBarSpacer-32"
+      />
+      <div
+        class="MuiContainer-root makeStyles-container-33 MuiContainer-maxWidthLg"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-56"
+        />
+      </div>
+    </main>
+  </div>
+</div>
+`;
