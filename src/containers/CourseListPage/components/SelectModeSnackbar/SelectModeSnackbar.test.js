@@ -10,6 +10,12 @@ describe("<SelectModeSnackbar />", () => {
     mockHandleDeleteClick = jest.fn();
   });
 
+  it("should default to 0 selected and closed state", () => {
+    render(<SelectModeSnackbar handleDeleteClick={mockHandleDeleteClick} />);
+
+    expect(screen.queryAllByText(/0 courses selected/i)).not.toBeNull();
+  });
+
   it("should display the number of selected courses", () => {
     render(
       <SelectModeSnackbar

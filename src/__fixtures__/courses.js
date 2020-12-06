@@ -62,4 +62,52 @@ export const courseWithId = {
   desiredGrade: 60,
 };
 
+export const courseWithRecommended = {
+  id: "some-id",
+  name: "COMP1511",
+  assessments: [
+    {
+      description: "",
+      weight: 20,
+      maxGrade: 50,
+      grade: 41,
+    },
+    {
+      description: "Assignment 2",
+      weight: 10,
+      maxGrade: 25,
+      grade: null,
+    },
+    {
+      description: "Mid-term Exam",
+      weight: 30,
+      maxGrade: null,
+      grade: null,
+    },
+  ],
+  desiredGrade: 60,
+  recommendedGrade: 52,
+};
+
+export const courseWithRecommendedNoRemaining = {
+  id: "some-id",
+  name: "COMP1511",
+  assessments: [
+    {
+      description: "Assignment 1",
+      weight: 20,
+      maxGrade: 100,
+      grade: 80,
+    },
+    {
+      description: "Assignment 2",
+      weight: 80,
+      maxGrade: 100,
+      grade: 50,
+    },
+  ],
+  desiredGrade: 65,
+  recommendedGrade: 0,
+};
+
 export default coursesWithoutIds;
