@@ -1,13 +1,11 @@
-import { screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-
-import { renderWithWrappers } from "utils/testing";
 
 import Loading from "./Loading";
 
 describe("<Loading />", () => {
   it("should load and display progress", () => {
-    renderWithWrappers(<Loading />);
+    render(<Loading />);
 
     expect(
       screen.getByRole("progressbar", { hidden: true }),
@@ -15,7 +13,7 @@ describe("<Loading />", () => {
   });
 
   it("should be accessible", async () => {
-    const { container } = renderWithWrappers(<Loading />);
+    const { container } = render(<Loading />);
 
     expect(await axe(container)).toHaveNoViolations();
   });
