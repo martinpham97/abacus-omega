@@ -46,6 +46,11 @@
     "description": "Nhập bài kiểm tra và nhấn '{{button}}' để thấy kết quả",
     "results": "Kết quả"
   },
+  "grade_results": {
+    "title": "Kết luận",
+    "results": "Để đạt được điểm mong muốn {{desiredGrade}}%, bạn cần đạt ít nhất <3>{{recommendedGrade}}%</3> cho mỗi bài kiểm tra còn lại",
+    "results_success": "Bạn chắc chắn sẽ đạt được {{desiredGrade}}% vì điểm tối thiểu cho mỗi bài kiểm tra còn lại là dưới 0%"
+  },
   "grade_results_list": {
     "list_header": "Chi tiết",
     "assessment_placeholder": "Bài kiểm tra #{{num}}",

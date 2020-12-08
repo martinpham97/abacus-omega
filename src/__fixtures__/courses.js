@@ -110,4 +110,19 @@ export const courseWithRecommendedNoRemaining = {
   recommendedGrade: 0,
 };
 
+export const courseWithRecommendedGreaterThan100 = {
+  id: "some-id",
+  name: "COMP2511",
+  assessments: [
+    {
+      description: "Assignment 0",
+      weight: 80,
+      maxGrade: 100,
+      grade: 20,
+    },
+  ],
+  desiredGrade: 90,
+  recommendedGrade: 370,
+};
+
 export default coursesWithoutIds;

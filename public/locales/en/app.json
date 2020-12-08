@@ -48,6 +48,11 @@
     "description": "Add your course assessments and click '{{button}}' to view the results",
     "results": "Results"
   },
+  "grade_results": {
+    "title": "Outcome",
+    "results": "In order to reach your goal of {{desiredGrade}}%, you will need to achieve at least <3>{{recommendedGrade}}%</3> for each of your remaining assessments",
+    "results_success": "You are guaranteed to reach {{desiredGrade}}% because the minimum grade for remaining assessments is less than 0%"
+  },
   "grade_results_list": {
     "list_header": "Details",
     "assessment_placeholder": "Assessment #{{num}}",
