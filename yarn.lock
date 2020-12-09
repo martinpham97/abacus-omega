@@ -9685,10 +9685,10 @@ react-hook-form@6.12.2:
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.12.2.tgz#aa67f47da4730a7bce44768583bdf5b749eed521"
   integrity sha512-O72E2DXyk7djFqyy6eYi5yESGweKe0CNHHPS0Mx4JazpLbE4Ox+66ldZ23f0J5ZN/krEjDWRD+hUfg5Shvfhtw==
 
-react-i18next@^11.8.0:
-  version "11.8.0"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.8.0.tgz#5e018953271dd409255b65e10f1d6d87394fb709"
-  integrity sha512-O1EWv1B7biJV8twrOw0JIuSlBi1lMv+BBt5GckhYprqFsZ3iAelZ7sDD9jKN3Nqu7vs4tPKgIBlWNwkUAXkgCw==
+react-i18next@^11.8.1:
+  version "11.8.1"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.8.1.tgz#bf60a03aa1522bb227a669e1b41afab25089acec"
+  integrity sha512-PbKWBphflI7la0gFc4MneeigmnCT2M/axnUUhCAz3MqfVekRdupFJFvYE25jiIMzbJcIpJeQJDfp/zyktD/O6Q==
   dependencies:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
@@ -11751,10 +11751,15 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-uuid@^8.3.0, uuid@^8.3.1:
+uuid@^8.3.0:
   version "8.3.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
   integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
+
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 v8-compile-cache@^2.0.3:
   version "2.1.1"
@@ -12489,10 +12494,10 @@ yargs@^16.1.1:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yup@^0.32.5:
-  version "0.32.5"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.5.tgz#fddc1dc655bc016b416275e7ce9ab8d817a1636a"
-  integrity sha512-bLbkTrPrFEF4rg30lS8T3QqoVLSAJ1N/b6btn5HVM4y9Q2EVJr2VLk+3kcskqPB41OSPx0cGRLINklH7PNqSYg==
+yup@^0.32.6:
+  version "0.32.6"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.6.tgz#7fd924536cdf61ec5df7a4bd0576d0a3954b03f6"
+  integrity sha512-i5poB/ZWU0zGoCwViLw++NQbUFy+X9xfoSSK31JOLh3RoBVUaYrNlYIyxqK8HGrxTHPIl5BBNu/mJYKNeFVvdA==
   dependencies:
     "@babel/runtime" "^7.10.5"
     "@types/lodash" "^4.14.165"

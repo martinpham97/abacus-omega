@@ -1,7 +1,14 @@
 export const validateAssessmentGrades = (assessment) =>
-  !!assessment.grade &&
-  !!assessment.maxGrade &&
+  assessment.grade !== null &&
+  assessment.maxGrade !== null &&
+  assessment.weight !== null &&
+  !isNaN(assessment.grade) &&
+  !isNaN(assessment.maxGrade) &&
+  !isNaN(assessment.weight) &&
+  assessment.grade >= 0 &&
+  assessment.maxGrade >= 0 &&
   assessment.weight <= 100 &&
+  assessment.weight >= 0 &&
   assessment.grade <= assessment.maxGrade;
 
 export const calculateRecommendedGrade = (assessments, desiredGrade) => {

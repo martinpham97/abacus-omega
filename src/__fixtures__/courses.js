@@ -86,7 +86,7 @@ export const courseWithRecommended = {
     },
   ],
   desiredGrade: 60,
-  recommendedGrade: 52,
+  recommendedGrade: 55,
 };
 
 export const courseWithRecommendedNoRemaining = {

@@ -24,19 +24,19 @@ describe("<GradeResultsList />", () => {
       "Assignment 2 (10%)",
     );
     expect(listItems[1].querySelector("p").textContent).toEqual(
-      "Recommended: 13/25 (52%)",
+      "Recommended: 14/25 (56%)",
     );
     expect(listItems[2].querySelector("span").textContent).toEqual(
       "Mid-term Exam (30%)",
     );
     expect(listItems[2].querySelector("p").textContent).toEqual(
-      "Recommended: 52%",
+      "Recommended: 55%",
     );
     expect(listItems[3].querySelector("span").textContent).toEqual(
       "Remaining assessments (40%)",
     );
     expect(listItems[3].querySelector("p").textContent).toEqual(
-      "Recommended: 52% for each remaining assessment",
+      "Recommended: 55% for each remaining assessment",
     );
   });
 
