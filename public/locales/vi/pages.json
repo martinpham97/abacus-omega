@@ -4,13 +4,9 @@
       "title": "Lưu môn học"
     }
   },
-  "course_list": {
-    "delete_confirm_dialog": {
-      "title_multiple": "Xóa những môn đã chọn?",
-      "title": "Xóa môn này?",
-      "content_multiple": "Bạn có đồng ý xóa {{count}} môn đã chọn?",
-      "content": "Bạn có đồng ý xóa {{course}}?",
-      "content_default": "Bạn có đồng ý xóa môn này?"
+  "course_detail": {
+    "course_form_dialog": {
+      "title": "Sửa tên môn học"
     }
   },
   "not_found": {

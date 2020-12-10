@@ -51,6 +51,13 @@
     "results": "Để đạt được điểm mong muốn {{desiredGrade}}%, bạn cần đạt ít nhất <3>{{recommendedGrade}}%</3> cho mỗi bài kiểm tra còn lại",
     "results_success": "Bạn chắc chắn sẽ đạt được {{desiredGrade}}% vì điểm tối thiểu cho mỗi bài kiểm tra còn lại là dưới 0%"
   },
+  "delete_confirm_dialog": {
+    "title_multiple": "Xóa những môn đã chọn?",
+    "title": "Xóa môn này?",
+    "content_multiple": "Bạn có đồng ý xóa {{count}} môn đã chọn?",
+    "content": "Bạn có đồng ý xóa {{course}}?",
+    "content_default": "Bạn có đồng ý xóa môn này?"
+  },
   "grade_results_list": {
     "list_header": "Chi tiết",
     "assessment_placeholder": "Bài kiểm tra #{{num}}",
@@ -70,6 +77,7 @@
   "button": {
     "cancel": "Hủy",
     "save": "Lưu",
+    "submit": "Xong",
     "edit": "Sửa",
     "add": "Thêm",
     "delete": "Xóa",

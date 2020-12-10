@@ -42,9 +42,9 @@ export const CourseFormDialog = ({
           type="submit"
           form="course-form"
           color="primary"
-          aria-label="save-button"
+          aria-label="submit-button"
         >
-          {t("button.save", "Save")}
+          {t("button.submit", "Submit")}
         </Button>
       </DialogActions>
     </Dialog>

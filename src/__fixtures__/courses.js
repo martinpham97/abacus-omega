@@ -36,6 +36,47 @@ export const coursesWithoutIds = [
   },
 ];
 
+export const coursesWithIds = [
+  {
+    id: "1",
+    name: "MATH1081",
+    assessments: [
+      {
+        description: "Assignment 1",
+        weight: 20,
+        maxGrade: 50,
+        grade: 41,
+      },
+      {
+        description: "Assignment 2",
+        weight: 10,
+        maxGrade: 25,
+        grade: 15,
+      },
+    ],
+    desiredGrade: 60,
+  },
+  {
+    id: "2",
+    name: "COMP1511",
+    assessments: [],
+    desiredGrade: null,
+  },
+  {
+    id: "3",
+    name: "COMP4920",
+    assessments: [
+      {
+        description: "Assignment 1",
+        weight: 10,
+        maxGrade: 20,
+        grade: 12,
+      },
+    ],
+    desiredGrade: 90,
+  },
+];
+
 export const courseWithId = {
   id: "some-id",
   name: "COMP1511",

@@ -4,6 +4,7 @@ import AppLayout from "containers/AppLayout/AppLayout";
 import NotFoundPage from "containers/NotFoundPage/NotFoundPage";
 import HomePage from "containers/HomePage/HomePage";
 import CourseListPage from "containers/CourseListPage/CourseListPage";
+import CourseDetailPage from "containers/CourseDetailPage/CourseDetailPage";
 
 export const App = () => (
   <Router>
@@ -12,8 +13,11 @@ export const App = () => (
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/courses">
+        <Route path="/courses" exact>
           <CourseListPage />
+        </Route>
+        <Route path="/courses/:courseId">
+          <CourseDetailPage />
         </Route>
         <Route path="*">
           <NotFoundPage />

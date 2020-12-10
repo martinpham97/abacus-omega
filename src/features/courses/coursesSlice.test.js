@@ -1,6 +1,11 @@
-import { coursesWithoutIds as courses } from "__fixtures__/courses";
+import { coursesWithoutIds, coursesWithIds } from "__fixtures__/courses";
 
-import coursesReducer, { addCourse } from "./coursesSlice";
+import coursesReducer, {
+  addCourse,
+  editCourse,
+  deleteCourse,
+  deleteMultipleCourses,
+} from "./coursesSlice";
 
 describe("courses reducer", () => {
   it("should handle initial state", () => {
@@ -12,36 +17,104 @@ describe("courses reducer", () => {
       coursesReducer([], {
         type: addCourse.type,
         payload: {
-          ...courses[0],
+          ...coursesWithoutIds[0],
         },
       }),
-    ).toEqual([courses[0]]);
+    ).toEqual([coursesWithoutIds[0]]);
 
     expect(
-      coursesReducer([courses[0]], {
+      coursesReducer([coursesWithoutIds[0]], {
         type: addCourse.type,
         payload: {
-          ...courses[1],
+          ...coursesWithoutIds[1],
         },
       }),
-    ).toEqual([courses[0], courses[1]]);
+    ).toEqual([coursesWithoutIds[0], coursesWithoutIds[1]]);
+  });
+
+  it("should handle editCourse", () => {
+    expect(
+      coursesReducer([coursesWithIds[0], coursesWithIds[1]], {
+        type: editCourse.type,
+        payload: {
+          id: coursesWithIds[1].id,
+          name: "New name",
+        },
+      }),
+    ).toEqual([
+      coursesWithIds[0],
+      {
+        ...coursesWithIds[1],
+        name: "New name",
+      },
+    ]);
+
+    expect(
+      coursesReducer(coursesWithIds, {
+        type: editCourse.type,
+        payload: {
+          id: "not-found-in-state",
+          name: "New name",
+        },
+      }),
+    ).toEqual(coursesWithIds);
+  });
+
+  it("should handle deleteCourse", () => {
+    expect(
+      coursesReducer([coursesWithIds[0], coursesWithIds[1]], {
+        type: deleteCourse.type,
+        payload: {
+          id: coursesWithIds[1].id,
+        },
+      }),
+    ).toEqual([coursesWithIds[0]]);
+
+    expect(
+      coursesReducer(coursesWithIds, {
+        type: deleteCourse.type,
+        payload: {
+          id: "not-found-in-state",
+        },
+      }),
+    ).toEqual(coursesWithIds);
+  });
+
+  it("should handle deleteMultipleCourses", () => {
+    expect(
+      coursesReducer(coursesWithIds, {
+        type: deleteMultipleCourses.type,
+        payload: {
+          ids: [coursesWithIds[1].id, coursesWithIds[0].id],
+        },
+      }),
+    ).toEqual([coursesWithIds[2]]);
+
+    expect(
+      coursesReducer(coursesWithIds, {
+        type: deleteMultipleCourses.type,
+        payload: {
+          ids: ["not-found-in-state", coursesWithIds[0].id],
+        },
+      }),
+    ).toEqual([coursesWithIds[1], coursesWithIds[2]]);
   });
 });
 
 describe("addCourse", () => {
   it("should return correct payload", () => {
-    const action = addCourse({ ...courses[0] });
+    const action = addCourse({ ...coursesWithoutIds[0] });
 
     expect(action.payload).toEqual({
       id: expect.any(String),
       createdAt: expect.any(String),
-      ...courses[0],
+      ...coursesWithoutIds[0],
     });
   });
 
   it("should generate unique course IDs", () => {
-    const action1 = addCourse({ ...courses[0] });
-    const action2 = addCourse({ ...courses[1] });
+    const action1 = addCourse({ ...coursesWithoutIds[0] });
+    const action2 = addCourse({ ...coursesWithoutIds[1] });
 
     expect(action1.payload.id).not.toEqual(action2.payload.id);
   });

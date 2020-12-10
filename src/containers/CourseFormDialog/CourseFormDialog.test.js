@@ -50,7 +50,7 @@ describe("<CourseFormDialog />", () => {
     expect(mockHandleClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should call handleSubmit on clicking save button", async () => {
+  it("should call handleSubmit on clicking submit button", async () => {
     render(
       <CourseFormDialog
         isOpen={true}
@@ -61,7 +61,7 @@ describe("<CourseFormDialog />", () => {
     );
 
     await act(async () => {
-      fireEvent.click(screen.getByLabelText(/save-button/i));
+      fireEvent.click(screen.getByLabelText(/submit-button/i));
     });
 
     expect(mockHandleSubmit).toHaveBeenCalledTimes(1);

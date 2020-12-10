@@ -1,5 +1,6 @@
-// import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Grid,
   Button,
@@ -13,6 +14,8 @@ import {
 } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
+import { deleteMultipleCourses } from "features/courses/coursesSlice";
+
 import CourseSearchInput from "./components/CourseSearchInput/CourseSearchInput";
 import SelectModeSwitch from "./components/SelectModeSwitch/SelectModeSwitch";
 import SelectAllCheckbox from "./components/SelectAllCheckbox/SelectAllCheckbox";
@@ -20,81 +23,13 @@ import SortMenu from "./components/SortMenu/SortMenu";
 import SelectModeSnackbar from "./components/SelectModeSnackbar/SelectModeSnackbar";
 import CourseCard from "./components/CourseCard/CourseCard";
 
-const courses = [
-  {
-    id: 0,
-    name: "COMP1511",
-    assessments: [
-      {
-        description: "Assignment 1",
-        weight: 20,
-        maxGrade: 50,
-        grade: 41,
-      },
-      {
-        description: "Assignment 2",
-        weight: 10,
-        maxGrade: 25,
-        grade: 15,
-      },
-      {
-        description: "Mid-term Exam",
-        weight: 30,
-        maxGrade: 80,
-        grade: 56,
-      },
-    ],
-    desiredGrade: 55,
-  },
-  {
-    id: 1,
-    name: "COMP2511",
-    assessments: [
-      {
-        description: "Assignment 1",
-        weight: 20,
-        maxGrade: 50,
-        grade: 41,
-      },
-      {
-        description: "Assignment 2",
-        weight: 10,
-        maxGrade: 25,
-        grade: 15,
-      },
-    ],
-    desiredGrade: 35,
-  },
-  {
-    id: 2,
-    name: "COMP3900",
-    assessments: [
-      {
-        description: "Assignment 1",
-        weight: 20,
-        maxGrade: 50,
-        grade: 41,
-      },
-    ],
-    desiredGrade: 75,
-  },
-  {
-    id: 3,
-    name: "COMP4920",
-    desiredGrade: 95,
-  },
-  {
-    id: 4,
-    name: "COMP1511",
-    assessments: [],
-    desiredGrade: null,
-  },
-];
-
 export const CourseListPage = () => {
-  const { t } = useTranslation(["app", "pages"]);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { t } = useTranslation("app");
 
-  // const courses = useSelector((state) => state.courses);
+  const courses = useSelector((state) => state.courses);
+
   const [deleteConfirm, setDeleteConfirm] = useState({
     isOpen: false,
     items: [],
@@ -127,8 +62,6 @@ export const CourseListPage = () => {
     }));
   };
 
-  const handleEditCourse = (id) => console.log(id);
-
   const handleDeleteConfirm = (items) => {
     setDeleteConfirm({
       isOpen: true,
@@ -137,7 +70,13 @@ export const CourseListPage = () => {
   };
 
   const handleDeleteCourse = () => {
-    console.log(deleteConfirm.items);
+    dispatch(deleteMultipleCourses({ ids: deleteConfirm.items }));
+    setSelectMode(false);
+    setSelected([]);
+  };
+
+  const handleEditCourse = (id) => {
+    history.push(`/courses/${id}`);
   };
 
   const handleFilterMenuOpen = (event) => {
@@ -211,7 +150,7 @@ export const CourseListPage = () => {
         <Grid item container xs={6} justify="flex-start">
           <Box fontStyle="italic">
             <Typography variant="body2" color="textSecondary">
-              {t("app:filter.showing_count", {
+              {t("filter.showing_count", {
                 num: filteredCourses.length,
                 count: courses.length,
                 defaultValue: `Showing ${filteredCourses.length} of ${courses.length} courses`,
@@ -252,30 +191,24 @@ export const CourseListPage = () => {
       <Dialog
         open={deleteConfirm.isOpen}
         onClose={handleCloseDeleteConfirm}
-        aria-labelledby="responsive-dialog-title"
+        aria-labelledby="delete-dialog-title"
       >
-        <DialogTitle id="responsive-dialog-title">
+        <DialogTitle id="delete-dialog-title">
           {selectMode
             ? t(
-                "pages:course_list.delete_confirm_dialog.title_multiple",
+                "delete_confirm_dialog.title_multiple",
                 "Delete selected courses?",
               )
-            : t(
-                "pages:course_list.delete_confirm_dialog.title",
-                "Delete this course?",
-              )}
+            : t("delete_confirm_dialog.title", "Delete this course?")}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
             {(() => {
               if (selectMode) {
-                return t(
-                  "pages:course_list.delete_confirm_dialog.content_multiple",
-                  {
-                    count: selected.length,
-                    defaultValue: `Are you sure you want to delete ${selected.length} courses?`,
-                  },
-                );
+                return t("delete_confirm_dialog.content_multiple", {
+                  count: selected.length,
+                  defaultValue: `Are you sure you want to delete ${selected.length} courses?`,
+                });
               }
 
               const courseToBeDeleted = courses.find(
@@ -283,14 +216,14 @@ export const CourseListPage = () => {
               );
 
               if (courseToBeDeleted && courseToBeDeleted.name) {
-                return t("pages:course_list.delete_confirm_dialog.content", {
+                return t("delete_confirm_dialog.content", {
                   course: courseToBeDeleted.name,
                   defaultValue: `Are you sure you want to delete ${courseToBeDeleted.name}?`,
                 });
               }
 
               return t(
-                "pages:course_list.delete_confirm_dialog.content_default",
+                "delete_confirm_dialog.content_default",
                 "Are you sure you want to delete this course?",
               );
             })()}
@@ -298,7 +231,7 @@ export const CourseListPage = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDeleteConfirm} aria-label="no-delete">
-            {t("app:button.no", "No")}
+            {t("button.no", "No")}
           </Button>
           <Button
             onClick={() => {
@@ -308,7 +241,7 @@ export const CourseListPage = () => {
             color="primary"
             aria-label="yes-delete"
           >
-            {t("app:button.yes", "Yes")}
+            {t("button.yes", "Yes")}
           </Button>
         </DialogActions>
       </Dialog>

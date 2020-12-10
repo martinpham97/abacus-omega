@@ -17,21 +17,21 @@ export const HomePage = () => {
 
   const [isCourseFormOpen, setIsCourseFormOpen] = useState(false);
 
-  let assessmentData = {};
+  let autoSaveData = {};
 
-  const handleSave = (data) => {
-    assessmentData = { ...assessmentData, ...data };
+  const handleAutoSave = (data) => {
+    autoSaveData = { ...autoSaveData, ...data };
   };
 
   const handleSubmitCourse = ({ name }) => {
     dispatch(
       addCourse({
         name,
-        ...assessmentData,
+        ...autoSaveData,
       }),
     );
     setIsCourseFormOpen(false);
-    history.push("/courses");
+    setTimeout(() => history.push("/courses"), 100);
   };
 
   return (
@@ -48,7 +48,7 @@ export const HomePage = () => {
             {t("app:button.save", "Save")}
           </Button>
         }
-        handleSave={handleSave}
+        handleSave={handleAutoSave}
       />
       <CourseFormDialog
         title={t("pages:home.course_form_dialog.title", "Save course")}

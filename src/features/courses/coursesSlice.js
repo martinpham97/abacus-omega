@@ -28,9 +28,37 @@ const coursesSlice = createSlice({
         };
       },
     },
+    editCourse(state, action) {
+      const { id, ...update } = action.payload;
+      const courseIndex = state.findIndex((c) => c.id === id);
+      if (courseIndex >= 0) {
+        return [
+          ...state.slice(0, courseIndex),
+          {
+            ...state[courseIndex],
+            ...update,
+          },
+          ...state.slice(courseIndex + 1),
+        ];
+      }
+      return state;
+    },
+    deleteCourse(state, action) {
+      const { id } = action.payload;
+      return state.filter((course) => course.id !== id);
+    },
+    deleteMultipleCourses(state, action) {
+      const { ids } = action.payload;
+      return state.filter((course) => !ids.includes(course.id));
+    },
   },
 });
 
-export const { addCourse } = coursesSlice.actions;
+export const {
+  addCourse,
+  editCourse,
+  deleteCourse,
+  deleteMultipleCourses,
+} = coursesSlice.actions;
 
 export default coursesSlice.reducer;

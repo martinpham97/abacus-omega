@@ -53,6 +53,14 @@
     "results": "In order to reach your goal of {{desiredGrade}}%, you will need to achieve at least <3>{{recommendedGrade}}%</3> for each of your remaining assessments",
     "results_success": "You are guaranteed to reach {{desiredGrade}}% because the minimum grade for remaining assessments is less than 0%"
   },
+  "delete_confirm_dialog": {
+    "title_multiple": "Delete selected courses?",
+    "title": "Delete this course?",
+    "content_multiple": "Are you sure you want to delete {{count}} course?",
+    "content_multiple_plural": "Are you sure you want to delete {{count}} courses?",
+    "content": "Are you sure you want to delete {{course}}?",
+    "content_default": "Are you sure you want to delete this course?"
+  },
   "grade_results_list": {
     "list_header": "Details",
     "assessment_placeholder": "Assessment #{{num}}",
@@ -73,6 +81,7 @@
     "cancel": "Cancel",
     "save": "Save",
     "edit": "Edit",
+    "submit": "Submit",
     "add": "Add",
     "delete": "Delete",
     "calculate": "Calculate",
