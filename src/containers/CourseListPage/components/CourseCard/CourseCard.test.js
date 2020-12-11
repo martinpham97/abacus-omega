@@ -42,6 +42,52 @@ describe("<CourseCard />", () => {
     expect(screen.queryByText(/no\. assessments: 3/i)).not.toBeNull();
   });
 
+  it("should display date created", () => {
+    render(
+      <CourseCard
+        course={course}
+        handleEdit={mockHandleEdit}
+        handleDelete={mockHandleDelete}
+        handleSelect={mockHandleSelect}
+      />,
+    );
+
+    expect(
+      screen.queryByText(/date added: \d\d\/\d\d\/\d\d\d\d/i),
+    ).not.toBeNull();
+  });
+
+  it("should show action buttons on mouse over", () => {
+    render(
+      <CourseCard
+        course={course}
+        handleEdit={mockHandleEdit}
+        handleDelete={mockHandleDelete}
+        handleSelect={mockHandleSelect}
+      />,
+    );
+
+    fireEvent.mouseOver(screen.getByText(course.name));
+
+    expect(screen.queryByLabelText(/edit-course/i)).not.toBeNull();
+  });
+
+  it("should hide action buttons on mouse leave", () => {
+    render(
+      <CourseCard
+        course={course}
+        handleEdit={mockHandleEdit}
+        handleDelete={mockHandleDelete}
+        handleSelect={mockHandleSelect}
+      />,
+    );
+
+    fireEvent.mouseOver(screen.getByText(course.name));
+    fireEvent.mouseLeave(screen.getByText(course.name));
+
+    expect(screen.queryByLabelText(/edit-course/i)).toBeNull();
+  });
+
   it("should call handleEdit with correct id on edit button click", () => {
     render(
       <CourseCard
