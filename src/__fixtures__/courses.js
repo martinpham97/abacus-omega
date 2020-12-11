@@ -40,6 +40,7 @@ export const coursesWithIds = [
   {
     id: "1",
     name: "MATH1081",
+    createdAt: "2020-12-11T05:45:37.361Z",
     assessments: [
       {
         description: "Assignment 1",
@@ -59,12 +60,14 @@ export const coursesWithIds = [
   {
     id: "2",
     name: "COMP1511",
+    createdAt: "2020-12-10T05:45:37.361Z",
     assessments: [],
     desiredGrade: null,
   },
   {
     id: "3",
     name: "COMP4920",
+    createdAt: "2020-12-9T02:45:37.361Z",
     assessments: [
       {
         description: "Assignment 1",
@@ -80,6 +83,7 @@ export const coursesWithIds = [
 export const courseWithId = {
   id: "some-id",
   name: "COMP1511",
+  createdAt: "2020-12-11T05:45:37.361Z",
   assessments: [
     {
       description: "Assignment 1",
@@ -106,6 +110,7 @@ export const courseWithId = {
 export const courseWithRecommended = {
   id: "some-id",
   name: "COMP1511",
+  createdAt: "2020-12-13T05:45:37.361Z",
   assessments: [
     {
       description: "",
@@ -133,6 +138,7 @@ export const courseWithRecommended = {
 export const courseWithRecommendedNoRemaining = {
   id: "some-id",
   name: "COMP1511",
+  createdAt: "2020-12-10T05:45:37.361Z",
   assessments: [
     {
       description: "Assignment 1",
@@ -154,6 +160,7 @@ export const courseWithRecommendedNoRemaining = {
 export const courseWithRecommendedGreaterThan100 = {
   id: "some-id",
   name: "COMP2511",
+  createdAt: "2020-12-11T02:45:37.361Z",
   assessments: [
     {
       description: "Assignment 0",

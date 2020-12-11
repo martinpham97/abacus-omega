@@ -19,6 +19,7 @@ import {
 } from "@material-ui/icons";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
+import { useSnackbar } from "notistack";
 
 import { deleteButtonTheme } from "config/theme";
 import { editCourse, deleteCourse } from "features/courses/coursesSlice";
@@ -31,6 +32,7 @@ export const CourseDetailPage = () => {
   const { courseId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation(["app", "pages"]);
 
   const courses = useSelector((state) => state.courses);
@@ -68,6 +70,9 @@ export const CourseDetailPage = () => {
   const handleDeleteCourse = () => {
     dispatch(deleteCourse({ id: course.id }));
     setIsDeleteDialogOpen(false);
+    enqueueSnackbar(t("snackbar.course_deleted", "Course deleted"), {
+      variant: "warning",
+    });
     history.push("/courses");
   };
 

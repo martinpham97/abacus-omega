@@ -12,9 +12,16 @@ import {
   Typography,
   Box,
 } from "@material-ui/core";
+import { Add as AddIcon } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
+import { useSnackbar } from "notistack";
 
-import { deleteMultipleCourses } from "features/courses/coursesSlice";
+import {
+  addCourse,
+  deleteMultipleCourses,
+} from "features/courses/coursesSlice";
+
+import CourseImportFormDialog from "containers/CourseImportFormDialog/CourseImportFormDialog";
 
 import CourseSearchInput from "./components/CourseSearchInput/CourseSearchInput";
 import SelectModeSwitch from "./components/SelectModeSwitch/SelectModeSwitch";
@@ -26,10 +33,12 @@ import CourseCard from "./components/CourseCard/CourseCard";
 export const CourseListPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation("app");
 
   const courses = useSelector((state) => state.courses);
 
+  const [isCourseImportFormOpen, setIsCourseImportFormOpen] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState({
     isOpen: false,
     items: [],
@@ -71,6 +80,15 @@ export const CourseListPage = () => {
 
   const handleDeleteCourse = () => {
     dispatch(deleteMultipleCourses({ ids: deleteConfirm.items }));
+    enqueueSnackbar(
+      t("snackbar.course_deleted_multiple", {
+        count: deleteConfirm.items.length,
+        defaultValue: `${deleteConfirm.items.length} courses deleted`,
+      }),
+      {
+        variant: "warning",
+      },
+    );
     setSelectMode(false);
     setSelected([]);
   };
@@ -124,8 +142,41 @@ export const CourseListPage = () => {
     return setSelected(courses.map((course) => course.id));
   };
 
+  const handleSubmitImportCourses = ({ courses }) => {
+    for (const course of courses) {
+      dispatch(addCourse({ name: course }));
+    }
+    setIsCourseImportFormOpen(false);
+    enqueueSnackbar(
+      t("snackbar.course_created_multiple", {
+        count: courses.length,
+        defaultValue: `${courses.length} courses created`,
+      }),
+      {
+        variant: "success",
+      },
+    );
+  };
+
   return (
     <Grid container spacing={3}>
+      <Grid item container xs={12} justify="flex-end">
+        <Button
+          variant="contained"
+          color="primary"
+          aria-label="import-button"
+          startIcon={<AddIcon />}
+          onClick={() => setIsCourseImportFormOpen(true)}
+        >
+          {t("app:button.import_handbook", "Import from Handbook")} (Beta)
+        </Button>
+        <CourseImportFormDialog
+          title={t("app:course_import_form_dialog.title", "Import courses")}
+          isOpen={isCourseImportFormOpen}
+          handleClose={() => setIsCourseImportFormOpen(false)}
+          handleSubmit={handleSubmitImportCourses}
+        />
+      </Grid>
       <Grid item xs={12}>
         <CourseSearchInput handleTextChange={handleFilterTextChange} />
       </Grid>

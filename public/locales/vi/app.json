@@ -36,10 +36,11 @@
     "sort_date": "Ngày"
   },
   "course_card": {
-    "description": "Số bài kiểm tra: {{count}}",
+    "num_assessments": "Số bài kiểm tra: {{count}}",
     "select_checkbox": {
       "label": "Chọn"
-    }
+    },
+    "date_added": "Ngày tạo: {{date}}"
   },
   "grade_calculator": {
     "title": "Công cụ tính điểm",
@@ -74,10 +75,37 @@
       "required": "Tên môn học cần được điền vào"
     }
   },
+  "course_import_form_dialog": {
+    "title": "Thêm môn học"
+  },
+  "course_import_form": {
+    "university": {
+      "label": "Trường đại học",
+      "required": "Trường đại học cần được điền vào"
+    },
+    "specialisation": {
+      "label": "Chương trình/Chuyên ngành",
+      "required": "Chương trình/Chuyên ngành cần được điền vào"
+    },
+    "courses": {
+      "label": "Môn học",
+      "min": "Ít nhất {{count}} môn cần được chọn",
+      "required": "Môn học cần được điền vào",
+      "none": "Không có môn học, hãy tham khảo Handbook chính thức"
+    }
+  },
+  "snackbar": {
+    "course_saved": "Lưu môn học thành công",
+    "course_deleted": "Môn học đã được xóa",
+    "course_created_multiple": "{{count}} môn học đã được thêm vào",
+    "course_deleted_multiple": "{{count}} môn học đã được xóa"
+  },
   "button": {
     "cancel": "Hủy",
     "save": "Lưu",
     "submit": "Xong",
+    "import_handbook": "Thêm từ Handbook",
+    "create": "Tạo",
     "edit": "Sửa",
     "add": "Thêm",
     "delete": "Xóa",

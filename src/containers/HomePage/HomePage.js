@@ -4,15 +4,17 @@ import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { Save as SaveIcon } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
+import { useSnackbar } from "notistack";
+
+import { addCourse } from "features/courses/coursesSlice";
 
 import CourseFormDialog from "containers/CourseFormDialog/CourseFormDialog";
 import GradeCalculator from "containers/GradeCalculator/GradeCalculator";
 
-import { addCourse } from "features/courses/coursesSlice";
-
 export const HomePage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation(["app", "pages"]);
 
   const [isCourseFormOpen, setIsCourseFormOpen] = useState(false);
@@ -31,6 +33,9 @@ export const HomePage = () => {
       }),
     );
     setIsCourseFormOpen(false);
+    enqueueSnackbar(t("app:snackbar.course_saved", "Course saved"), {
+      variant: "success",
+    });
     setTimeout(() => history.push("/courses"), 100);
   };
 

@@ -3,15 +3,15 @@ import { red } from "@material-ui/core/colors";
 export const theme = {
   palette: {
     primary: {
-      light: "#ffff72",
-      main: "#ffeb3b",
-      dark: "#c8b900",
+      light: "#ffff55",
+      main: "#ffe600",
+      dark: "#c7b400",
       contrastText: "#000000",
     },
     secondary: {
-      light: "#484848",
-      main: "#212121",
-      dark: "#000000",
+      light: "#ff6434",
+      main: "#dd2c00",
+      dark: "#a30000",
       contrastText: "#ffffff",
     },
   },

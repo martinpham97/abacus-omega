@@ -5,9 +5,17 @@ export default makeStyles((theme) => ({
     position: "relative",
     zIndex: 0,
   },
+  content: {
+    overflow: "hidden",
+  },
+  cardHeaderTitle: {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  },
   cardActions: {
     display: "flex",
     justifyContent: "flex-end",
+    minHeight: 46,
   },
   cardSelectOverlay: {
     position: "absolute",

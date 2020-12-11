@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core/styles";
 import { Container, Box, CssBaseline } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
+import { SnackbarProvider } from "notistack";
 
 import theme from "config/theme";
 import { useSmallScreen } from "hooks/useSmallScreen";
@@ -64,32 +65,34 @@ export const AppLayout = ({ children }) => {
 
   return (
     <ThemeProvider theme={muiTheme}>
-      <div className={classes.root}>
-        <CssBaseline />
-        <Header
-          title={t("title", "Pass or Fail")}
-          isSidebarOpened={isSidebarOpened}
-          handleToggleSidebar={handleToggleSidebar}
-          handleToggleDarkMode={handleToggleDarkMode}
-          handleChangeLanguage={handleChangeLanguage}
-          themeType={themeType}
-          language={i18n.language}
-        />
-        <Sidebar
-          isSidebarOpened={isSidebarOpened}
-          handleToggleSidebar={handleToggleSidebar}
-        />
-        <main
-          className={clsx(classes.content, {
-            [classes.contentShift]: !isSmallScreen && isSidebarOpened,
-          })}
-        >
-          <div className={classes.appBarSpacer} />
-          <Container maxWidth="lg" className={classes.container}>
-            <Box>{children}</Box>
-          </Container>
-        </main>
-      </div>
+      <SnackbarProvider maxSnack={3}>
+        <div className={classes.root}>
+          <CssBaseline />
+          <Header
+            title={t("title", "Pass or Fail")}
+            isSidebarOpened={isSidebarOpened}
+            handleToggleSidebar={handleToggleSidebar}
+            handleToggleDarkMode={handleToggleDarkMode}
+            handleChangeLanguage={handleChangeLanguage}
+            themeType={themeType}
+            language={i18n.language}
+          />
+          <Sidebar
+            isSidebarOpened={isSidebarOpened}
+            handleToggleSidebar={handleToggleSidebar}
+          />
+          <main
+            className={clsx(classes.content, {
+              [classes.contentShift]: !isSmallScreen && isSidebarOpened,
+            })}
+          >
+            <div className={classes.appBarSpacer} />
+            <Container maxWidth="lg" className={classes.container}>
+              <Box>{children}</Box>
+            </Container>
+          </main>
+        </div>
+      </SnackbarProvider>
     </ThemeProvider>
   );
 };

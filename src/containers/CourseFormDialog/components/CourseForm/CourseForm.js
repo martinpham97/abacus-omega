@@ -46,6 +46,9 @@ export const CourseForm = ({ id, course = {}, handleSubmit }) => {
         inputRef={register()}
         error={!!errors?.name}
         helperText={errors?.name?.message}
+        style={{
+          width: 300,
+        }}
       />
     </form>
   );

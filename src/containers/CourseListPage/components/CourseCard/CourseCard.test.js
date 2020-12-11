@@ -52,7 +52,24 @@ describe("<CourseCard />", () => {
       />,
     );
 
-    fireEvent.click(screen.getByText(/edit/i));
+    fireEvent.mouseOver(screen.getByText(course.name));
+
+    fireEvent.click(screen.getByLabelText(/edit-course/i));
+
+    expect(mockHandleEdit).toHaveBeenCalledWith(course.id);
+  });
+
+  it("should call handleEdit with correct id on card click", () => {
+    render(
+      <CourseCard
+        course={course}
+        handleEdit={mockHandleEdit}
+        handleDelete={mockHandleDelete}
+        handleSelect={mockHandleSelect}
+      />,
+    );
+
+    fireEvent.click(screen.getByLabelText(/view-course/i));
 
     expect(mockHandleEdit).toHaveBeenCalledWith(course.id);
   });
@@ -67,7 +84,9 @@ describe("<CourseCard />", () => {
       />,
     );
 
-    fireEvent.click(screen.getByText(/delete/i));
+    fireEvent.mouseOver(screen.getByText(course.name));
+
+    fireEvent.click(screen.getByLabelText(/delete-course/i));
 
     expect(mockHandleDelete).toHaveBeenCalledWith(course.id);
   });

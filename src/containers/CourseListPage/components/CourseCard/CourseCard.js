@@ -1,12 +1,16 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import {
   Card,
   CardHeader,
   CardActions,
+  CardActionArea,
   Button,
   FormControlLabel,
   Checkbox,
+  Tooltip,
+  Typography,
 } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import {
@@ -15,6 +19,7 @@ import {
   Edit as EditIcon,
   Delete as DeleteIcon,
 } from "@material-ui/icons";
+import { parseISO, format } from "date-fns";
 import { useTranslation } from "react-i18next";
 
 import { course as courseType } from "types";
@@ -32,6 +37,8 @@ export const CourseCard = ({
 }) => {
   const classes = useStyles();
   const { t } = useTranslation("app");
+
+  const [showActions, setShowActions] = useState(false);
 
   const nAssessments = course.assessments?.length || 0;
 
@@ -60,34 +67,69 @@ export const CourseCard = ({
         className={clsx({
           [classes.disableClick]: selectMode,
         })}
+        onMouseEnter={() => setShowActions(true)}
+        onMouseLeave={() => setShowActions(false)}
       >
-        <CardHeader
-          title={course.name}
-          subheader={t("course_card.description", {
-            count: nAssessments,
-            defaultValue: `No. assessments: ${nAssessments}`,
-          })}
-        />
-        <CardActions className={classes.cardActions}>
-          <Button
-            size="small"
-            aria-label="edit-course"
-            startIcon={<EditIcon />}
+        <Tooltip title={course.name} placement="top">
+          <CardActionArea
+            aria-label="view-course"
             onClick={() => handleEdit(course.id)}
           >
-            {t("button.edit", "Edit")}
-          </Button>
-          <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
-            <Button
-              size="small"
-              color="primary"
-              aria-label="delete-course"
-              startIcon={<DeleteIcon />}
-              onClick={() => handleDelete(course.id)}
-            >
-              {t("button.delete", "Delete")}
-            </Button>
-          </ThemeProvider>
+            <CardHeader
+              classes={{
+                content: classes.content,
+              }}
+              title={course.name}
+              titleTypographyProps={{
+                noWrap: true,
+                className: classes.cardHeaderTitle,
+              }}
+              subheader={
+                <>
+                  <Typography>
+                    {t("course_card.date_added", {
+                      date: format(parseISO(course.createdAt), "dd/MM/yyyy"),
+                      defaultValue: `Date added: ${format(
+                        parseISO(course.createdAt),
+                        "dd/MM/yyyy",
+                      )}`,
+                    })}
+                  </Typography>
+                  <Typography>
+                    {t("course_card.num_assessments", {
+                      count: nAssessments,
+                      defaultValue: `No. assessments: ${nAssessments}`,
+                    })}
+                  </Typography>
+                </>
+              }
+            />
+          </CardActionArea>
+        </Tooltip>
+        <CardActions className={classes.cardActions}>
+          {showActions && (
+            <>
+              <Button
+                size="small"
+                aria-label="edit-course"
+                startIcon={<EditIcon />}
+                onClick={() => handleEdit(course.id)}
+              >
+                {t("button.edit", "Edit")}
+              </Button>
+              <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
+                <Button
+                  size="small"
+                  color="primary"
+                  aria-label="delete-course"
+                  startIcon={<DeleteIcon />}
+                  onClick={() => handleDelete(course.id)}
+                >
+                  {t("button.delete", "Delete")}
+                </Button>
+              </ThemeProvider>
+            </>
+          )}
         </CardActions>
       </div>
     </Card>

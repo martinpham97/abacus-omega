@@ -29,6 +29,14 @@
       "message_plural": "{{count}} courses selected"
     }
   },
+  "snackbar": {
+    "course_saved": "Course saved",
+    "course_deleted": "Course deleted",
+    "course_created_multiple": "{{count}} course created",
+    "course_created_multiple_plural": "{{count}} courses created",
+    "course_deleted_multiple": "{{count}} course deleted",
+    "course_deleted_multiple_plural": "{{count}} courses deleted"
+  },
   "sort": {
     "sort_name_asc": "Sort by name ascending",
     "sort_name_desc": "Sort by name descending",
@@ -38,10 +46,11 @@
     "sort_date": "Date"
   },
   "course_card": {
-    "description": "No. assessments: {{count}}",
+    "num_assessments": "No. assessments: {{count}}",
     "select_checkbox": {
       "label": "Select"
-    }
+    },
+    "date_added": "Date added: {{date}}"
   },
   "grade_calculator": {
     "title": "Grade Calculator",
@@ -77,16 +86,38 @@
       "required": "Course name is required"
     }
   },
+  "course_import_form_dialog": {
+    "title": "Import courses"
+  },
   "button": {
     "cancel": "Cancel",
     "save": "Save",
     "edit": "Edit",
     "submit": "Submit",
+    "import_handbook": "Import from Handbook",
+    "create": "Create",
     "add": "Add",
     "delete": "Delete",
     "calculate": "Calculate",
     "no": "No",
     "yes": "Yes"
+  },
+  "course_import_form": {
+    "university": {
+      "label": "University",
+      "required": "University is required"
+    },
+    "specialisation": {
+      "label": "Program/Specialisation",
+      "required": "Program/Specialisation is required"
+    },
+    "courses": {
+      "label": "Courses",
+      "min": "A minimum of {{count}} course is required",
+      "min_plural": "A minimum of {{count}} courses is required",
+      "required": "Course is required",
+      "none": "No courses available, please refer to the official Handbook"
+    }
   },
   "grade_form": {
     "assessments": {
