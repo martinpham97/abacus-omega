@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import {
@@ -38,8 +37,6 @@ export const CourseCard = ({
   const classes = useStyles();
   const { t } = useTranslation("app");
 
-  const [showActions, setShowActions] = useState(false);
-
   const nAssessments = course.assessments?.length || 0;
 
   return (
@@ -67,8 +64,6 @@ export const CourseCard = ({
         className={clsx({
           [classes.disableClick]: selectMode,
         })}
-        onMouseEnter={() => setShowActions(true)}
-        onMouseLeave={() => setShowActions(false)}
       >
         <Tooltip title={course.name} placement="top">
           <CardActionArea
@@ -107,29 +102,25 @@ export const CourseCard = ({
           </CardActionArea>
         </Tooltip>
         <CardActions className={classes.cardActions}>
-          {showActions && (
-            <>
-              <Button
-                size="small"
-                aria-label="edit-course"
-                startIcon={<EditIcon />}
-                onClick={() => handleEdit(course.id)}
-              >
-                {t("button.edit", "Edit")}
-              </Button>
-              <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
-                <Button
-                  size="small"
-                  color="primary"
-                  aria-label="delete-course"
-                  startIcon={<DeleteIcon />}
-                  onClick={() => handleDelete(course.id)}
-                >
-                  {t("button.delete", "Delete")}
-                </Button>
-              </ThemeProvider>
-            </>
-          )}
+          <Button
+            size="small"
+            aria-label="edit-course"
+            startIcon={<EditIcon />}
+            onClick={() => handleEdit(course.id)}
+          >
+            {t("button.edit", "Edit")}
+          </Button>
+          <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
+            <Button
+              size="small"
+              color="primary"
+              aria-label="delete-course"
+              startIcon={<DeleteIcon />}
+              onClick={() => handleDelete(course.id)}
+            >
+              {t("button.delete", "Delete")}
+            </Button>
+          </ThemeProvider>
         </CardActions>
       </div>
     </Card>

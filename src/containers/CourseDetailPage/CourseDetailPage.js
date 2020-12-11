@@ -11,11 +11,14 @@ import {
   DialogContentText,
   DialogTitle,
   Tooltip,
+  Menu,
+  MenuItem,
 } from "@material-ui/core";
 import {
   Edit as EditIcon,
   Save as SaveIcon,
   Delete as DeleteIcon,
+  MoreVert as MoreVertIcon,
 } from "@material-ui/icons";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
@@ -23,6 +26,7 @@ import { useSnackbar } from "notistack";
 
 import { deleteButtonTheme } from "config/theme";
 import { editCourse, deleteCourse } from "features/courses/coursesSlice";
+import { useSmallScreen } from "hooks/useSmallScreen";
 
 import GradeCalculator from "containers/GradeCalculator/GradeCalculator";
 import CourseFormDialog from "containers/CourseFormDialog/CourseFormDialog";
@@ -33,6 +37,7 @@ export const CourseDetailPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
+  const isSmallScreen = useSmallScreen();
   const { t } = useTranslation(["app", "pages"]);
 
   const courses = useSelector((state) => state.courses);
@@ -65,6 +70,9 @@ export const CourseDetailPage = () => {
         ...autoSaveData,
       }),
     );
+    enqueueSnackbar(t("snackbar.course_saved", "Course saved"), {
+      variant: "success",
+    });
   };
 
   const handleDeleteCourse = () => {
@@ -76,60 +84,118 @@ export const CourseDetailPage = () => {
     history.push("/courses");
   };
 
+  const [actionMenu, setActionMenu] = useState(null);
+
+  const handleOpenActionMenu = (event) => {
+    setActionMenu(event.currentTarget);
+  };
+
+  const handleCloseActionMenu = () => {
+    setActionMenu(null);
+  };
+
   return course ? (
     <>
       <GradeCalculator
         title={courseTemp.name}
         course={course}
         action={
-          <Grid
-            container
-            direction="row"
-            justify="flex-end"
-            alignItems="center"
-            spacing={1}
-          >
-            <Grid item xs={4}>
-              <Tooltip title={t("app:button.edit", "Edit")}>
-                <IconButton
-                  variant="contained"
-                  color="inherit"
-                  aria-label="edit-button"
-                  onClick={() => setIsCourseFormOpen(true)}
+          isSmallScreen ? (
+            <>
+              <IconButton
+                aria-label="actions"
+                aria-controls="action-menu"
+                aria-haspopup="true"
+                onClick={handleOpenActionMenu}
+              >
+                <MoreVertIcon />
+              </IconButton>
+              <Menu
+                id="action-menu"
+                anchorEl={actionMenu}
+                keepMounted
+                open={Boolean(actionMenu)}
+                onClose={handleCloseActionMenu}
+              >
+                <MenuItem
+                  aria-label="save-button"
+                  onClick={() => {
+                    handleSaveCourse();
+                    handleCloseActionMenu();
+                  }}
                 >
-                  <EditIcon />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-            <Grid item xs={4}>
-              <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
-                <Tooltip title={t("app:button.delete", "Delete")}>
+                  {t("app:button.save", "Save")}
+                </MenuItem>
+                <MenuItem
+                  aria-label="edit-button"
+                  onClick={() => {
+                    setIsCourseFormOpen(true);
+                    handleCloseActionMenu();
+                  }}
+                >
+                  {t("app:button.edit", "Edit")}
+                </MenuItem>
+                <MenuItem
+                  aria-label="delete-button"
+                  onClick={() => {
+                    setIsDeleteDialogOpen(true);
+                    handleCloseActionMenu();
+                  }}
+                >
+                  {t("app:button.delete", "Delete")}
+                </MenuItem>
+              </Menu>
+            </>
+          ) : (
+            <Grid
+              container
+              direction="row"
+              justify="flex-end"
+              alignItems="center"
+              spacing={1}
+            >
+              <Grid item xs={4}>
+                <Tooltip title={t("app:button.edit", "Edit")}>
                   <IconButton
                     variant="contained"
-                    color="primary"
-                    aria-label="delete-button"
-                    onClick={() => setIsDeleteDialogOpen(true)}
+                    color="inherit"
+                    aria-label="edit-button"
+                    onClick={() => setIsCourseFormOpen(true)}
                   >
-                    <DeleteIcon />
+                    <EditIcon />
                   </IconButton>
                 </Tooltip>
-              </ThemeProvider>
+              </Grid>
+              <Grid item xs={4}>
+                <ThemeProvider theme={createMuiTheme(deleteButtonTheme)}>
+                  <Tooltip title={t("app:button.delete", "Delete")}>
+                    <IconButton
+                      variant="contained"
+                      color="primary"
+                      aria-label="delete-button"
+                      onClick={() => setIsDeleteDialogOpen(true)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </Tooltip>
+                </ThemeProvider>
+              </Grid>
+              <Grid item xs={4}>
+                <Tooltip title={t("app:button.save", "Save")}>
+                  <span>
+                    <IconButton
+                      variant="contained"
+                      color="primary"
+                      aria-label="save-button"
+                      onClick={handleSaveCourse}
+                    >
+                      <SaveIcon />
+                    </IconButton>
+                  </span>
+                </Tooltip>
+              </Grid>
             </Grid>
-            <Grid item xs={4}>
-              <Tooltip title={t("app:button.save", "Save")}>
-                <span>
-                  <IconButton
-                    variant="contained"
-                    color="primary"
-                    aria-label="save-button"
-                    onClick={handleSaveCourse}
-                  >
-                    <SaveIcon />
-                  </IconButton>
-                </span>
-              </Tooltip>
-            </Grid>
-          </Grid>
+          )
         }
         handleSave={handleAutoSave}
       />

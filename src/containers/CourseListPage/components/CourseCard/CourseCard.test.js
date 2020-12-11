@@ -57,37 +57,6 @@ describe("<CourseCard />", () => {
     ).not.toBeNull();
   });
 
-  it("should show action buttons on mouse over", () => {
-    render(
-      <CourseCard
-        course={course}
-        handleEdit={mockHandleEdit}
-        handleDelete={mockHandleDelete}
-        handleSelect={mockHandleSelect}
-      />,
-    );
-
-    fireEvent.mouseOver(screen.getByText(course.name));
-
-    expect(screen.queryByLabelText(/edit-course/i)).not.toBeNull();
-  });
-
-  it("should hide action buttons on mouse leave", () => {
-    render(
-      <CourseCard
-        course={course}
-        handleEdit={mockHandleEdit}
-        handleDelete={mockHandleDelete}
-        handleSelect={mockHandleSelect}
-      />,
-    );
-
-    fireEvent.mouseOver(screen.getByText(course.name));
-    fireEvent.mouseLeave(screen.getByText(course.name));
-
-    expect(screen.queryByLabelText(/edit-course/i)).toBeNull();
-  });
-
   it("should call handleEdit with correct id on edit button click", () => {
     render(
       <CourseCard
@@ -97,8 +66,6 @@ describe("<CourseCard />", () => {
         handleSelect={mockHandleSelect}
       />,
     );
-
-    fireEvent.mouseOver(screen.getByText(course.name));
 
     fireEvent.click(screen.getByLabelText(/edit-course/i));
 
@@ -129,8 +96,6 @@ describe("<CourseCard />", () => {
         handleSelect={mockHandleSelect}
       />,
     );
-
-    fireEvent.mouseOver(screen.getByText(course.name));
 
     fireEvent.click(screen.getByLabelText(/delete-course/i));
 
