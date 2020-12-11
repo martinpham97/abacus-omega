@@ -173,11 +173,13 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
                   >
                     {specialisation.courses &&
                     specialisation.courses.length > 0 ? (
-                      specialisation.courses.map((course) => (
-                        <MenuItem key={course} value={course}>
-                          {course}
-                        </MenuItem>
-                      ))
+                      specialisation.courses
+                        .sort((a, b) => a.localeCompare(b))
+                        .map((course) => (
+                          <MenuItem key={course} value={course}>
+                            {course}
+                          </MenuItem>
+                        ))
                     ) : (
                       <MenuItem disabled value="">
                         <em>
