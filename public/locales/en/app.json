@@ -145,9 +145,9 @@
       "total_limit": "Total weight must not exceed 100%"
     },
     "desired_grade": {
-      "label": "Overall course grade",
-      "limit": "Overall course grade must be between 0-100",
-      "required": "Overall course grade is required"
+      "label": "Desired course grade",
+      "limit": "Desired course grade must be between 0-100",
+      "required": "Desired course grade is required"
     },
     "no_assessment": "There is currently no assessment. Click '{{button}}' to create a new assessment",
     "add_assessment": "Add an assessment",

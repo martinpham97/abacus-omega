@@ -134,18 +134,21 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
         0,
         t(
           "grade_form.desired_grade.limit",
-          "Desired grade must be between 0-100",
+          "Desired course grade must be between 0-100",
         ),
       )
       .max(
         100,
         t(
           "grade_form.desired_grade.limit",
-          "Desired grade must be between 0-100",
+          "Desired course grade must be between 0-100",
         ),
       )
       .required(
-        t("grade_form.desired_grade.required", "Desired grade is required"),
+        t(
+          "grade_form.desired_grade.required",
+          "Desired course grade is required",
+        ),
       ),
   });
 
@@ -364,7 +367,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
             type="number"
             label={`${t(
               "grade_form.desired_grade.label",
-              "Overall course grade",
+              "Desired course grade",
             )}*`}
             fullWidth
             inputProps={{

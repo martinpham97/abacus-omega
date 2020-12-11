@@ -232,7 +232,9 @@ describe("<GradeForm />", () => {
       await fireEvent.submit(screen.getByLabelText(/calculate-button/i));
     });
 
-    expect(screen.queryByText(/desired grade is required/i)).not.toBeNull();
+    expect(
+      screen.queryByText(/desired course grade is required/i),
+    ).not.toBeNull();
   });
 
   it("should show errors when weight value is more than 100%", async () => {
