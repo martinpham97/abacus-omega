@@ -2,6 +2,10 @@
   "home": {
     "course_form_dialog": {
       "title": "Lưu môn học"
+    },
+    "new_alert": {
+      "content": "Bạn có thể thêm môn học từ Handbook chính thức của UNSW!",
+      "action": "Thử ngay"
     }
   },
   "course_detail": {

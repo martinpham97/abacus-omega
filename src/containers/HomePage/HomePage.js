@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { useHistory, NavLink } from "react-router-dom";
+import { Button, Grid } from "@material-ui/core";
 import { Save as SaveIcon } from "@material-ui/icons";
+import { Alert } from "@material-ui/lab";
 import { useTranslation } from "react-i18next";
 import { useSnackbar } from "notistack";
 
@@ -40,28 +41,53 @@ export const HomePage = () => {
   };
 
   return (
-    <>
-      <GradeCalculator
-        action={
-          <Button
-            variant="contained"
-            color="primary"
-            aria-label="save-button"
-            startIcon={<SaveIcon />}
-            onClick={() => setIsCourseFormOpen(true)}
-          >
-            {t("app:button.save", "Save")}
-          </Button>
-        }
-        handleSave={handleAutoSave}
-      />
-      <CourseFormDialog
-        title={t("pages:home.course_form_dialog.title", "Save course")}
-        isOpen={isCourseFormOpen}
-        handleClose={() => setIsCourseFormOpen(false)}
-        handleSubmit={handleSubmitCourse}
-      />
-    </>
+    <Grid container spacing={2}>
+      <Grid item xs={12}>
+        <Alert
+          variant="filled"
+          severity="info"
+          data-testid="alert-new"
+          action={
+            <Button
+              component={NavLink}
+              to="/courses"
+              color="inherit"
+              size="small"
+              aria-label="try-new-feature"
+            >
+              {t("pages:home.new_alert.action", "Try it now")}
+            </Button>
+          }
+        >
+          {t(
+            "pages:home.new_alert.content",
+            "You can now import courses from the official UNSW Handbook!",
+          )}
+        </Alert>
+      </Grid>
+      <Grid item xs={12}>
+        <GradeCalculator
+          action={
+            <Button
+              variant="contained"
+              color="primary"
+              aria-label="save-button"
+              startIcon={<SaveIcon />}
+              onClick={() => setIsCourseFormOpen(true)}
+            >
+              {t("app:button.save", "Save")}
+            </Button>
+          }
+          handleSave={handleAutoSave}
+        />
+        <CourseFormDialog
+          title={t("pages:home.course_form_dialog.title", "Save course")}
+          isOpen={isCourseFormOpen}
+          handleClose={() => setIsCourseFormOpen(false)}
+          handleSubmit={handleSubmitCourse}
+        />
+      </Grid>
+    </Grid>
   );
 };
 

@@ -2,6 +2,10 @@
   "home": {
     "course_form_dialog": {
       "title": "Save course"
+    },
+    "new_alert": {
+      "content": "You can now import courses from the official UNSW Handbook",
+      "action": "Try it now"
     }
   },
   "course_detail": {

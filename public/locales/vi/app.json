@@ -139,9 +139,9 @@
       "total_limit": "Tổng phần trăm không được quá 100%"
     },
     "desired_grade": {
-      "label": "Điểm mong muốn",
-      "limit": "Điểm mong muốn phải từ 0-100",
-      "required": "Điểm mong muốn cần được điền vào"
+      "label": "Tổng điểm môn học",
+      "limit": "Tổng điểm môn học phải từ 0-100",
+      "required": "Tổng điểm môn học cần được điền vào"
     },
     "no_assessment": "Hiện tại chưa có bài kiểm tra. Hãy nhấn vào '{{button}}' để tạo thêm bài kiểm tra",
     "add_assessment": "Thêm bài kiểm tra",

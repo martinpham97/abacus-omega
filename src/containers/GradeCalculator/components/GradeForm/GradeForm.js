@@ -362,7 +362,10 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
           <TextField
             name="desiredGrade"
             type="number"
-            label={`${t("grade_form.desired_grade.label", "Desired grade")}*`}
+            label={`${t(
+              "grade_form.desired_grade.label",
+              "Overall course grade",
+            )}*`}
             fullWidth
             inputProps={{
               "aria-label": "desired-grade",
