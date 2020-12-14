@@ -132,7 +132,7 @@ export const courseWithRecommended = {
     },
   ],
   desiredGrade: 60,
-  recommendedGrade: 55,
+  recommendedGrade: 54.5,
 };
 
 export const courseWithRecommendedNoRemaining = {
@@ -171,6 +171,12 @@ export const courseWithRecommendedGreaterThan100 = {
   ],
   desiredGrade: 90,
   recommendedGrade: 370,
+};
+
+export const courseWithoutAssessments = {
+  id: "some-id",
+  name: "COMP1231",
+  createdAt: "2020-12-13T05:45:37.361Z",
 };
 
 export default coursesWithoutIds;

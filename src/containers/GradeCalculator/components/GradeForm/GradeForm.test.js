@@ -306,7 +306,7 @@ describe("<GradeForm />", () => {
     });
 
     expect(
-      screen.queryByText(/max grade must be greater or equal to grade/i),
+      screen.queryByText(/total grade must be greater or equal to grade/i),
     ).not.toBeNull();
   });
 
@@ -324,7 +324,7 @@ describe("<GradeForm />", () => {
     });
 
     expect(
-      screen.queryByText(/max grade is required for the specified grade/i),
+      screen.queryByText(/total grade is required for the specified grade/i),
     ).not.toBeNull();
   });
 

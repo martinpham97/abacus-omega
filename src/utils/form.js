@@ -4,6 +4,6 @@
  * @param {String} value Input string
  */
 export const transformStringToNum = (value) => {
-  const output = parseInt(value, 10);
+  const output = parseFloat(value);
   return isNaN(output) ? null : output;
 };

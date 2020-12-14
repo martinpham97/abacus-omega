@@ -1,5 +1,5 @@
 export const getPercentage = (number, total) =>
-  Math.round((number / total) * 100);
+  parseFloat(((number / total) * 100).toFixed(2));
 
 export const getPercentageOf = (number, percentage) =>
-  Math.round((number * percentage) / 100);
+  parseFloat(((number * percentage) / 100).toFixed(2));

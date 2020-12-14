@@ -1,7 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 
-import { courseWithId as course } from "__fixtures__/courses";
+import {
+  courseWithId as course,
+  courseWithoutAssessments,
+} from "__fixtures__/courses";
 
 import CourseCard from "./CourseCard";
 
@@ -40,6 +43,19 @@ describe("<CourseCard />", () => {
     );
 
     expect(screen.queryByText(/no\. assessments: 3/i)).not.toBeNull();
+  });
+
+  it("should display 0 for number of assessments if no assessments in course object", () => {
+    render(
+      <CourseCard
+        course={courseWithoutAssessments}
+        handleEdit={mockHandleEdit}
+        handleDelete={mockHandleDelete}
+        handleSelect={mockHandleSelect}
+      />,
+    );
+
+    expect(screen.queryByText(/no\. assessments: 0/i)).not.toBeNull();
   });
 
   it("should display date created", () => {

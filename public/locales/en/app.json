@@ -133,10 +133,10 @@
       "min": "Grade must be greater or equal to zero"
     },
     "max_grade": {
-      "label": "Max grade",
-      "min": "Max grade must be greater than zero",
-      "min_grade": "Max grade must be greater or equal to grade",
-      "required_grade": "Max grade is required for the specified grade"
+      "label": "Total grade",
+      "min": "Total grade must be greater than zero",
+      "min_grade": "Total grade must be greater or equal to grade",
+      "required_grade": "Total grade is required for the specified grade"
     },
     "weight": {
       "label": "Weight",

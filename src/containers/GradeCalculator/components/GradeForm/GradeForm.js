@@ -72,7 +72,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
               1,
               t(
                 "grade_form.max_grade.min",
-                "Max grade must be greater than zero",
+                "Total grade must be greater than zero",
               ),
             )
             .when("grade", {
@@ -84,13 +84,13 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
                   yup.ref("grade"),
                   t(
                     "grade_form.max_grade.min_grade",
-                    "Max grade must be greater or equal to grade",
+                    "Total grade must be greater or equal to grade",
                   ),
                 )
                 .required(
                   t(
                     "grade_form.max_grade.required_grade",
-                    "Max grade is required for the specified grade",
+                    "Total grade is required for the specified grade",
                   ),
                 ),
             }),
@@ -119,7 +119,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
                     acc +
                     (assessment.weight === "" || assessment.weight === null
                       ? 0
-                      : parseInt(assessment.weight, 10)),
+                      : parseFloat(assessment.weight)),
                   0,
                 );
                 return weightSum <= 100;
@@ -236,7 +236,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
                       inputProps={{
                         "aria-label": "grade",
                         min: "0",
-                        step: "1",
+                        step: ".01",
                       }}
                       error={isError && !!errors.assessments[index]?.grade}
                       helperText={
@@ -252,14 +252,14 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
                     <TextField
                       name={`assessments[${index}].maxGrade`}
                       type="number"
-                      label={t("grade_form.max_grade.label", "Max grade")}
+                      label={t("grade_form.max_grade.label", "Total grade")}
                       margin={assessmentMargin}
                       fullWidth
                       variant="outlined"
                       inputProps={{
                         "aria-label": "max-grade",
                         min: "1",
-                        step: "1",
+                        step: ".01",
                       }}
                       error={isError && !!errors.assessments[index]?.maxGrade}
                       helperText={
@@ -282,7 +282,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
                         "aria-label": "weight",
                         min: "0",
                         max: "100",
-                        step: "1",
+                        step: ".01",
                       }}
                       InputProps={{
                         endAdornment: (
@@ -374,7 +374,7 @@ export const GradeForm = ({ course = {}, handleSave, handleSubmit }) => {
               "aria-label": "desired-grade",
               min: "0",
               max: "100",
-              step: "1",
+              step: ".01",
             }}
             InputProps={{
               endAdornment: <InputAdornment position="end">%</InputAdornment>,
