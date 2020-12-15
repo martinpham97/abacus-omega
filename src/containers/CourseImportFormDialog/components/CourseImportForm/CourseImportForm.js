@@ -36,6 +36,7 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
       ),
     specialisation: yup
       .object()
+      .nullable()
       .required(
         t(
           "course_import_form.specialisation.required",
@@ -72,13 +73,6 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
 
   const specialisation = watch("specialisation", undefined);
 
-  const getOpObj = (option) => {
-    if (!option.code) {
-      return handbookPrograms.find((op) => op.code === option);
-    }
-    return option;
-  };
-
   return (
     <form id={id} onSubmit={handleFormSubmit((data) => handleSubmit(data))}>
       <Grid container spacing={2}>
@@ -97,10 +91,18 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
                   onBlur={onBlur}
                   onChange={onChange}
                   value={value}
-                  disabled
                 >
                   <MenuItem value="unsw">
                     University of New South Wales (UNSW)
+                  </MenuItem>
+                  <MenuItem value="usyd" disabled>
+                    University of Sydney
+                  </MenuItem>
+                  <MenuItem value="wsu" disabled>
+                    Western Sydney University
+                  </MenuItem>
+                  <MenuItem value="mq" disabled>
+                    Macquarie University
                   </MenuItem>
                 </Select>
                 {!!errors?.university && (
@@ -118,12 +120,8 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
             render={({ onChange, ...props }) => (
               <Autocomplete
                 options={handbookPrograms}
-                getOptionLabel={(option) => {
-                  const opt = getOpObj(option);
-                  return `${opt.code} - ${opt.title} (${opt.level})`;
-                }}
-                getOptionSelected={(option, value) =>
-                  option.code === getOpObj(value).code
+                getOptionLabel={(option) =>
+                  `${option.code} - ${option.title} (${option.level})`
                 }
                 renderInput={(params) => (
                   <TextField
@@ -141,10 +139,11 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
                   setValue("courses", []);
                   onChange(data);
                 }}
+                autoHighlight
+                autoComplete
                 {...props}
               />
             )}
-            onChange={([, obj]) => obj}
             control={control}
             defaultValue={handbookPrograms[0]}
           />
@@ -175,6 +174,9 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
                         ))}
                       </Grid>
                     )}
+                    MenuProps={{
+                      className: classes.courseMenu,
+                    }}
                   >
                     {specialisation.courses &&
                     specialisation.courses.length > 0 ? (

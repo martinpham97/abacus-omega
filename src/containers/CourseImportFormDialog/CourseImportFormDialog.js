@@ -17,29 +17,6 @@ export const CourseImportFormDialog = ({
   handleSubmit,
 }) => {
   const { t } = useTranslation("app");
-  // const handleUploadJson = (e) => {
-  //   const uploadedFile = e.target.files[0];
-
-  //   if (uploadedFile) {
-  //     if (
-  //       uploadedFile.type !== "application/json" &&
-  //       uploadedFile.type !== "application/x-javascript"
-  //     ) {
-  //       return false;
-  //     }
-
-  //     const fileReader = new FileReader();
-
-  //     fileReader.onload = function (e) {
-  //       const contents = e.target.result;
-  //       const json = JSON.parse(contents);
-  //     };
-
-  //     fileReader.readAsText(uploadedFile);
-  //   } else {
-  //     alert("Failed to load JSON file!");
-  //   }
-  // };
 
   return (
     <Dialog
