@@ -11,6 +11,8 @@ import {
   FormHelperText,
   Chip,
   Grid,
+  ListItemText,
+  Checkbox,
 } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { useTranslation } from "react-i18next";
@@ -18,7 +20,10 @@ import { useTranslation } from "react-i18next";
 import ugrd from "config/ugrd.json";
 import pgrd from "config/pgrd.json";
 
+import useStyles from "./styles";
+
 export const CourseImportForm = ({ id, handleSubmit }) => {
+  const classes = useStyles();
   const { t } = useTranslation("app");
 
   const handbookPrograms = [...ugrd, ...pgrd];
@@ -176,8 +181,17 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
                       specialisation.courses
                         .sort((a, b) => a.localeCompare(b))
                         .map((course) => (
-                          <MenuItem key={course} value={course}>
-                            {course}
+                          <MenuItem key={course} value={course} dense>
+                            <Checkbox
+                              checked={value.indexOf(course) > -1}
+                              color="primary"
+                              inputProps={{ "aria-label": course }}
+                              size="small"
+                            />
+                            <ListItemText
+                              className={classes.courseMenuItemText}
+                              primary={course}
+                            />
                           </MenuItem>
                         ))
                     ) : (
