@@ -14,8 +14,8 @@ i18n
       backends: [LocalStorageBackend, HttpApi],
       backendOptions: [
         {
-          defaultVersion: "v1.6",
-          versions: { en: "v1.6", vi: "v1.6" },
+          defaultVersion: "v1.7",
+          versions: { en: "v1.7", vi: "v1.7" },
         },
         {
           loadPath: "/locales/{{lng}}/{{ns}}.json",
