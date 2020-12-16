@@ -17,8 +17,8 @@ import {
 import { Autocomplete } from "@material-ui/lab";
 import { useTranslation } from "react-i18next";
 
-import ugrd from "config/ugrd.json";
-import pgrd from "config/pgrd.json";
+import unswUgrd from "data/unsw/ugrd.json";
+import unswPgrd from "data/unsw/pgrd.json";
 
 import useStyles from "./styles";
 
@@ -26,7 +26,9 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
   const classes = useStyles();
   const { t } = useTranslation("app");
 
-  const handbookPrograms = [...ugrd, ...pgrd];
+  const handbookPrograms = {
+    unsw: [...unswUgrd, ...unswPgrd],
+  };
 
   const validationSchema = yup.object().shape({
     university: yup
@@ -65,12 +67,13 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
   } = useForm({
     defaultValues: {
       university: "unsw",
-      specialisation: handbookPrograms[0],
+      specialisation: handbookPrograms["unsw"][0],
       courses: [],
     },
     resolver: yupResolver(validationSchema),
   });
 
+  const university = watch("university", undefined);
   const specialisation = watch("specialisation", undefined);
 
   return (
@@ -119,7 +122,7 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
             name="specialisation"
             render={({ onChange, ...props }) => (
               <Autocomplete
-                options={handbookPrograms}
+                options={handbookPrograms[university]}
                 getOptionLabel={(option) =>
                   `${option.code} - ${option.title} (${option.level})`
                 }
@@ -145,7 +148,7 @@ export const CourseImportForm = ({ id, handleSubmit }) => {
               />
             )}
             control={control}
-            defaultValue={handbookPrograms[0]}
+            defaultValue={handbookPrograms[university][0]}
           />
         </Grid>
         <Grid item xs={12}>
