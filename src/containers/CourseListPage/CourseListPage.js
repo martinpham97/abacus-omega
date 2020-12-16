@@ -160,7 +160,18 @@ export const CourseListPage = () => {
 
   return (
     <Grid container spacing={3}>
-      <Grid item container xs={12} justify="flex-end">
+      <Grid item xs={6}>
+        <Button
+          variant="contained"
+          color="primary"
+          aria-label="import-button"
+          startIcon={<AddIcon />}
+          onClick={() => history.push("/")}
+        >
+          {t("app:button.new", "New")}
+        </Button>
+      </Grid>
+      <Grid item container xs={6} justify="flex-end">
         <Button
           variant="contained"
           color="primary"

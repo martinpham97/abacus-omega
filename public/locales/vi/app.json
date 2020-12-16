@@ -1,5 +1,5 @@
 {
-  "title": "Pass or Fail",
+  "title": "Abacus Omega",
   "toggle_sidebar": "Đóng/mở sidebar",
   "toggle_darkmode": "Đổi giao diện sáng/tối",
   "change_language": "Đổi ngôn ngữ",
@@ -117,7 +117,8 @@
     "delete": "Xóa",
     "calculate": "Tính điểm",
     "no": "Không",
-    "yes": "Có"
+    "yes": "Có",
+    "new": "Tạo mới"
   },
   "grade_form": {
     "assessments": {

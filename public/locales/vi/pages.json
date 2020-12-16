@@ -20,6 +20,26 @@
       "reset_data": "Cài đặt lại ứng dụng"
     }
   },
+  "about": {
+    "title": "Thông tin",
+    "project": {
+      "what": "{{app}} là gì?",
+      "what_answer": "{{app}} là một công cụ tính điểm để các bạn sinh viên học sinh biết được điểm tối thiểu để đạt được thành tích môn học mà mình mong muốn.",
+      "why": "Vì sao {{app}}?",
+      "why_answer_1": "Là một sinh viên, tôi thường gặp khó khăn trong việc quản lý các môn học khi học đại học.",
+      "why_answer_2": "Ứng dụng web này được tạo ra để giúp các bạn sinh viên quản lý các môn học một cách dễ dàng hơn và dành thời gian để chú tâm vào mục tiêu học tập mong muốn.",
+      "how": "Làm sao để đóng góp vào dự án này?",
+      "how_answer": "Dự án này được đăng tải công khai tại"
+    },
+    "author": {
+      "title": "Tác giả",
+      "who": "Tôi là ai?",
+      "who_answer_1": "Tôi là cựu sinh viên khoa Computer Science tốt nghiệp tại UNSW.",
+      "who_answer_2": "Sở thích của tôi: viết ứng dụng web với React, bowling và video games.",
+      "how": "Làm sao để liên hệ tôi?",
+      "how_answer": "Bạn có thể liên hệ tôi qua các mạng xã hội bên dưới:"
+    }
+  },
   "not_found": {
     "title": "404 - KHÔNG TỒN TẠI",
     "description": "Nội dung bạn cần tìm không tồn tại ở trang này",

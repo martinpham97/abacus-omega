@@ -43,7 +43,7 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
           class="MuiTypography-root makeStyles-logotype-159 MuiTypography-h6 MuiTypography-colorInherit active"
           href="/"
         >
-          Pass or Fail
+          Abacus Omega
         </a>
         <div
           class="makeStyles-grow-162"
@@ -357,7 +357,7 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
           class="MuiTypography-root makeStyles-logotype-131 MuiTypography-h6 MuiTypography-colorInherit active"
           href="/"
         >
-          Pass or Fail
+          Abacus Omega
         </a>
         <div
           class="makeStyles-grow-134"
@@ -671,7 +671,7 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
           class="MuiTypography-root makeStyles-logotype-34 MuiTypography-h6 MuiTypography-colorInherit active"
           href="/"
         >
-          Pass or Fail
+          Abacus Omega
         </a>
         <div
           class="makeStyles-grow-37"

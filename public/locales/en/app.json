@@ -1,5 +1,5 @@
 {
-  "title": "Pass or Fail",
+  "title": "Abacus Omega",
   "toggle_sidebar": "Toggle sidebar",
   "toggle_darkmode": "Toggle light/dark theme",
   "change_language": "Change language",
@@ -106,7 +106,8 @@
     "delete": "Delete",
     "calculate": "Calculate",
     "no": "No",
-    "yes": "Yes"
+    "yes": "Yes",
+    "new": "New"
   },
   "course_import_form": {
     "university": {

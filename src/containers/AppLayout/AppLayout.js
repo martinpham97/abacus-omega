@@ -69,7 +69,7 @@ export const AppLayout = ({ children }) => {
         <div className={classes.root}>
           <CssBaseline />
           <Header
-            title={t("title", "Pass or Fail")}
+            title={t("title", "Abacus Omega")}
             isSidebarOpened={isSidebarOpened}
             handleToggleSidebar={handleToggleSidebar}
             handleToggleDarkMode={handleToggleDarkMode}

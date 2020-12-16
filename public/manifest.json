@@ -1,6 +1,6 @@
 {
-  "short_name": "Pass or Fail",
-  "name": "Course Assessment Calculator",
+  "short_name": "Abacus Omega",
+  "name": "Abacus Omega",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#ffe600",
+  "background_color": "#303030"
 }
