@@ -13,6 +13,13 @@
       "title": "Edit course name"
     }
   },
+  "settings": {
+    "title": "Settings",
+    "application": {
+      "title": "Application",
+      "reset_data": "Reset application data"
+    }
+  },
   "not_found": {
     "title": "404 - NOT FOUND",
     "description": "The content you're looking for could not be found on this page",

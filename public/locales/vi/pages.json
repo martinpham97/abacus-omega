@@ -13,6 +13,13 @@
       "title": "Sửa tên môn học"
     }
   },
+  "settings": {
+    "title": "Cài đặt",
+    "application": {
+      "title": "Ứng dụng",
+      "reset_data": "Cài đặt lại ứng dụng"
+    }
+  },
   "not_found": {
     "title": "404 - KHÔNG TỒN TẠI",
     "description": "Nội dung bạn cần tìm không tồn tại ở trang này",

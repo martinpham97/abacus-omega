@@ -5,6 +5,7 @@ import NotFoundPage from "containers/NotFoundPage/NotFoundPage";
 import HomePage from "containers/HomePage/HomePage";
 import CourseListPage from "containers/CourseListPage/CourseListPage";
 import CourseDetailPage from "containers/CourseDetailPage/CourseDetailPage";
+import SettingsPage from "containers/SettingsPage/SettingsPage";
 
 export const App = () => (
   <Router>
@@ -18,6 +19,9 @@ export const App = () => (
         </Route>
         <Route path="/courses/:courseId">
           <CourseDetailPage />
+        </Route>
+        <Route path="/settings">
+          <SettingsPage />
         </Route>
         <Route path="*">
           <NotFoundPage />

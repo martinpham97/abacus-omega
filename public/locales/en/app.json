@@ -35,7 +35,8 @@
     "course_created_multiple": "{{count}} course created",
     "course_created_multiple_plural": "{{count}} courses created",
     "course_deleted_multiple": "{{count}} course deleted",
-    "course_deleted_multiple_plural": "{{count}} courses deleted"
+    "course_deleted_multiple_plural": "{{count}} courses deleted",
+    "application_reset": "Application data has been reset"
   },
   "sort": {
     "sort_name_asc": "Sort by name ascending",
@@ -88,6 +89,10 @@
   },
   "course_import_form_dialog": {
     "title": "Import courses"
+  },
+  "reset_confirm_dialog": {
+    "title": "Reset application data?",
+    "content": "Resetting the application data will clear out all settings including all saved course data. Are you sure you want to continue?"
   },
   "button": {
     "cancel": "Cancel",

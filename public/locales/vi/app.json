@@ -27,6 +27,10 @@
       "message": "{{count}} môn đã được chọn"
     }
   },
+  "reset_confirm_dialog": {
+    "title": "Cài đặt lại ứng dụng?",
+    "content": "Việc cài đặt lại ứng dụng sẽ xóa tất cả dữ liệu bao gồm những môn học đã lưu. Bạn có chắc chắn muốn tiếp tục?"
+  },
   "sort": {
     "sort_name_asc": "Sắp xếp tên thứ tự tăng dần",
     "sort_name_desc": "Sắp xếp tên thứ tự giảm dần",
@@ -98,7 +102,8 @@
     "course_saved": "Lưu môn học thành công",
     "course_deleted": "Môn học đã được xóa",
     "course_created_multiple": "{{count}} môn học đã được thêm vào",
-    "course_deleted_multiple": "{{count}} môn học đã được xóa"
+    "course_deleted_multiple": "{{count}} môn học đã được xóa",
+    "application_reset": "Dữ liệu ứng dụng đã được cài đặt lại"
   },
   "button": {
     "cancel": "Hủy",
