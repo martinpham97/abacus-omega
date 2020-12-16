@@ -72,7 +72,7 @@ export const SettingsPage = () => {
                 "pages:about.project.how_answer",
                 "This project's repository is hosted publicly on",
               )}{" "}
-              <Link href="https://github.com/martinpham97/pass-or-fail">
+              <Link href="https://github.com/martinpham97/abacus-omega">
                 Github
               </Link>
               .
