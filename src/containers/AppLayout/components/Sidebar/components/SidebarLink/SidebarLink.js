@@ -25,18 +25,24 @@ export const SidebarLink = ({
 
   if (type === "title") {
     return (
-      <Typography
-        className={clsx(classes.linkText, classes.sectionTitle, {
-          [classes.linkTextHidden]: !isSidebarOpened,
-        })}
-      >
-        {label}
-      </Typography>
+      <li>
+        <Typography
+          className={clsx(classes.linkText, classes.sectionTitle, {
+            [classes.linkTextHidden]: !isSidebarOpened,
+          })}
+        >
+          {label}
+        </Typography>
+      </li>
     );
   }
 
   if (type === "divider") {
-    return <Divider className={classes.divider} data-testid="divider" />;
+    return (
+      <li>
+        <Divider className={classes.divider} data-testid="divider" />
+      </li>
+    );
   }
 
   const linkIcon = (
@@ -50,26 +56,32 @@ export const SidebarLink = ({
   );
 
   return (
-    <ListItem
-      key={id}
-      button
-      component={link && NavLink}
-      className={classes.link}
-      to={link}
-      disableRipple
-      selected={selected}
-    >
-      {isSidebarOpened ? linkIcon : <Tooltip title={label}>{linkIcon}</Tooltip>}
-      <ListItemText
-        classes={{
-          primary: clsx(classes.linkText, {
-            [classes.linkTextActive]: selected,
-            [classes.linkTextHidden]: !isSidebarOpened,
-          }),
-        }}
-        primary={label}
-      />
-    </ListItem>
+    <li>
+      <ListItem
+        key={id}
+        button
+        component={link && NavLink}
+        className={classes.link}
+        to={link}
+        disableRipple
+        selected={selected}
+      >
+        {isSidebarOpened ? (
+          linkIcon
+        ) : (
+          <Tooltip title={label}>{linkIcon}</Tooltip>
+        )}
+        <ListItemText
+          classes={{
+            primary: clsx(classes.linkText, {
+              [classes.linkTextActive]: selected,
+              [classes.linkTextHidden]: !isSidebarOpened,
+            }),
+          }}
+          primary={label}
+        />
+      </ListItem>
+    </li>
   );
 };
 

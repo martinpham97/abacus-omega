@@ -61,12 +61,6 @@ describe("<Sidebar />", () => {
       { wrapper: BrowserRouter },
     );
 
-    expect(
-      await axe(container, {
-        rules: {
-          list: { enabled: false },
-        },
-      }),
-    ).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

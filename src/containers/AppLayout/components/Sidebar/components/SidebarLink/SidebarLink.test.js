@@ -40,13 +40,15 @@ describe("<SidebarLink />", () => {
 
   it("should be accessible", async () => {
     const { container } = render(
-      <SidebarLink
-        isSidebarOpened
-        id={1}
-        type="link"
-        label="home"
-        selected={false}
-      />,
+      <ul>
+        <SidebarLink
+          isSidebarOpened
+          id={1}
+          type="link"
+          label="home"
+          selected={false}
+        />
+      </ul>,
     );
 
     expect(await axe(container)).toHaveNoViolations();
