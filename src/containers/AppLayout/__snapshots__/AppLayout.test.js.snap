@@ -3,18 +3,18 @@
 exports[`<AppLayout /> should change language when language is selected 1`] = `
 <div>
   <div
-    class="makeStyles-root-154"
+    class="makeStyles-root-166"
   >
     <header
-      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-160 mui-fixed MuiPaper-elevation4"
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-172 mui-fixed MuiPaper-elevation4"
       style=""
     >
       <div
-        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-161 MuiToolbar-gutters"
+        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-173 MuiToolbar-gutters"
       >
         <button
           aria-label="toggle-sidebar"
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-164 makeStyles-headerMenuButtonCollapse-165 MuiIconButton-colorInherit"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-176 makeStyles-headerMenuButtonCollapse-177 MuiIconButton-colorInherit"
           tabindex="0"
           title="Toggle Sidebar"
           type="button"
@@ -24,7 +24,7 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-buttonIcon-166"
+              class="MuiSvgIcon-root makeStyles-buttonIcon-178"
               data-testid="sidebar-open-svg"
               focusable="false"
               viewBox="0 0 24 24"
@@ -40,13 +40,31 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
         </button>
         <a
           aria-current="page"
-          class="MuiTypography-root makeStyles-logotype-159 MuiTypography-h6 MuiTypography-colorInherit active"
+          class="MuiTypography-root makeStyles-logotype-171 MuiTypography-h6 MuiTypography-colorInherit active"
           href="/"
         >
-          Abacus Omega
+          <div
+            class="MuiBox-root MuiBox-root-179"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <svg>
+                logo.svg
+              </svg>
+            </svg>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-180"
+          >
+            Abacus Omega
+          </div>
         </a>
         <div
-          class="makeStyles-grow-162"
+          class="makeStyles-grow-174"
         />
         <button
           aria-controls="lang-menu"
@@ -71,7 +89,7 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
               />
             </svg>
             <span
-              class="makeStyles-language-163"
+              class="makeStyles-language-175"
             >
               English
             </span>
@@ -119,20 +137,20 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
       </div>
     </header>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-167 makeStyles-drawerClose-169"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-181 makeStyles-drawerClose-183"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerClose-169 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerClose-183 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
       >
         <div
-          class="makeStyles-toolbar-170"
+          class="makeStyles-toolbar-184"
         />
         <div
-          class="makeStyles-mobileBackButton-171"
+          class="makeStyles-mobileBackButton-185"
         >
           <button
             aria-label="toggle-sidebar"
-            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-164 makeStyles-headerMenuButtonCollapse-165 MuiIconButton-colorInherit"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-176 makeStyles-headerMenuButtonCollapse-177 MuiIconButton-colorInherit"
             tabindex="0"
             title="Toggle Sidebar"
             type="button"
@@ -142,7 +160,7 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root makeStyles-buttonIcon-166"
+                class="MuiSvgIcon-root makeStyles-buttonIcon-178"
                 data-testid="sidebar-open-svg"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -165,13 +183,13 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
             <a
               aria-current="page"
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-172 MuiListItem-gutters MuiListItem-button Mui-selected active"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-186 MuiListItem-gutters MuiListItem-button Mui-selected active"
               href="/"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-174 makeStyles-linkIconActive-175"
+                class="MuiListItemIcon-root makeStyles-linkIcon-188 makeStyles-linkIconActive-189"
                 title="Home"
               >
                 <svg
@@ -189,7 +207,7 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-176 makeStyles-linkTextActive-177 makeStyles-linkTextHidden-178 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-190 makeStyles-linkTextActive-191 makeStyles-linkTextHidden-192 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Home
                 </span>
@@ -199,13 +217,13 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-172 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-186 MuiListItem-gutters MuiListItem-button"
               href="/courses"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-174"
+                class="MuiListItemIcon-root makeStyles-linkIcon-188"
                 title="Courses"
               >
                 <svg
@@ -223,7 +241,7 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-176 makeStyles-linkTextHidden-178 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-190 makeStyles-linkTextHidden-192 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Courses
                 </span>
@@ -233,13 +251,13 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-172 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-186 MuiListItem-gutters MuiListItem-button"
               href="/settings"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-174"
+                class="MuiListItemIcon-root makeStyles-linkIcon-188"
                 title="Settings"
               >
                 <svg
@@ -257,7 +275,7 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-176 makeStyles-linkTextHidden-178 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-190 makeStyles-linkTextHidden-192 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Settings
                 </span>
@@ -266,20 +284,20 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
           </li>
           <li>
             <hr
-              class="MuiDivider-root makeStyles-divider-180"
+              class="MuiDivider-root makeStyles-divider-194"
               data-testid="divider"
             />
           </li>
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-172 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-186 MuiListItem-gutters MuiListItem-button"
               href="/about"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-174"
+                class="MuiListItemIcon-root makeStyles-linkIcon-188"
                 title="About"
               >
                 <svg
@@ -297,7 +315,7 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-176 makeStyles-linkTextHidden-178 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-190 makeStyles-linkTextHidden-192 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   About
                 </span>
@@ -308,16 +326,16 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
       </div>
     </div>
     <main
-      class="makeStyles-content-155"
+      class="makeStyles-content-167"
     >
       <div
-        class="makeStyles-appBarSpacer-157"
+        class="makeStyles-appBarSpacer-169"
       />
       <div
-        class="MuiContainer-root makeStyles-container-158 MuiContainer-maxWidthLg"
+        class="MuiContainer-root makeStyles-container-170 MuiContainer-maxWidthLg"
       >
         <div
-          class="MuiBox-root MuiBox-root-181"
+          class="MuiBox-root MuiBox-root-195"
         />
       </div>
     </main>
@@ -328,17 +346,17 @@ exports[`<AppLayout /> should change language when language is selected 1`] = `
 exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mode button 1`] = `
 <div>
   <div
-    class="makeStyles-root-57"
+    class="makeStyles-root-61"
   >
     <header
-      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-132 mui-fixed MuiPaper-elevation4"
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-142 mui-fixed MuiPaper-elevation4"
     >
       <div
-        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-133 MuiToolbar-gutters"
+        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-143 MuiToolbar-gutters"
       >
         <button
           aria-label="toggle-sidebar"
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-136 makeStyles-headerMenuButtonCollapse-137 MuiIconButton-colorInherit"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-146 makeStyles-headerMenuButtonCollapse-147 MuiIconButton-colorInherit"
           tabindex="0"
           title="Toggle Sidebar"
           type="button"
@@ -348,7 +366,7 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-buttonIcon-138"
+              class="MuiSvgIcon-root makeStyles-buttonIcon-148"
               data-testid="sidebar-open-svg"
               focusable="false"
               viewBox="0 0 24 24"
@@ -364,13 +382,31 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
         </button>
         <a
           aria-current="page"
-          class="MuiTypography-root makeStyles-logotype-131 MuiTypography-h6 MuiTypography-colorInherit active"
+          class="MuiTypography-root makeStyles-logotype-141 MuiTypography-h6 MuiTypography-colorInherit active"
           href="/"
         >
-          Abacus Omega
+          <div
+            class="MuiBox-root MuiBox-root-149"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <svg>
+                logo.svg
+              </svg>
+            </svg>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-150"
+          >
+            Abacus Omega
+          </div>
         </a>
         <div
-          class="makeStyles-grow-134"
+          class="makeStyles-grow-144"
         />
         <button
           aria-controls="lang-menu"
@@ -395,7 +431,7 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
               />
             </svg>
             <span
-              class="makeStyles-language-135"
+              class="makeStyles-language-145"
             >
               English
             </span>
@@ -443,20 +479,20 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
       </div>
     </header>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-139 makeStyles-drawerClose-141"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-151 makeStyles-drawerClose-153"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerClose-141 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerClose-153 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
       >
         <div
-          class="makeStyles-toolbar-142"
+          class="makeStyles-toolbar-154"
         />
         <div
-          class="makeStyles-mobileBackButton-143"
+          class="makeStyles-mobileBackButton-155"
         >
           <button
             aria-label="toggle-sidebar"
-            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-136 makeStyles-headerMenuButtonCollapse-137 MuiIconButton-colorInherit"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-146 makeStyles-headerMenuButtonCollapse-147 MuiIconButton-colorInherit"
             tabindex="0"
             title="Toggle Sidebar"
             type="button"
@@ -466,7 +502,7 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root makeStyles-buttonIcon-138"
+                class="MuiSvgIcon-root makeStyles-buttonIcon-148"
                 data-testid="sidebar-open-svg"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -489,13 +525,13 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
             <a
               aria-current="page"
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-144 MuiListItem-gutters MuiListItem-button Mui-selected active"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-156 MuiListItem-gutters MuiListItem-button Mui-selected active"
               href="/"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-146 makeStyles-linkIconActive-147"
+                class="MuiListItemIcon-root makeStyles-linkIcon-158 makeStyles-linkIconActive-159"
                 title="Home"
               >
                 <svg
@@ -513,7 +549,7 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-148 makeStyles-linkTextActive-149 makeStyles-linkTextHidden-150 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-160 makeStyles-linkTextActive-161 makeStyles-linkTextHidden-162 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Home
                 </span>
@@ -523,13 +559,13 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-144 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-156 MuiListItem-gutters MuiListItem-button"
               href="/courses"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-146"
+                class="MuiListItemIcon-root makeStyles-linkIcon-158"
                 title="Courses"
               >
                 <svg
@@ -547,7 +583,7 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-148 makeStyles-linkTextHidden-150 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-160 makeStyles-linkTextHidden-162 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Courses
                 </span>
@@ -557,13 +593,13 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-144 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-156 MuiListItem-gutters MuiListItem-button"
               href="/settings"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-146"
+                class="MuiListItemIcon-root makeStyles-linkIcon-158"
                 title="Settings"
               >
                 <svg
@@ -581,7 +617,7 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-148 makeStyles-linkTextHidden-150 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-160 makeStyles-linkTextHidden-162 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Settings
                 </span>
@@ -590,20 +626,20 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
           </li>
           <li>
             <hr
-              class="MuiDivider-root makeStyles-divider-152"
+              class="MuiDivider-root makeStyles-divider-164"
               data-testid="divider"
             />
           </li>
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-144 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-156 MuiListItem-gutters MuiListItem-button"
               href="/about"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-146"
+                class="MuiListItemIcon-root makeStyles-linkIcon-158"
                 title="About"
               >
                 <svg
@@ -621,7 +657,7 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-148 makeStyles-linkTextHidden-150 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-160 makeStyles-linkTextHidden-162 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   About
                 </span>
@@ -632,16 +668,16 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
       </div>
     </div>
     <main
-      class="makeStyles-content-58"
+      class="makeStyles-content-62"
     >
       <div
-        class="makeStyles-appBarSpacer-60"
+        class="makeStyles-appBarSpacer-64"
       />
       <div
-        class="MuiContainer-root makeStyles-container-61 MuiContainer-maxWidthLg"
+        class="MuiContainer-root makeStyles-container-65 MuiContainer-maxWidthLg"
       >
         <div
-          class="MuiBox-root MuiBox-root-153"
+          class="MuiBox-root MuiBox-root-165"
         />
       </div>
     </main>
@@ -652,17 +688,17 @@ exports[`<AppLayout /> should toggle light/dark mode on clicking toggle dark mod
 exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
 <div>
   <div
-    class="makeStyles-root-29"
+    class="makeStyles-root-31"
   >
     <header
-      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-35 mui-fixed MuiPaper-elevation4"
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-37 mui-fixed MuiPaper-elevation4"
     >
       <div
-        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-36 MuiToolbar-gutters"
+        class="MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-38 MuiToolbar-gutters"
       >
         <button
           aria-label="toggle-sidebar"
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-39 makeStyles-headerMenuButtonCollapse-40 MuiIconButton-colorInherit"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-41 makeStyles-headerMenuButtonCollapse-42 MuiIconButton-colorInherit"
           tabindex="0"
           title="Toggle Sidebar"
           type="button"
@@ -672,7 +708,7 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-buttonIcon-41"
+              class="MuiSvgIcon-root makeStyles-buttonIcon-43"
               data-testid="sidebar-close-svg"
               focusable="false"
               viewBox="0 0 24 24"
@@ -688,13 +724,31 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
         </button>
         <a
           aria-current="page"
-          class="MuiTypography-root makeStyles-logotype-34 MuiTypography-h6 MuiTypography-colorInherit active"
+          class="MuiTypography-root makeStyles-logotype-36 MuiTypography-h6 MuiTypography-colorInherit active"
           href="/"
         >
-          Abacus Omega
+          <div
+            class="MuiBox-root MuiBox-root-44"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <svg>
+                logo.svg
+              </svg>
+            </svg>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-45"
+          >
+            Abacus Omega
+          </div>
         </a>
         <div
-          class="makeStyles-grow-37"
+          class="makeStyles-grow-39"
         />
         <button
           aria-controls="lang-menu"
@@ -719,7 +773,7 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
               />
             </svg>
             <span
-              class="makeStyles-language-38"
+              class="makeStyles-language-40"
             >
               English
             </span>
@@ -767,20 +821,20 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
       </div>
     </header>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-42 makeStyles-drawerOpen-43"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-46 makeStyles-drawerOpen-47"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerOpen-43 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerOpen-47 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft MuiPaper-elevation0"
       >
         <div
-          class="makeStyles-toolbar-45"
+          class="makeStyles-toolbar-49"
         />
         <div
-          class="makeStyles-mobileBackButton-46"
+          class="makeStyles-mobileBackButton-50"
         >
           <button
             aria-label="toggle-sidebar"
-            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-39 makeStyles-headerMenuButtonCollapse-40 MuiIconButton-colorInherit"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-headerMenuButton-41 makeStyles-headerMenuButtonCollapse-42 MuiIconButton-colorInherit"
             tabindex="0"
             title="Toggle Sidebar"
             type="button"
@@ -790,7 +844,7 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root makeStyles-buttonIcon-41"
+                class="MuiSvgIcon-root makeStyles-buttonIcon-43"
                 data-testid="sidebar-close-svg"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -813,13 +867,13 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
             <a
               aria-current="page"
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-47 MuiListItem-gutters MuiListItem-button Mui-selected active"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-51 MuiListItem-gutters MuiListItem-button Mui-selected active"
               href="/"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-49 makeStyles-linkIconActive-50"
+                class="MuiListItemIcon-root makeStyles-linkIcon-53 makeStyles-linkIconActive-54"
               >
                 <svg
                   aria-hidden="true"
@@ -836,7 +890,7 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-51 makeStyles-linkTextActive-52 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-55 makeStyles-linkTextActive-56 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Home
                 </span>
@@ -846,13 +900,13 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-47 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-51 MuiListItem-gutters MuiListItem-button"
               href="/courses"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-49"
+                class="MuiListItemIcon-root makeStyles-linkIcon-53"
               >
                 <svg
                   aria-hidden="true"
@@ -869,7 +923,7 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-51 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-55 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Courses
                 </span>
@@ -879,13 +933,13 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-47 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-51 MuiListItem-gutters MuiListItem-button"
               href="/settings"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-49"
+                class="MuiListItemIcon-root makeStyles-linkIcon-53"
               >
                 <svg
                   aria-hidden="true"
@@ -902,7 +956,7 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-51 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-55 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   Settings
                 </span>
@@ -911,20 +965,20 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
           </li>
           <li>
             <hr
-              class="MuiDivider-root makeStyles-divider-55"
+              class="MuiDivider-root makeStyles-divider-59"
               data-testid="divider"
             />
           </li>
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiListItem-root makeStyles-link-47 MuiListItem-gutters MuiListItem-button"
+              class="MuiButtonBase-root MuiListItem-root makeStyles-link-51 MuiListItem-gutters MuiListItem-button"
               href="/about"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-linkIcon-49"
+                class="MuiListItemIcon-root makeStyles-linkIcon-53"
               >
                 <svg
                   aria-hidden="true"
@@ -941,7 +995,7 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
                 class="MuiListItemText-root"
               >
                 <span
-                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-51 MuiTypography-body1 MuiTypography-displayBlock"
+                  class="MuiTypography-root MuiListItemText-primary makeStyles-linkText-55 MuiTypography-body1 MuiTypography-displayBlock"
                 >
                   About
                 </span>
@@ -952,16 +1006,16 @@ exports[`<AppLayout /> should toggle sidebar on clicking sidebar button 1`] = `
       </div>
     </div>
     <main
-      class="makeStyles-content-30 makeStyles-contentShift-31"
+      class="makeStyles-content-32 makeStyles-contentShift-33"
     >
       <div
-        class="makeStyles-appBarSpacer-32"
+        class="makeStyles-appBarSpacer-34"
       />
       <div
-        class="MuiContainer-root makeStyles-container-33 MuiContainer-maxWidthLg"
+        class="MuiContainer-root makeStyles-container-35 MuiContainer-maxWidthLg"
       >
         <div
-          class="MuiBox-root MuiBox-root-56"
+          class="MuiBox-root MuiBox-root-60"
         />
       </div>
     </main>

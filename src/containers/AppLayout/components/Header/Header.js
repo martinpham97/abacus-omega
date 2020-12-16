@@ -11,6 +11,8 @@ import {
   MenuItem,
   Button,
   NoSsr,
+  SvgIcon,
+  Box,
 } from "@material-ui/core";
 import {
   Brightness4 as Brightness4Icon,
@@ -20,8 +22,10 @@ import {
 } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
 
+import { ReactComponent as LogoSvg } from "images/logo.svg";
 import { LANGUAGES } from "config/constants";
 import ToggleSidebarButton from "components/ToggleSidebarButton/ToggleSidebarButton";
+
 import useStyles from "./styles";
 
 export const Header = ({
@@ -65,7 +69,12 @@ export const Header = ({
           component={NavLink}
           to="/"
         >
-          {title}
+          <Box display="flex" justifyContent="center">
+            <SvgIcon fontSize="default">
+              <LogoSvg />
+            </SvgIcon>
+          </Box>
+          <Box mx={1}>{title}</Box>
         </Typography>
         <div className={classes.grow} />
         <Tooltip

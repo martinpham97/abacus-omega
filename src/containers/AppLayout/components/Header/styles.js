@@ -4,6 +4,8 @@ export default makeStyles((theme) => ({
   logotype: {
     marginLeft: theme.spacing(2.5),
     marginRight: theme.spacing(2.5),
+    display: "flex",
+    alignItems: "center",
     textDecoration: "none",
     whiteSpace: "nowrap",
     userSelect: "none",
