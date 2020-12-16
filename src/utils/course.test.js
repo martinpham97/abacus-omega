@@ -1,4 +1,7 @@
-import { courseWithRecommended } from "__fixtures__/courses";
+import {
+  courseWithRecommended,
+  courseWithRecommendedNoRemaining,
+} from "__fixtures__/courses";
 
 import { validateAssessmentGrades, calculateRecommendedGrade } from "./course";
 
@@ -67,5 +70,11 @@ describe("calculateRecommendedGrade", () => {
     expect(calculateRecommendedGrade(assessments, desiredGrade)).toEqual(
       recommendedGrade,
     );
+  });
+
+  it("should return null for remainingWeights <= 0", () => {
+    const { assessments, desiredGrade } = courseWithRecommendedNoRemaining;
+
+    expect(calculateRecommendedGrade(assessments, desiredGrade)).toEqual(null);
   });
 });

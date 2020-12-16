@@ -61,7 +61,8 @@
   "grade_results": {
     "title": "Outcome",
     "results": "In order to reach your goal of {{desiredGrade}}%, you will need to achieve at least <3>{{recommendedGrade}}%</3> for each of your remaining assessments",
-    "results_success": "You are guaranteed to reach {{desiredGrade}}% because the minimum grade for remaining assessments is less than 0%"
+    "results_success": "You are guaranteed to reach {{desiredGrade}}% because the minimum grade for remaining assessments is less than 0%",
+    "results_error": "There are no assessments left to calculate"
   },
   "delete_confirm_dialog": {
     "title_multiple": "Delete selected courses?",

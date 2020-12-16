@@ -12,6 +12,25 @@ export const GradeResults = ({ course }) => {
 
   const { desiredGrade, recommendedGrade } = course;
 
+  const weightSum = course.assessments?.reduce(
+    (acc, cur) => acc + cur.weight,
+    0,
+  );
+
+  if (weightSum >= 100 && recommendedGrade === null) {
+    return (
+      <Alert variant="filled" severity="error" data-testid="alert-error">
+        <AlertTitle>{t("grade_results.title", "Outcome")}</AlertTitle>
+        <Box fontSize={16} fontWeight={400}>
+          {t(
+            "grade_results.results_error",
+            "There are no assessments left to calculate a recommended grade",
+          )}
+        </Box>
+      </Alert>
+    );
+  }
+
   if (recommendedGrade <= 0) {
     return (
       <Alert variant="filled" severity="success" data-testid="alert-success">

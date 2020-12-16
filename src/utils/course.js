@@ -26,6 +26,10 @@ export const calculateRecommendedGrade = (assessments, desiredGrade) => {
     }
   }
   const remainingWeights = 100 - weights;
-  recommendedGrade = ((desiredGrade - knownGrades) / remainingWeights) * 100;
+  if (remainingWeights > 0) {
+    recommendedGrade = ((desiredGrade - knownGrades) / remainingWeights) * 100;
+  } else {
+    return null;
+  }
   return parseFloat(recommendedGrade.toFixed(2));
 };

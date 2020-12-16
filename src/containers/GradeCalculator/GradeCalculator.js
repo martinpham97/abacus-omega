@@ -66,7 +66,7 @@ export const GradeCalculator = ({
           </CardContent>
         </Card>
       </Grid>
-      {courseTemp.recommendedGrade && (
+      {courseTemp.recommendedGrade !== undefined && (
         <Grid item xs={12}>
           <Card className={classes.card}>
             <CardHeader title={t("grade_calculator.results", "Results")} />

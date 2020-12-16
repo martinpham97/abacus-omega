@@ -154,7 +154,7 @@ export const courseWithRecommendedNoRemaining = {
     },
   ],
   desiredGrade: 65,
-  recommendedGrade: 0,
+  recommendedGrade: null,
 };
 
 export const courseWithRecommendedGreaterThan100 = {
@@ -171,6 +171,28 @@ export const courseWithRecommendedGreaterThan100 = {
   ],
   desiredGrade: 90,
   recommendedGrade: 370,
+};
+
+export const courseWithRecommendedLessThanZero = {
+  id: "some-id",
+  name: "COMP2521",
+  createdAt: "2020-10-11T02:45:37.361Z",
+  assessments: [
+    {
+      description: "Assignment 0",
+      weight: 80,
+      maxGrade: 100,
+      grade: 90,
+    },
+    {
+      description: "Assignment 1",
+      weight: 10,
+      maxGrade: 100,
+      grade: 50,
+    },
+  ],
+  desiredGrade: 65,
+  recommendedGrade: -1,
 };
 
 export const courseWithoutAssessments = {

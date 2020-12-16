@@ -4,14 +4,20 @@ import { axe } from "jest-axe";
 import {
   courseWithRecommendedNoRemaining,
   courseWithRecommendedGreaterThan100,
+  courseWithRecommendedLessThanZero,
   courseWithRecommended,
 } from "__fixtures__/courses";
 
 import GradeResults from "./GradeResults";
 
 describe("<GradeResults />", () => {
-  it("should show success for recommendedGrade <= 0", () => {
+  it("should show error for recommendedGrade === null", () => {
     render(<GradeResults course={courseWithRecommendedNoRemaining} />);
+    expect(screen.queryByTestId(/alert-error/i)).not.toBeNull();
+  });
+
+  it("should show success for recommendedGrade <= 0", () => {
+    render(<GradeResults course={courseWithRecommendedLessThanZero} />);
     expect(screen.queryByTestId(/alert-success/i)).not.toBeNull();
   });
 
