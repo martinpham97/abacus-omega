@@ -160,33 +160,35 @@ export const CourseListPage = () => {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={6}>
-        <Button
-          variant="contained"
-          color="primary"
-          aria-label="import-button"
-          startIcon={<AddIcon />}
-          onClick={() => history.push("/")}
-        >
-          {t("app:button.new", "New")}
-        </Button>
-      </Grid>
-      <Grid item container xs={6} justify="flex-end">
-        <Button
-          variant="contained"
-          color="primary"
-          aria-label="import-button"
-          startIcon={<AddIcon />}
-          onClick={() => setIsCourseImportFormOpen(true)}
-        >
-          {t("app:button.import_handbook", "Import from Handbook")} (Beta)
-        </Button>
-        <CourseImportFormDialog
-          title={t("app:course_import_form_dialog.title", "Import courses")}
-          isOpen={isCourseImportFormOpen}
-          handleClose={() => setIsCourseImportFormOpen(false)}
-          handleSubmit={handleSubmitImportCourses}
-        />
+      <Grid item xs={12} container spacing={1}>
+        <Grid item xs={4}>
+          <Button
+            variant="contained"
+            color="primary"
+            aria-label="import-button"
+            startIcon={<AddIcon />}
+            onClick={() => history.push("/")}
+          >
+            {t("app:button.new", "New")}
+          </Button>
+        </Grid>
+        <Grid item container xs={8} justify="flex-end">
+          <Button
+            variant="contained"
+            color="primary"
+            aria-label="import-button"
+            startIcon={<AddIcon />}
+            onClick={() => setIsCourseImportFormOpen(true)}
+          >
+            {t("app:button.import_handbook", "Import from Handbook")} (Beta)
+          </Button>
+          <CourseImportFormDialog
+            title={t("app:course_import_form_dialog.title", "Import courses")}
+            isOpen={isCourseImportFormOpen}
+            handleClose={() => setIsCourseImportFormOpen(false)}
+            handleSubmit={handleSubmitImportCourses}
+          />
+        </Grid>
       </Grid>
       <Grid item xs={12}>
         <CourseSearchInput handleTextChange={handleFilterTextChange} />
