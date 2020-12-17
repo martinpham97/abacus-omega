@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { Card, CardHeader, CardContent, Grid } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
@@ -20,6 +20,7 @@ export const GradeCalculator = ({
 }) => {
   const classes = useStyles();
   const { t } = useTranslation("app");
+  const resultsRef = useRef(null);
 
   const [courseTemp, setCourseTemp] = useState(course || {});
 
@@ -40,6 +41,8 @@ export const GradeCalculator = ({
     if (handleSave) {
       handleSave({ ...courseWithRecommended });
     }
+
+    resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -67,7 +70,7 @@ export const GradeCalculator = ({
         </Card>
       </Grid>
       {courseTemp.recommendedGrade !== undefined && (
-        <Grid item xs={12}>
+        <Grid item xs={12} ref={resultsRef}>
           <Card className={classes.card}>
             <CardHeader title={t("grade_calculator.results", "Results")} />
             <CardContent>
