@@ -29,7 +29,9 @@
       "why_answer_1": "As a student myself, I often struggle when managing multiple courses while I was in University.",
       "why_answer_2": "This web application is made in hope that it will simplify the process of managing courses so that you can focus on achieving your goal.",
       "how": "How do I contribute to this project?",
-      "how_answer": "This project's repository is hosted publicly on"
+      "how_answer": "This project's repository is hosted publicly on",
+      "where": "Where is my data stored?",
+      "where_answer": "Your data is stored in your browser's local storage. This means only you have access to your data."
     },
     "author": {
       "title": "Author",

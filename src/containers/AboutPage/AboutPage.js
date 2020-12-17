@@ -62,6 +62,16 @@ export const SettingsPage = () => {
             </Typography>
             <br />
             <Typography variant="h6">
+              {t("pages:about.project.where", "Where is my data stored?")}
+            </Typography>
+            <Typography variant="body1">
+              {t(
+                "pages:about.project.where_answer",
+                "Your data is stored in your browser's local storage. This means only you have access to your data.",
+              )}
+            </Typography>
+            <br />
+            <Typography variant="h6">
               {t(
                 "pages:about.project.how",
                 "How do I contribute to this project?",

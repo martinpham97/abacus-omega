@@ -29,7 +29,9 @@
       "why_answer_1": "Là một sinh viên, tôi thường gặp khó khăn trong việc quản lý các môn học khi học đại học.",
       "why_answer_2": "Ứng dụng web này được tạo ra để giúp các bạn sinh viên quản lý các môn học một cách dễ dàng hơn và dành thời gian để chú tâm vào mục tiêu học tập mong muốn.",
       "how": "Làm sao để đóng góp vào dự án này?",
-      "how_answer": "Dự án này được đăng tải công khai tại"
+      "how_answer": "Dự án này được đăng tải công khai tại",
+      "where": "Dữ liệu của tôi được lưu trữ ở đâu?",
+      "where_answer": "Dữ liệu của bạn được lưu trữ trong local storage của trình duyệt bạn. Điều này có nghĩa là chỉ bạn mới có quyền truy cập vào dữ liệu của mình."
     },
     "author": {
       "title": "Tác giả",
