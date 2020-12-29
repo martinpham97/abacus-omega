@@ -53,7 +53,7 @@ const init = (options = {}) => {
   const isGAEnabled = process.env.NODE_ENV === "production";
 
   if (isGAEnabled) {
-    ReactGA.initialize(process.env.GOOGLE_ANALYTICS_ID);
+    ReactGA.initialize("G-39JLJKLNYH");
   }
 
   return isGAEnabled;
